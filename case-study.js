@@ -6,37 +6,182 @@
  * up from the bottom. Closing (button, Esc, backdrop click or browser Back)
  * reverses it. The URL hash makes each case study linkable.
  *
- * All copy below is DUMMY content — replace it per project.
+ * Each project's page is built from its `sections` list, top to bottom.
+ * Section types:
+ *   { type: "chapter", title, body: [paragraphs], list?: [items] }
+ *   { type: "media", variant: "full" | "pair", caption? }
+ *   { type: "gallery", count }
+ *   { type: "statement", text }            — large standalone line
+ *   { type: "quote", text, by }            — client testimonial
+ *   { type: "stats", items: [[value, label], ...] }
+ *   { type: "credits", items: [[role, names], ...] }
+ * Chapters are numbered automatically. Media blocks are grey placeholders
+ * until images are added.
  */
 (function () {
   "use strict";
 
   var PROJECTS = {
+    "claremont-amani": {
+      name: "Claremont-Amani",
+      title: "A quiet digital presence for serious research.",
+      tags: ["Website design", "Visual system", "Interaction design"],
+      intro: [
+        "Claremont-Amani is a nonprofit research organisation working across cancer genomics, precision oncology, and research infrastructure in Africa.",
+        "The brief was straightforward: create a website that felt credible, mature, and important without becoming overly designed.",
+        "The challenge was finding the balance between institutional credibility and visual restraint.",
+      ],
+      meta: {
+        Client: "Claremont-Amani",
+        Year: "2026",
+        Sector: "Nonprofit research",
+        Scope: "Website design, Visual system, Interaction design",
+      },
+      sections: [
+        {
+          type: "chapter",
+          title: "The Brief",
+          body: [
+            "Claremont-Amani needed a digital presence that could communicate the weight of its work without relying on visual excess.",
+            "They didn’t want a website filled with flashy interactions, oversized graphics, or unnecessary decoration. They wanted something simple and modest — but still sophisticated enough to represent an organisation doing serious research.",
+            "So we treated restraint as a design principle rather than a limitation.",
+            "The goal was to make the website feel established, considered, and quietly confident.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          title: "Designing With Restraint",
+          body: [
+            "Research-driven organisations often have a lot of information to communicate.",
+            "Our approach was to avoid competing with that information.",
+            "We focused on creating a clear visual hierarchy, generous spacing, considered typography, and a restrained visual system that allowed the content to carry the experience.",
+          ],
+        },
+        { type: "statement", text: "Every element had a job.<br>Nothing needed to shout." },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          title: "Typography",
+          body: [
+            "Typography became one of the primary tools for establishing the site’s character.",
+            "The direction called for a serif typeface, so we explored options that could bring an editorial and institutional quality to the experience without making it feel dated.",
+            "The final typographic direction was intentionally refined — giving the site a sense of authority while maintaining readability and accessibility.",
+            "The type needed to feel like it belonged to an organisation dealing with serious research, not a generic technology company.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          title: "Making Assets Feel Present — Without Being Overpowering",
+          body: [
+            "One of the visual challenges was figuring out how to use supporting assets without allowing them to dominate the interface.",
+            "We wanted the assets to be visible, but not constantly visible.",
+            "Instead of using conventional filled illustrations or highly detailed graphics, we reduced the assets into stroked forms.",
+            "This gave them a quieter presence within the layouts. They could sit alongside the content without competing with it.",
+            "But we didn’t want them to feel completely static either.",
+          ],
+        },
+        { type: "gallery", count: 4 },
+        {
+          type: "chapter",
+          title: "A Small Moment of Discovery",
+          body: [
+            "The stroked assets became interactive.",
+            "When a visitor hovers over one, a subtle gradient glint moves through the form.",
+            "It is deliberately understated.",
+            "The asset doesn’t suddenly transform or demand attention. It simply reveals another layer of the visual system for a moment.",
+            "This became a small but important part of the experience:",
+          ],
+        },
+        { type: "statement", text: "The visuals are there when you look for them." },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          title: "The Experience",
+          body: [
+            "Beyond the visual direction, we approached the website through the fundamentals of a strong digital experience.",
+          ],
+          list: [
+            "Clear information architecture.",
+            "Straightforward navigation.",
+            "Strong content hierarchy.",
+            "Responsive layouts.",
+            "Careful spacing.",
+            "Accessible typography.",
+            "And interactions that support the experience rather than distract from it.",
+          ],
+          after: [
+            "The result is a website designed to feel confident without needing to announce its confidence.",
+          ],
+        },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          title: "The Outcome",
+          body: [
+            "The final experience gives Claremont-Amani a digital presence that reflects the nature of its work — serious, considered, and forward-looking.",
+            "Rather than trying to make the organisation feel bigger through visual spectacle, the design creates authority through clarity, restraint, and attention to detail.",
+          ],
+        },
+        { type: "statement", text: "The website doesn’t need to tell visitors that the work is important.<br>It behaves like it is." },
+      ],
+    },
+
+    // DUMMY content — replace when the real case study is ready.
     "sporting-lagos": {
       name: "Sporting Lagos",
       title: "Creating a gamified experience for Sporting Lagos",
       tags: ["App design", "UI & UX design", "Design system"],
-      intro:
+      intro: [
         "Sporting Lagos wanted fans to feel part of the club between match days. We designed a mobile experience that turns support into play, with predictions, streaks and rewards that bring supporters back every week. This paragraph is placeholder copy and should be replaced with the real project summary.",
+      ],
       meta: {
         Client: "Sporting Lagos FC",
         Year: "2025",
-        Industry: "Sport",
+        Sector: "Sport",
         Scope: "App design, UI/UX, Design system",
       },
-    },
-    "claremont-amany": {
-      name: "Claremont Amany",
-      title: "A website that gives Claremont Amany room to breathe",
-      tags: ["Brand", "Web design"],
-      intro:
-        "Claremont Amany needed a home online that matched the care they put into their work. We refined the brand and designed a calm, editorial website that makes their impact easy to understand and easy to support. This paragraph is placeholder copy and should be replaced with the real project summary.",
-      meta: {
-        Client: "Claremont Amany",
-        Year: "2026",
-        Industry: "NGO",
-        Scope: "Brand, Website design",
-      },
+      sections: [
+        {
+          type: "chapter",
+          title: "Where Sporting Lagos was starting from",
+          body: [
+            "Placeholder: describe the situation before the project. What was the business trying to do, what was getting in the way, and why did it matter now?",
+            "Keep it to two short paragraphs. The goal is for a visitor to understand the problem in under a minute.",
+          ],
+        },
+        { type: "media", variant: "full", caption: "Placeholder caption — what this image shows and why it matters." },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          title: "How we got there",
+          body: [
+            "Placeholder: explain the idea behind the work and the key decisions. Mention research, the concept, and the system that came out of it.",
+            "This is a good place to reference process work: sketches, early explorations or the design system.",
+          ],
+        },
+        { type: "gallery", count: 4 },
+        { type: "quote", text: "“Placeholder: a short quote from the client about what changed after working with us.”", by: "Name Surname, Role at Sporting Lagos" },
+        {
+          type: "chapter",
+          title: "What changed for Sporting Lagos",
+          body: [
+            "Placeholder: describe the result. Launch details, how the work is being used, and what the client can now do that they couldn’t before.",
+          ],
+        },
+        { type: "stats", items: [["00%", "Placeholder metric"], ["00k", "Placeholder metric"], ["0×", "Placeholder metric"]] },
+        { type: "media", variant: "full" },
+        {
+          type: "credits",
+          items: [
+            ["Creative direction", "Name Surname"],
+            ["Design", "Name Surname<br>Name Surname"],
+            ["Development", "Name Surname"],
+            ["Motion", "Name Surname"],
+          ],
+        },
+      ],
     },
   };
 
@@ -51,19 +196,11 @@
   var openedFromPage = false;
   var closeTimer = null;
 
-  function chapter(num, label, heading, body) {
-    return (
-      '<section class="case-chapter">' +
-      '<div class="case-chapter__head">' +
-      '<p class="case-kicker">' + num + " — " + label + "</p>" +
-      '<h3 class="case-chapter__title">' + heading + "</h3>" +
-      "</div>" +
-      '<div class="case-chapter__body">' + body + "</div>" +
-      "</section>"
-    );
+  function paras(list) {
+    return (list || []).map(function (t) { return "<p>" + t + "</p>"; }).join("");
   }
 
-  function media(modifier, caption) {
+  function figure(modifier, caption) {
     return (
       '<figure class="case-figure ' + (modifier || "") + '">' +
       '<div class="case-media"></div>' +
@@ -72,18 +209,80 @@
     );
   }
 
+  function gallery(count) {
+    var total = String(count).padStart(2, "0");
+    var slides = "";
+    for (var i = 1; i <= count; i++) {
+      slides += '<li class="case-carousel__slide" aria-label="' + i + " of " + count + '"><div class="case-media"></div></li>';
+    }
+    return (
+      '<section class="case-carousel" aria-label="Project gallery">' +
+      '<div class="case-carousel__bar">' +
+      '<p class="case-kicker">Gallery</p>' +
+      '<div class="case-carousel__controls">' +
+      '<span class="case-carousel__count"><span data-current>01</span>/' + total + "</span>" +
+      '<button class="case-carousel__btn" type="button" data-dir="-1" aria-label="Previous image">←</button>' +
+      '<button class="case-carousel__btn" type="button" data-dir="1" aria-label="Next image">→</button>' +
+      "</div></div>" +
+      '<ul class="case-carousel__track">' + slides + "</ul>" +
+      "</section>"
+    );
+  }
+
+  function section(s, num) {
+    switch (s.type) {
+      case "chapter":
+        return (
+          '<section class="case-chapter">' +
+          '<div class="case-chapter__head">' +
+          '<p class="case-kicker">' + String(num).padStart(2, "0") + "</p>" +
+          '<h3 class="case-chapter__title">' + s.title + "</h3>" +
+          "</div>" +
+          '<div class="case-chapter__body">' +
+          paras(s.body) +
+          (s.list ? '<ul class="case-list">' + s.list.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>" : "") +
+          paras(s.after) +
+          "</div>" +
+          "</section>"
+        );
+      case "media":
+        return s.variant === "pair"
+          ? '<div class="case-pair">' + figure() + figure() + "</div>"
+          : figure("case-figure--full", s.caption);
+      case "gallery":
+        return gallery(s.count || 4);
+      case "statement":
+        return '<p class="case-statement">' + s.text + "</p>";
+      case "quote":
+        return '<blockquote class="case-quote"><p>' + s.text + "</p><footer>" + s.by + "</footer></blockquote>";
+      case "stats":
+        return '<ul class="case-stats">' + s.items.map(function (i) {
+          return "<li><strong>" + i[0] + "</strong><span>" + i[1] + "</span></li>";
+        }).join("") + "</ul>";
+      case "credits":
+        return (
+          '<section class="case-credits"><p class="case-kicker">Credits</p><dl class="case-credits__list">' +
+          s.items.map(function (i) { return "<div><dt>" + i[0] + "</dt><dd>" + i[1] + "</dd></div>"; }).join("") +
+          "</dl></section>"
+        );
+      default:
+        return "";
+    }
+  }
+
   function render(slug) {
     var p = PROJECTS[slug];
-    var next = PROJECTS[ORDER[(ORDER.indexOf(slug) + 1) % ORDER.length]];
     var nextSlug = ORDER[(ORDER.indexOf(slug) + 1) % ORDER.length];
-    var n = p.name;
+    var next = PROJECTS[nextSlug];
 
     var tags = p.tags.map(function (t) { return '<li class="tag">' + t + "</li>"; }).join("");
     var meta = Object.keys(p.meta).map(function (k) {
       return '<div class="case-meta__item"><dt>' + k + "</dt><dd>" + p.meta[k] + "</dd></div>";
     }).join("");
-    var slides = [1, 2, 3, 4].map(function (i) {
-      return '<li class="case-carousel__slide" aria-label="' + i + ' of 4"><div class="case-media"></div></li>';
+    var chapterNum = 0;
+    var body = p.sections.map(function (s) {
+      if (s.type === "chapter") chapterNum++;
+      return section(s, chapterNum);
     }).join("");
 
     sheet.innerHTML =
@@ -93,65 +292,11 @@
       '<ul class="tags">' + tags + "</ul>" +
       '<h2 class="case-title" id="case-title">' + p.title + "</h2>" +
       "</div>" +
-      '<p class="case-intro">' + p.intro + "</p>" +
+      '<div class="case-intro">' + paras(p.intro) + "</div>" +
       "</header>" +
-      media("case-figure--hero") +
-
-      // Project facts
+      figure("case-figure--hero") +
       '<dl class="case-meta">' + meta + "</dl>" +
-
-      chapter("01", "Challenge", "Where " + n + " was starting from",
-        "<p>Placeholder: describe the situation before the project. What was the business trying to do, what was getting in the way, and why did it matter now?</p>" +
-        "<p>Keep it to two short paragraphs. The goal is for a visitor to understand the problem in under a minute.</p>") +
-
-      media("case-figure--full", "Placeholder caption — what this image shows and why it matters.") +
-
-      '<div class="case-pair">' + media() + media() + "</div>" +
-
-      chapter("02", "Approach", "How we got there",
-        "<p>Placeholder: explain the idea behind the work and the key decisions. Mention research, the concept, and the system that came out of it.</p>" +
-        "<p>This is a good place to reference process work: sketches, early explorations or the design system.</p>") +
-
-      // Gallery with counter
-      '<section class="case-carousel" aria-label="Project gallery">' +
-      '<div class="case-carousel__bar">' +
-      '<p class="case-kicker">Gallery</p>' +
-      '<div class="case-carousel__controls">' +
-      '<span class="case-carousel__count"><span data-current>01</span>/04</span>' +
-      '<button class="case-carousel__btn" type="button" data-dir="-1" aria-label="Previous image">←</button>' +
-      '<button class="case-carousel__btn" type="button" data-dir="1" aria-label="Next image">→</button>' +
-      "</div></div>" +
-      '<ul class="case-carousel__track">' + slides + "</ul>" +
-      "</section>" +
-
-      // Big statement / testimonial
-      '<blockquote class="case-quote">' +
-      "<p>“Placeholder: a short quote from the client about what changed after working with us.”</p>" +
-      "<footer>Name Surname, Role at " + n + "</footer>" +
-      "</blockquote>" +
-
-      chapter("03", "Outcome", "What changed for " + n,
-        "<p>Placeholder: describe the result. Launch details, how the work is being used, and what the client can now do that they couldn't before.</p>") +
-
-      '<ul class="case-stats">' +
-      '<li><strong>00%</strong><span>Placeholder metric</span></li>' +
-      '<li><strong>00k</strong><span>Placeholder metric</span></li>' +
-      '<li><strong>0×</strong><span>Placeholder metric</span></li>' +
-      "</ul>" +
-
-      media("case-figure--full") +
-
-      // Credits
-      '<section class="case-credits">' +
-      '<p class="case-kicker">Credits</p>' +
-      '<dl class="case-credits__list">' +
-      "<div><dt>Creative direction</dt><dd>Name Surname</dd></div>" +
-      "<div><dt>Design</dt><dd>Name Surname<br>Name Surname</dd></div>" +
-      "<div><dt>Development</dt><dd>Name Surname</dd></div>" +
-      "<div><dt>Motion</dt><dd>Name Surname</dd></div>" +
-      "</dl></section>" +
-
-      // Next project
+      body +
       '<a class="case-next" href="#work/' + nextSlug + '">' +
       '<span class="case-kicker">Next project</span>' +
       '<span class="case-next__title">' + next.name +

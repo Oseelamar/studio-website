@@ -613,8 +613,40 @@ img {
 }
 
 .case-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   flex: 0 1 539px;
   padding-top: 12px;
+}
+
+.case-intro p {
+  margin: 0;
+}
+
+/* Large standalone line that closes a chapter */
+.case-statement {
+  max-width: 1100px;
+  margin: 120px 0 0;
+  font-size: 56px;
+  line-height: 1.25;
+  letter-spacing: -1.68px;
+}
+
+/* Short list inside a chapter (e.g. "The Experience") */
+.case-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.case-list li {
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.18px;
 }
 
 /* Media placeholders: put an <img>/<video> inside .case-media */
@@ -656,6 +688,11 @@ img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+  margin-top: 120px;
+}
+
+/* A pair directly under a full-width image reads as one block */
+.case-figure--full + .case-pair {
   margin-top: 12px;
 }
 
@@ -1075,6 +1112,7 @@ img {
   }
 
   .case-figure--full,
+  .case-pair,
   .case-chapter,
   .case-carousel,
   .case-quote,
@@ -1095,9 +1133,18 @@ img {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .case-quote p {
+  .case-quote p,
+  .case-statement {
     font-size: clamp(28px, 7vw, 56px);
     letter-spacing: -0.03em;
+  }
+
+  .case-statement {
+    margin-top: 72px;
+  }
+
+  .case-list li {
+    font-size: 16px;
   }
 
   .case-stats {
