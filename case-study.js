@@ -10,7 +10,8 @@
  * Section types:
  *   { type: "chapter", title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
- *   { type: "press", groups: [[label, [names]], ...] }
+ *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
+ *                                          — logo rows; files in assets/press/
  *   { type: "media", variant: "full" | "pair", caption? }
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
@@ -213,10 +214,19 @@
           ],
         },
         {
+          // Logos from the Figma section "Section 1" (node 17:222)
           type: "press",
-          groups: [
-            ["The brand had been featured in", ["Vogue", "Elle", "BET", "Cosmopolitan"]],
-            ["And its bags had appeared on", ["Access Hollywood", "Love Island"]],
+          label: "As seen on Access Hollywood and Love Island, and featured in Vogue, Elle and Cosmopolitan",
+          rows: [
+            [
+              ["access-hollywood", "Access Hollywood", 177, 54],
+              ["love-island", "Love Island", 161, 42],
+            ],
+            [
+              ["vogue", "Vogue", 127, 32],
+              ["elle", "Elle", 90, 32],
+              ["cosmopolitan", "Cosmopolitan", 166.747, 29.7779],
+            ],
           ],
         },
         {
@@ -373,14 +383,18 @@
         );
       case "press":
         return (
-          '<section class="case-press" aria-label="Press">' +
-          s.groups.map(function (g) {
+          '<section class="case-press" aria-label="' + s.label + '">' +
+          s.rows.map(function (row) {
             return (
-              '<div class="case-press__group">' +
-              '<p class="case-kicker">' + g[0] + "</p>" +
-              '<ul class="case-press__names">' +
-              g[1].map(function (name) { return "<li>" + name + "</li>"; }).join("") +
-              "</ul></div>"
+              '<ul class="case-press__row">' +
+              row.map(function (logo) {
+                return (
+                  '<li style="--logo-w:' + logo[2] + "px;--logo-h:" + logo[3] + 'px">' +
+                  '<img src="assets/press/' + logo[0] + '.svg" width="' + logo[2] + '" height="' + logo[3] + '" alt="' + logo[1] + '">' +
+                  "</li>"
+                );
+              }).join("") +
+              "</ul>"
             );
           }).join("") +
           "</section>"

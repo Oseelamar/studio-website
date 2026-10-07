@@ -638,46 +638,41 @@ img {
   margin-top: 80px;
 }
 
-/* Press mentions, set large like magazine mastheads */
+/* Press logos (Figma "Section 1"): TV row above, magazines below, centred */
 .case-press {
+  --logo-scale: 1;
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  align-items: center;
+  gap: 82px;
   margin-top: 120px;
-  padding: 56px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 80px 0;
 }
 
-.case-press__group {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.case-press__names {
+.case-press__row {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 48px;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: "Nanum Myeongjo", Georgia, serif;
-  font-size: 72px;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
 }
 
-.case-press__names li {
-  white-space: nowrap;
+.case-press__row:first-child {
+  column-gap: 26px;
 }
 
-.case-press__names li:not(:last-child)::after {
-  content: "·";
-  margin: 0 0.35em;
-  color: var(--color-accent);
+.case-press__row li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-press__row img {
+  width: calc(var(--logo-w) * var(--logo-scale));
+  height: calc(var(--logo-h) * var(--logo-scale));
 }
 
 /* Short list inside a chapter (e.g. "The Experience") */
@@ -1195,13 +1190,14 @@ img {
   }
 
   .case-press {
-    gap: 40px;
+    --logo-scale: 0.72;
+    gap: 48px;
     margin-top: 72px;
-    padding: 40px 0;
+    padding: 48px 0;
   }
 
-  .case-press__names {
-    font-size: clamp(26px, 7.4vw, 72px);
+  .case-press__row {
+    gap: 28px 32px;
   }
 
   .case-chapter.case-chapter--continued {
