@@ -8,7 +8,7 @@
  *
  * Each project's page is built from its `sections` list, top to bottom.
  * Section types:
- *   { type: "chapter", title, body: [paragraphs], list?: [items], after?: [paragraphs] }
+ *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
@@ -257,6 +257,125 @@
       ],
     },
 
+    glint: {
+      name: "Glint",
+      title: "Meet Glint — Web3, with a smile.",
+      tags: ["App design", "Brand identity", "Design system"],
+      intro: [
+        "Glint is a crypto app built to make powerful blockchain actions feel easy, human, and joyful.",
+        "We bridge the gap between complex Web3 technology and everyday user experiences — all wrapped in a fun, modern brand that feels nothing like “finance.”",
+      ],
+      meta: {
+        Client: "Glint",
+        Sector: "Crypto / Web3",
+        Platform: "Mobile app",
+        Scope: "Brand, Design system, Product design",
+      },
+      sections: [
+        {
+          type: "chapter",
+          label: "The Problem",
+          title: "The gap we noticed",
+          body: [
+            "Existing crypto apps are built for people fluent in tokens, wallets, and Twitter threads.",
+          ],
+        },
+        { type: "statement", text: "Everyone else? Left out." },
+        {
+          type: "text",
+          body: [
+            "Glint was built to remove the friction, hide the tech, and speak human.",
+            "Most apps still speak in chains, tokens, and tech jargon. They’re built for Twitter-native crypto heads, not real people.",
+            "Glint strips away the noise. It abstracts the chain, simplifies the swap, and lets users do what they came to do — without needing to understand what’s under the hood.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "The Design Direction",
+          title: "A style that actually vibes with you",
+          body: [
+            "Glint’s design system was built to feel warm, clear, and full of life. From the bold color palette to our playful illustrations and soft custom icons, everything works together to make complex crypto actions feel simple and human.",
+            "Our typeface, Open Runde, adds just the right balance of friendliness and clarity — keeping the brand approachable at every touchpoint.",
+            "Glint’s color palette is designed to feel bold, modern, and trustworthy. We combine energetic orange with a calming green and grounded neutrals to create a visual experience that’s both playful and clear.",
+            "The balance of warmth and structure helps guide users through actions confidently — without overwhelming them.",
+          ],
+        },
+        { type: "media", variant: "pair" },
+        { type: "gallery", count: 4 },
+        {
+          type: "chapter",
+          label: "The Product",
+          title: "A home screen that doesn’t ask questions",
+          body: [
+            "The Glint home screen was designed to feel as effortless as a conversation.",
+            "Behind the scenes, the app handles complex logic — from chain abstraction to cross-network swaps — but what the user sees is calm, intuitive, and welcoming.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "Send Crypto",
+          title: "Just pick a name, not a chain",
+          body: [
+            "Sending crypto on Glint feels more like sending a DM than wiring tokens across fragmented ecosystems.",
+            "You select a token, type in a name — like bobuzy.crypto — and that’s it.",
+            "No need to ask what network they’re on, no triple-checking contract addresses, no switching chains manually.",
+            "Under the hood, Glint quietly verifies what networks the recipient supports, finds the most compatible path, and delivers the token exactly where it needs to go.",
+            "If you’re sending USDC and they receive on Solana? Handled.",
+            "If they prefer ETH on Base? Still handled.",
+            "There’s no friction, no fear — just a flow that feels obvious.",
+          ],
+        },
+        { type: "statement", text: "No chains. No stress. Just send." },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          label: "Request Crypto",
+          title: "Send me that bag",
+          body: [
+            "Everyone gets a default QR code and link — so anyone can pay you, anytime, from anywhere.",
+            "But when you need something specific, like 300 USDC right now, you can send a custom request.",
+            "Glint takes care of everything in the background — swapping, bridging, verifying — so you always get the exact amount, in the token you want, with zero chain drama.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "Off-Ramp",
+          title: "Cash out without the chaos",
+          body: [
+            "Withdraw your crypto in just a few taps. No technical hoops, no long wait times.",
+            "Whether it’s USD, NGN, or a domiciliary account, we make off-ramping feel effortless — built for everyday users, not blockchain experts.",
+          ],
+        },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          label: "The Experience",
+          title: "One tap to rule them all",
+          body: [
+            "Glint abstracts away the complexity that usually comes with interacting across multiple blockchain networks.",
+            "Instead of making users understand chains, networks, bridges, and technical infrastructure, the experience puts the action first.",
+          ],
+        },
+        { type: "statement", text: "The technology stays in the background.<br>The user gets a simple, familiar experience." },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "The Result",
+          title: "Making crypto feel like magic — not math.",
+          body: [
+            "Glint turns complex blockchain infrastructure into an experience that feels simple, approachable, and human.",
+            "The product handles the complexity behind the scenes while the interface keeps users focused on what they actually came to do.",
+            "Buy. Send. Swap. Deposit. Withdraw.",
+            "No unnecessary technical decisions.",
+          ],
+        },
+        { type: "statement", text: "Just crypto that feels a little more human." },
+      ],
+    },
+
     // DUMMY content — replace when the real case study is ready.
     "sporting-lagos": {
       name: "Sporting Lagos",
@@ -364,7 +483,7 @@
         return (
           '<section class="case-chapter">' +
           '<div class="case-chapter__head">' +
-          '<p class="case-kicker">' + String(num).padStart(2, "0") + "</p>" +
+          '<p class="case-kicker">' + String(num).padStart(2, "0") + (s.label ? " — " + s.label : "") + "</p>" +
           '<h3 class="case-chapter__title">' + s.title + "</h3>" +
           "</div>" +
           '<div class="case-chapter__body">' +
