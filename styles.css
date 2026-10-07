@@ -633,6 +633,53 @@ img {
   letter-spacing: -1.68px;
 }
 
+/* Right-column text that continues a chapter after a full-width block */
+.case-chapter.case-chapter--continued {
+  margin-top: 80px;
+}
+
+/* Press mentions, set large like magazine mastheads */
+.case-press {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-top: 120px;
+  padding: 56px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.case-press__group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.case-press__names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Nanum Myeongjo", Georgia, serif;
+  font-size: 72px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.case-press__names li {
+  white-space: nowrap;
+}
+
+.case-press__names li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.35em;
+  color: var(--color-accent);
+}
+
 /* Short list inside a chapter (e.g. "The Experience") */
 .case-list {
   margin: 0;
@@ -1145,6 +1192,24 @@ img {
 
   .case-list li {
     font-size: 16px;
+  }
+
+  .case-press {
+    gap: 40px;
+    margin-top: 72px;
+    padding: 40px 0;
+  }
+
+  .case-press__names {
+    font-size: clamp(26px, 7.4vw, 72px);
+  }
+
+  .case-chapter.case-chapter--continued {
+    margin-top: 48px;
+  }
+
+  .case-chapter--continued .case-chapter__head {
+    display: none;
   }
 
   .case-stats {

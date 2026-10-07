@@ -8,7 +8,9 @@
  *
  * Each project's page is built from its `sections` list, top to bottom.
  * Section types:
- *   { type: "chapter", title, body: [paragraphs], list?: [items] }
+ *   { type: "chapter", title, body: [paragraphs], list?: [items], after?: [paragraphs] }
+ *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
+ *   { type: "press", groups: [[label, [names]], ...] }
  *   { type: "media", variant: "full" | "pair", caption? }
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
@@ -128,6 +130,123 @@
       ],
     },
 
+    monazeni: {
+      name: "Monazeni",
+      title: "The bags were already famous. The website just hadn’t caught up.",
+      tags: ["Website design", "E-commerce", "Visual direction"],
+      intro: [
+        "Monazeni didn’t need an introduction.",
+        "Its bags had already found their way into the places fashion brands want to be seen — featured in Vogue, Elle, BET, and Cosmopolitan, and spotted on Access Hollywood and Love Island.",
+        "The brand had the recognition, the customers, and the product. What it didn’t have was a digital experience that felt like it belonged to that world.",
+        "The existing website felt dated and unintuitive, creating a disconnect between the confidence of the brand and the experience customers were having online.",
+        "We were brought in to close that gap — rethinking the site’s visual language, typography, tone, and shopping experience to create a digital presence that felt as contemporary and culturally relevant as Monazeni itself.",
+      ],
+      meta: {
+        Client: "Monazeni",
+        Year: "2026",
+        Sector: "Fashion e-commerce",
+        Scope: "Visual language, Typography, Tone, Shopping experience",
+      },
+      sections: [
+        {
+          type: "chapter",
+          title: "The Challenge",
+          body: [
+            "Monazeni was already generating sales, but the existing website wasn’t giving customers the experience expected from a contemporary fashion brand.",
+            "Users found the experience unintuitive, while the visual direction felt dated and lacked the energy and confidence of the products themselves.",
+            "For a fashion brand, that gap matters.",
+            "A website isn’t simply where someone buys a bag. It’s part of how they perceive the brand before they decide to buy.",
+          ],
+        },
+        { type: "statement", text: "The challenge wasn’t to make Monazeni look successful. The brand was already successful.<br>The challenge was to make the digital experience communicate that." },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          title: "Closing the Gap",
+          body: [
+            "We started with a simple question:",
+            "What should the Monazeni website feel like if its digital presence actually matched its reputation?",
+            "The answer wasn’t to add more. It was to make the right things matter more.",
+            "We moved away from the stale visual language of the previous experience and introduced a more contemporary, fashion-led direction.",
+          ],
+          list: [
+            "Typography became more expressive.",
+            "Imagery became more intentional.",
+            "Layouts became cleaner.",
+            "Content hierarchy became clearer.",
+            "And the overall tone became more confident.",
+          ],
+        },
+        { type: "statement", text: "The goal wasn’t to reinvent Monazeni.<br>It was to make the website feel more like Monazeni." },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          title: "Designing for Fashion, Not Just Commerce",
+          body: [
+            "Fashion ecommerce has a particular challenge.",
+            "The website has to sell a product while still preserving the feeling and desire surrounding the product.",
+            "We didn’t want the bags to feel like items sitting inside a catalogue. We wanted them to feel like fashion pieces.",
+            "The visual system gives the products room to become the focal point, while typography, spacing, imagery, and composition work together to create a more editorial experience.",
+            "The result is a balance between brand expression and usability — a shopping experience that feels considered without getting in the way of the purchase.",
+          ],
+        },
+        { type: "gallery", count: 4 },
+        {
+          type: "chapter",
+          title: "A More Intuitive Way to Shop",
+          body: [
+            "A stronger visual identity wasn’t enough.",
+            "The experience also needed to make it easier for customers to understand the brand, discover products, and move through the shopping journey.",
+            "We reworked the hierarchy and structure across the site, making important information easier to find and creating clearer paths through the experience.",
+            "The redesign was considered across both desktop and mobile, ensuring that the experience maintained the same clarity and character regardless of how customers accessed it.",
+            "The result is a site that feels less like something customers have to figure out and more like something they can simply move through.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          title: "Recognition Was Already Part of the Story",
+          body: [
+            "Monazeni didn’t need us to manufacture credibility.",
+            "It already had it.",
+          ],
+        },
+        {
+          type: "press",
+          groups: [
+            ["The brand had been featured in", ["Vogue", "Elle", "BET", "Cosmopolitan"]],
+            ["And its bags had appeared on", ["Access Hollywood", "Love Island"]],
+          ],
+        },
+        {
+          type: "text",
+          body: [
+            "We saw that recognition as more than a list of achievements. It was evidence of the cultural relevance the brand had already built.",
+            "So rather than treating these features as footnotes, we made them part of the story the website tells.",
+            "The message becomes simple:",
+          ],
+        },
+        { type: "statement", text: "You’ve probably already seen Monazeni." },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          title: "The Digital Experience Catches Up",
+          body: [
+            "The redesign brings the digital experience closer to the level of recognition the brand had already earned.",
+          ],
+          list: [
+            "A more expressive visual language.",
+            "A clearer shopping experience.",
+            "A stronger sense of fashion.",
+            "A more confident tone.",
+            "And an experience that works across both desktop and mobile.",
+          ],
+        },
+        { type: "statement", text: "The work wasn’t about making Monazeni look successful.<br>It was about making the website feel as established as the brand already was." },
+      ],
+    },
+
     // DUMMY content — replace when the real case study is ready.
     "sporting-lagos": {
       name: "Sporting Lagos",
@@ -243,6 +362,27 @@
           (s.list ? '<ul class="case-list">' + s.list.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>" : "") +
           paras(s.after) +
           "</div>" +
+          "</section>"
+        );
+      case "text":
+        return (
+          '<section class="case-chapter case-chapter--continued">' +
+          '<div class="case-chapter__head" aria-hidden="true"></div>' +
+          '<div class="case-chapter__body">' + paras(s.body) + "</div>" +
+          "</section>"
+        );
+      case "press":
+        return (
+          '<section class="case-press" aria-label="Press">' +
+          s.groups.map(function (g) {
+            return (
+              '<div class="case-press__group">' +
+              '<p class="case-kicker">' + g[0] + "</p>" +
+              '<ul class="case-press__names">' +
+              g[1].map(function (name) { return "<li>" + name + "</li>"; }).join("") +
+              "</ul></div>"
+            );
+          }).join("") +
           "</section>"
         );
       case "media":
