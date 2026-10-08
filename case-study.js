@@ -375,65 +375,17 @@
         { type: "statement", text: "Just crypto that feels a little more human." },
       ],
     },
-
-    // DUMMY content — replace when the real case study is ready.
-    "sporting-lagos": {
-      name: "Sporting Lagos",
-      title: "Creating a gamified experience for Sporting Lagos",
-      tags: ["App design", "UI & UX design", "Design system"],
-      intro: [
-        "Sporting Lagos wanted fans to feel part of the club between match days. We designed a mobile experience that turns support into play, with predictions, streaks and rewards that bring supporters back every week. This paragraph is placeholder copy and should be replaced with the real project summary.",
-      ],
-      meta: {
-        Client: "Sporting Lagos FC",
-        Year: "2025",
-        Sector: "Sport",
-        Scope: "App design, UI/UX, Design system",
-      },
-      sections: [
-        {
-          type: "chapter",
-          title: "Where Sporting Lagos was starting from",
-          body: [
-            "Placeholder: describe the situation before the project. What was the business trying to do, what was getting in the way, and why did it matter now?",
-            "Keep it to two short paragraphs. The goal is for a visitor to understand the problem in under a minute.",
-          ],
-        },
-        { type: "media", variant: "full", caption: "Placeholder caption — what this image shows and why it matters." },
-        { type: "media", variant: "pair" },
-        {
-          type: "chapter",
-          title: "How we got there",
-          body: [
-            "Placeholder: explain the idea behind the work and the key decisions. Mention research, the concept, and the system that came out of it.",
-            "This is a good place to reference process work: sketches, early explorations or the design system.",
-          ],
-        },
-        { type: "gallery", count: 4 },
-        { type: "quote", text: "“Placeholder: a short quote from the client about what changed after working with us.”", by: "Name Surname, Role at Sporting Lagos" },
-        {
-          type: "chapter",
-          title: "What changed for Sporting Lagos",
-          body: [
-            "Placeholder: describe the result. Launch details, how the work is being used, and what the client can now do that they couldn’t before.",
-          ],
-        },
-        { type: "stats", items: [["00%", "Placeholder metric"], ["00k", "Placeholder metric"], ["0×", "Placeholder metric"]] },
-        { type: "media", variant: "full" },
-        {
-          type: "credits",
-          items: [
-            ["Creative direction", "Name Surname"],
-            ["Design", "Name Surname<br>Name Surname"],
-            ["Development", "Name Surname"],
-            ["Motion", "Name Surname"],
-          ],
-        },
-      ],
-    },
   };
 
-  var ORDER = Object.keys(PROJECTS);
+  // "Next project" follows the order of the cards on the homepage.
+  var ORDER = [];
+  document.querySelectorAll('.work-card[href^="#work/"]').forEach(function (card) {
+    var slug = card.getAttribute("href").slice(6);
+    if (PROJECTS[slug] && ORDER.indexOf(slug) === -1) ORDER.push(slug);
+  });
+  Object.keys(PROJECTS).forEach(function (slug) {
+    if (ORDER.indexOf(slug) === -1) ORDER.push(slug);
+  });
   var CLOSE_MS = 600;
 
   var overlay = document.getElementById("case-study");
