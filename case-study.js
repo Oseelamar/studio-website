@@ -375,6 +375,123 @@
         { type: "statement", text: "Just crypto that feels a little more human." },
       ],
     },
+
+    "sporting-lagos": {
+      name: "Sporting Lagos",
+      title: "A club app that rewards you for showing up.",
+      tags: ["App design", "UI & UX design", "Gamification"],
+      intro: [
+        "Sporting Lagos is a football club built on community — the pride, the noise, and the sense of belonging that comes with it.",
+        "The club wanted an app that captured that energy. It had to feel exciting, gamified, and unmistakably like a sports app — bold and colourful without tipping into chaos — while making the practical things effortless: buying tickets and jerseys, and catching highlights from every match.",
+        "The goal was to turn being a fan into something you do every day, not just on match day.",
+      ],
+      meta: {
+        Client: "Sporting Lagos",
+        Sector: "Sport / Football",
+        Platform: "Mobile app",
+        Scope: "App design, UI/UX, Gamification",
+      },
+      sections: [
+        {
+          type: "chapter",
+          label: "The Brief",
+          title: "Something that gets people going",
+          body: [
+            "Most club apps are noticeboards: fixtures, results, news. Fans check them and leave.",
+            "Sporting Lagos wanted more. The app had to make supporters feel closer to the club, reward them for their loyalty, and give them a reason to come back between matches.",
+            "It also had to work hard — tickets, jerseys, season passes, live streams, and highlights, all in one place and all effortless.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "The Identity",
+          title: "Bold, but never loud for the sake of it",
+          body: [
+            "The visual language takes its cue from the club itself. A deep navy base and Sporting blue carry the brand, while a geometric pattern drawn from the crest runs through headers and cards. Tall, condensed, all-caps headlines give everything the feel of a matchday programme.",
+            "Colour is used with intent. Green means action. Orange belongs to rewards. Yellow, pink, and blue mark the moments worth noticing.",
+            "The result is vibrant without feeling noisy.",
+          ],
+        },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          label: "Speaking Like a Fan",
+          title: "Copy with a little Lagos in it",
+          body: [
+            "The app talks like the people who use it. Signing up is “Join the squad.” Logging back in is “Get back in the game.” Forgot your password? “Lost the ball? Let’s recover it.”",
+            "Some screens slip into Pidgin — “No wahala,” “Confirm sey na you,” “We don send you 6-digit code. Enter am sharp sharp to lock in.” Try to log out and the app asks, “You wan log out?”",
+            "They’re small details, but they’re where the app’s personality lives.",
+          ],
+        },
+        { type: "statement", text: "Small details. Big personality." },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "The Points Hub",
+          title: "Support that pays off",
+          body: [
+            "At the heart of the app is a rewards system. Fans earn points simply for being fans:",
+          ],
+          list: [
+            "Win the daily quiz.",
+            "Take part in trivia and polls.",
+            "Buy a ticket in the app.",
+            "Refer a friend.",
+            "Check in at a match.",
+          ],
+          after: [
+            "Points build into a running total, alongside a daily streak and a full history of everything earned and spent. And they aren’t just a score — fans can spend them on real tickets and jerseys.",
+          ],
+        },
+        { type: "statement", text: "Your support has value.<br>Now you can spend it." },
+        { type: "gallery", count: 4 },
+        {
+          type: "chapter",
+          label: "Badges & Bragging Rights",
+          title: "Collect the season",
+          body: [
+            "Badges reward the kind of fan behaviour clubs love: First Game, Three in a Row, Five Alive, Trivia Champ, Season Starter, Season Ticket Holder, Tactico — and Sporting OG, for attending every home game of the season.",
+            "Locked badges stay visible in grey, so there’s always something to chase.",
+            "Refer-a-friend turns fans into recruiters, with points for every successful sign-up.",
+          ],
+        },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          label: "Match Day, Every Day",
+          title: "Before, during, and after the whistle",
+          body: [
+            "Before kick-off, a live countdown to the next match sits on the home screen, with tickets one tap away. Fixtures are colour-coded and easy to scan.",
+            "When a match goes live, the app changes with it. The header becomes “Follow the full action here,” with the live score, scorers, lineups, and a stream.",
+            "After full time, the same screen shows match statistics, the confirmed lineup, post-match news, and highlights. Top moments sit right on the home screen, so fans who missed the game can catch up in seconds.",
+          ],
+        },
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "Tickets & Jerseys",
+          title: "A checkout that feels like a win",
+          body: [
+            "Buying a ticket is quick: pick a match, choose standard, premium, group, or box tickets, set the quantity, and pay.",
+            "Fans with enough points can flip a single toggle to pay with them instead — all the way to a 100% discount.",
+            "Tickets arrive as QR passes with stand, row, and seat details, ready to save or share. Season tickets get their own moment: “You are a premium season ticket holder.” And jerseys can be personalised with a custom name and number before checkout.",
+          ],
+        },
+        { type: "statement", text: "Pick it. Pay for it.<br>Or earn it." },
+        { type: "media", variant: "pair" },
+        {
+          type: "chapter",
+          label: "The Result",
+          title: "Every fan action counts",
+          body: [
+            "The finished app treats every fan action as part of the game. Reading, watching, predicting, attending, and buying all count towards something.",
+            "The practical side — tickets, jerseys, season passes, highlights — is fast and familiar. The fun side keeps fans coming back.",
+          ],
+        },
+        { type: "statement", text: "For all of Lagos." },
+      ],
+    },
   };
 
   // "Next project" follows the order of the cards on the homepage.
