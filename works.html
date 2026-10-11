@@ -3,52 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio</title>
+  <title>Works — Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:opsz,wght@14..32,400;14..32,500&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
-  <main class="hero">
+  <div class="page-top">
     <header class="site-header">
       <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#" aria-current="page">Home</a>
-        <a class="nav__link" href="works.html">Works</a>
-        <a class="nav__link" href="#pricing">Pricing</a>
-        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="works.html" aria-current="page">Works</a>
+        <a class="nav__link" href="index.html#pricing">Pricing</a>
+        <a class="nav__link" href="index.html#services">Services</a>
       </nav>
       <a class="cta" href="#contact">
         <span>Get in touch</span>
         <img src="assets/arrow-top-right-dark.svg" width="20" height="20" alt="">
       </a>
     </header>
+  </div>
 
-    <div class="hero__content">
-      <h1 class="hero__title">Good design deserves to be seen that way</h1>
-      <a class="hero__link" href="#projects">
-        <span>Explore our work</span>
-        <img src="assets/arrow-top-right-orange.svg" width="20" height="20" alt="">
-      </a>
-    </div>
-  </main>
-
-  <!-- Video placeholder (Figma "Wireframe - 3"). To add the video, replace the
-       placeholder div with e.g.:
-       <video src="assets/showreel.mp4" autoplay muted loop playsinline></video> -->
-  <section class="video-section" aria-label="Showreel">
-    <div class="video-section__placeholder" aria-hidden="true"></div>
-  </section>
-
-  <!-- Selected works (Figma "Wireframe - 4"). Card media are placeholders:
-       put an <img> inside each .work-card__media when project imagery is ready. -->
-  <section class="works" id="projects">
+  <!-- All case studies. When adding a case study, add its card here and on
+       the homepage (index.html), plus its content in case-study.js. -->
+  <main class="works works--page" id="works">
     <div class="section-label">
       <img class="section-label__rule" src="assets/section-rule-short.svg" width="24" height="7.5" alt="">
-      <h2 class="section-label__text">Selected works</h2>
+      <p class="section-label__text">Our works</p>
       <img class="section-label__rule section-label__rule--fill" src="assets/section-rule-long.svg" width="1197" height="7.5" alt="">
     </div>
 
+    <h1 class="page-title">Works</h1>
     <p class="works__intro">We design brands and websites that reflect the quality of your business and make it clear why people should choose you.</p>
 
     <div class="works__grid">
@@ -90,72 +76,8 @@
         </div>
       </a>
     </div>
-  </section>
+  </main>
 
-  <!-- Statement (Figma "Wireframe - 5") -->
-  <section class="statement" aria-label="Our standard">
-    <div class="statement__text">
-      <p class="statement__muted">We’re here to set a higher standard.</p>
-      <p>Strong ideas, decisive design, and the discipline to get every last detail right.</p>
-    </div>
-  </section>
-
-  <!-- Our services (Figma "Wireframe - 6"). Media boxes are placeholders:
-       put an <img> or <video> inside each .service__media when ready. -->
-  <section class="services" id="services">
-    <div class="section-label">
-      <img class="section-label__rule" src="assets/section-rule-short.svg" width="24" height="7.5" alt="">
-      <h2 class="section-label__text">Our services</h2>
-      <img class="section-label__rule section-label__rule--fill" src="assets/section-rule-long.svg" width="1197" height="7.5" alt="">
-    </div>
-
-    <div class="services__list">
-      <article class="service">
-        <div class="service__info">
-          <h3 class="service__title">Brand &amp; Communication</h3>
-          <ul class="tags">
-            <li class="tag">Brand identity</li>
-            <li class="tag">Visual systems</li>
-            <li class="tag">Art direction</li>
-            <li class="tag">Illustration</li>
-            <li class="tag">Presentation design</li>
-            <li class="tag">Campaign design</li>
-          </ul>
-        </div>
-        <div class="service__media"></div>
-      </article>
-
-      <article class="service">
-        <div class="service__info">
-          <h3 class="service__title">Digital Experiences</h3>
-          <ul class="tags">
-            <li class="tag">App design</li>
-            <li class="tag">Website design</li>
-            <li class="tag">UI/UX</li>
-            <li class="tag">Interaction design</li>
-            <li class="tag">Design systems</li>
-            <li class="tag">Prototyping</li>
-          </ul>
-        </div>
-        <div class="service__media"></div>
-      </article>
-
-      <article class="service">
-        <div class="service__info">
-          <h3 class="service__title">Motion &amp; 3D</h3>
-          <ul class="tags">
-            <li class="tag">Motion graphics</li>
-            <li class="tag">2D/3D animation</li>
-            <li class="tag">Animated brand identities</li>
-            <li class="tag">3D imagery</li>
-          </ul>
-        </div>
-        <div class="service__media"></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Contact CTA (Figma "Wireframe - 7") -->
   <section class="contact" id="contact">
     <h2 class="contact__text">
       What are you working towards?<br><br>
