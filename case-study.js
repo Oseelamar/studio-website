@@ -13,7 +13,7 @@
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
- *   { type: "media", variant: "full" | "pair", caption? }
+ *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
  *   { type: "quote", text, by }            — client testimonial
@@ -165,7 +165,7 @@
           ],
         },
         { type: "statement", text: "The challenge wasn’t to make Monazeni look successful. The brand was already successful.<br>The challenge was to make the digital experience communicate that." },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "full", image: { src: "assets/work/monazeni-bags.webp", alt: "Monazeni bags in tan, olive, pink and black, styled on a picnic blanket" } },
         {
           type: "chapter",
           title: "Closing the Gap",
@@ -663,8 +663,8 @@
         );
       case "media":
         return s.variant === "pair"
-          ? '<div class="case-pair">' + figure() + figure() + "</div>"
-          : figure("case-figure--full", s.caption);
+          ? '<div class="case-pair">' + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>"
+          : figure("case-figure--full", s.caption, s.image);
       case "gallery":
         return gallery(s.count || 4);
       case "statement":
