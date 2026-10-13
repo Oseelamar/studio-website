@@ -7,6 +7,7 @@
  * reverses it. The URL hash makes each case study linkable.
  *
  * Each project's page is built from its `sections` list, top to bottom.
+ * An optional `hero: { src, alt }` fills the large image under the header.
  * Section types:
  *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
@@ -133,6 +134,10 @@
 
     monazeni: {
       name: "Monazeni",
+      hero: {
+        src: "assets/work/monazeni-hero.webp",
+        alt: "The redesigned Monazeni website on a laptop, showing the Latest Arrivals collection",
+      },
       title: "The bags were already famous. The website just hadn’t caught up.",
       tags: ["Website design", "E-commerce", "Visual direction"],
       intro: [
@@ -584,10 +589,12 @@
     return (list || []).map(function (t) { return "<p>" + t + "</p>"; }).join("");
   }
 
-  function figure(modifier, caption) {
+  function figure(modifier, caption, image) {
     return (
       '<figure class="case-figure ' + (modifier || "") + '">' +
-      '<div class="case-media"></div>' +
+      '<div class="case-media">' +
+      (image ? '<img src="' + image.src + '" alt="' + image.alt + '">' : "") +
+      "</div>" +
       (caption ? '<figcaption class="case-caption">' + caption + "</figcaption>" : "") +
       "</figure>"
     );
@@ -703,7 +710,7 @@
       "</div>" +
       '<div class="case-intro">' + paras(p.intro) + "</div>" +
       "</header>" +
-      figure("case-figure--hero") +
+      figure("case-figure--hero", null, p.hero) +
       '<dl class="case-meta">' + meta + "</dl>" +
       body +
       '<a class="case-next" href="#work/' + nextSlug + '">' +
