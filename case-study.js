@@ -863,6 +863,15 @@
     if (e.target === overlay) requestClose();
   });
 
+  // Remember whether the visitor is using a mouse/touch or the keyboard, so
+  // focus rings only show for keyboard users (see .case-close in styles.css).
+  var root = document.documentElement;
+  root.dataset.input = "pointer";
+  document.addEventListener("pointerdown", function () { root.dataset.input = "pointer"; }, true);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.key === "Enter" || e.key === " " || e.key.indexOf("Arrow") === 0) root.dataset.input = "keyboard";
+  }, true);
+
   document.addEventListener("keydown", function (e) {
     if (overlay.hidden) return;
     if (e.key === "Escape") {
