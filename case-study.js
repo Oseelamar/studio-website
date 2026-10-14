@@ -799,11 +799,11 @@
     var alreadyOpen = !overlay.hidden && overlay.classList.contains("is-open");
     render(slug);
     if (alreadyOpen) {
-      overlay.scrollTo({ top: 0 });
+      sheet.scrollTo({ top: 0 });
       return;
     }
     overlay.hidden = false;
-    overlay.scrollTop = 0;
+    sheet.scrollTop = 0;
     lockScroll(true);
     // Next frame so the closed state is painted before transitioning in.
     requestAnimationFrame(function () {
