@@ -17,7 +17,8 @@
  *                                          — logo rows; files in assets/press/
  *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
  *                                          — add `video: true` to an image to play an .mp4 silently on loop,
- *                                            or `position: "50% 40%"` to choose which part of the image shows
+ *                                            `position: "50% 40%"` to choose which part shows, `fit: "contain"` +
+ *                                            `background` to show all of it, and `poster` for a video's first frame
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
  *   { type: "quote", text, by }            — client testimonial
@@ -34,8 +35,12 @@
       name: "Claremont-Amani",
       hero: {
         src: "assets/video/claremont-amani-site.mp4",
+        poster: "assets/video/claremont-amani-site-poster.jpg",
         alt: "Scrolling through the Claremont Amany website",
         video: true,
+        // Show the whole recording; the spare space matches its background
+        fit: "contain",
+        background: "#CBD5E0",
       },
       title: "A quiet digital presence for serious research.",
       tags: ["Website design", "Visual system", "Interaction design"],
@@ -610,13 +615,24 @@
     return (list || []).map(function (t) { return "<p>" + t + "</p>"; }).join("");
   }
 
+  // Optional per-image framing: position (which part shows), fit ("contain" to
+  // show it all) and background (fills the space around a contained image).
+  function mediaStyle(image) {
+    var css = "";
+    if (image.position) css += "object-position:" + image.position + ";";
+    if (image.fit) css += "object-fit:" + image.fit + ";";
+    if (image.background) css += "background:" + image.background + ";";
+    return css ? ' style="' + css + '"' : "";
+  }
+
   function figure(modifier, caption, image) {
     return (
       '<figure class="case-figure ' + (modifier || "") + '">' +
       '<div class="case-media">' +
       (image && image.video
-        ? '<video src="' + image.src + '" aria-label="' + image.alt + '" autoplay muted loop playsinline></video>'
-        : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + (image.position ? ' style="object-position:' + image.position + '"' : "") + ">" : "") +
+        ? '<video src="' + image.src + '"' + (image.poster ? ' poster="' + image.poster + '"' : "") +
+          ' aria-label="' + image.alt + '"' + mediaStyle(image) + " autoplay muted loop playsinline></video>"
+        : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + mediaStyle(image) + ">" : "") +
       "</div>" +
       (caption ? '<figcaption class="case-caption">' + caption + "</figcaption>" : "") +
       "</figure>"
