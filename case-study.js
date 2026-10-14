@@ -32,6 +32,11 @@
   var PROJECTS = {
     "claremont-amani": {
       name: "Claremont-Amani",
+      hero: {
+        src: "assets/video/claremont-amani-site.mp4",
+        alt: "Scrolling through the Claremont Amany website",
+        video: true,
+      },
       title: "A quiet digital presence for serious research.",
       tags: ["Website design", "Visual system", "Interaction design"],
       intro: [
