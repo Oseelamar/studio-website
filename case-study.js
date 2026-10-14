@@ -224,7 +224,7 @@
             ["bag-6", "Bijou", "$239.99", [84.93, -10.79, 8.01, 121.57]],
           ],
         },
-        { type: "media", variant: "pair", images: [{ src: "assets/work/monazeni-mobile.png", alt: "The Monazeni mobile site on two phones: New Arrivals and the cart" }] },
+        { type: "media", variant: "pair", images: [{ src: "assets/work/monazeni-mobile.png", alt: "The Monazeni mobile site on two phones: New Arrivals and the cart" }, { src: "assets/work/monazeni-product-page.webp", alt: "A Monazeni product page on a phone resting on a leather sofa" }] },
         {
           type: "chapter",
           title: "Recognition Was Already Part of the Story",
