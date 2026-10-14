@@ -768,6 +768,126 @@ img {
   aspect-ratio: 674 / 720;
 }
 
+/* Product strip (Figma "Frame 296"): cards keep their Figma proportions and
+   scale with the frame's height (--u = 1 at the 720px design height). */
+.case-media.case-shop {
+  container-type: size;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.case-shop__track {
+  --u: calc(100cqh / 720);
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  animation: shop-scroll 48s linear infinite;
+  animation-delay: -4s;
+}
+
+.case-shop:hover .case-shop__track {
+  animation-play-state: paused;
+}
+
+@keyframes shop-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  width: calc(331 * var(--u));
+  margin-right: calc(12 * var(--u));
+  font-family: "Barlow", var(--font-display);
+  font-weight: 500;
+}
+
+.shop-card__media {
+  position: relative;
+  min-height: calc(452 * var(--u));
+  overflow: hidden;
+  background: #faf5f2;
+}
+
+.shop-card__frame {
+  position: relative;
+  height: calc(406 * var(--u));
+  overflow: hidden;
+}
+
+.shop-card__box {
+  position: absolute;
+  top: calc(50% + 17 * var(--u));
+  left: 50%;
+  width: calc(356 * var(--u));
+  height: calc(340 * var(--u));
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.shop-card__box img {
+  position: absolute;
+  max-width: none;
+}
+
+.shop-card__cta {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: calc(16 * var(--u)) calc(14 * var(--u));
+  background: #0b0b0b;
+  color: #fff;
+  font-size: max(10px, calc(12 * var(--u)));
+  letter-spacing: calc(0.84 * var(--u));
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-card:hover .shop-card__cta {
+  opacity: 1;
+  transform: none;
+}
+
+.shop-card__name,
+.shop-card__price {
+  margin: 0;
+}
+
+.shop-card__name {
+  margin-top: calc(20 * var(--u));
+  color: #727272;
+  font-size: max(10px, calc(12 * var(--u)));
+  line-height: 1.1;
+  letter-spacing: calc(0.96 * var(--u));
+  text-transform: uppercase;
+}
+
+.shop-card__price {
+  margin-top: calc(4 * var(--u));
+  color: #272727;
+  font-size: max(11px, calc(13 * var(--u)));
+  line-height: 1.6;
+  letter-spacing: calc(0.78 * var(--u));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-media.case-shop {
+    overflow-x: auto;
+  }
+
+  .case-shop__track {
+    animation: none;
+  }
+}
+
 /* Small mono label used for chapter numbers, gallery, credits */
 .case-kicker {
   margin: 0;
@@ -1227,6 +1347,12 @@ img {
 
   .case-list li {
     font-size: 16px;
+  }
+
+  /* Give the product strip enough height on phones for readable cards */
+  .case-media.case-shop {
+    aspect-ratio: auto;
+    height: 440px;
   }
 
   .case-press {

@@ -11,6 +11,8 @@
  * Section types:
  *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
+ *   { type: "shop", label, products: [[file, name, price, [h%, left%, top%, w%]], ...] }
+ *                                          — scrolling product strip; images in assets/work/monazeni-shop/
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
  *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
@@ -209,7 +211,19 @@
             "The result is a site that feels less like something customers have to figure out and more like something they can simply move through.",
           ],
         },
-        { type: "media", variant: "full" },
+        {
+          // Product strip from Figma "Frame 296" (node 44:7271)
+          type: "shop",
+          label: "Product listing from the redesigned Monazeni website",
+          products: [
+            ["bag-1", "Anya Block Bag", "$239.99", [73.82, -2.88, 19.71, 105.76]],
+            ["bag-2", "Anya Radio Bag", "$239.99", [71.18, -0.98, 22.65, 101.97]],
+            ["bag-3", "Clarita Monae", "$239.99", [81.96, -8.71, 15.1, 117.42]],
+            ["bag-4", "Elan Blue", "$239.99", [82.84, -9.34, 8.04, 118.68]],
+            ["bag-5", "Bijou", "$239.99", [92.94, 5.62, 2.35, 88.76]],
+            ["bag-6", "Bijou", "$239.99", [84.93, -10.79, 8.01, 121.57]],
+          ],
+        },
         { type: "media", variant: "pair" },
         {
           type: "chapter",
@@ -646,6 +660,30 @@
           '<div class="case-chapter__body">' + paras(s.body) + "</div>" +
           "</section>"
         );
+      case "shop": {
+        // Two copies of the strip so it can scroll in a seamless loop.
+        var cards = s.products.map(function (p) {
+          var b = p[3];
+          return (
+            '<div class="shop-card">' +
+            '<div class="shop-card__media">' +
+            '<div class="shop-card__frame"><div class="shop-card__box">' +
+            '<img src="assets/work/monazeni-shop/' + p[0] + '.png" alt="" loading="lazy" style="height:' + b[0] + '%;left:' + b[1] + '%;top:' + b[2] + '%;width:' + b[3] + '%">' +
+            "</div></div>" +
+            '<span class="shop-card__cta">Add to cart</span>' +
+            "</div>" +
+            '<p class="shop-card__name">' + p[1] + "</p>" +
+            '<p class="shop-card__price">' + p[2] + "</p>" +
+            "</div>"
+          );
+        }).join("");
+        return (
+          '<figure class="case-figure case-figure--full">' +
+          '<div class="case-media case-shop" role="img" aria-label="' + s.label + '">' +
+          '<div class="case-shop__track">' + cards + cards + "</div>" +
+          "</div></figure>"
+        );
+      }
       case "press":
         return (
           '<section class="case-press" aria-label="' + s.label + '">' +
