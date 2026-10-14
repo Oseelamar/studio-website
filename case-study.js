@@ -185,7 +185,7 @@
           ],
         },
         { type: "statement", text: "The goal wasn’t to reinvent Monazeni.<br>It was to make the website feel more like Monazeni." },
-        { type: "media", variant: "pair", images: [{ src: "assets/video/type-cards.mp4", alt: "Typeface studies: Source Serif 4, Satoshi and 42 dot sans", video: true }] },
+        { type: "media", variant: "pair", images: [{ src: "assets/video/type-cards.mp4", alt: "Typeface studies: Source Serif 4, Satoshi and 42 dot sans", video: true }, { src: "assets/work/monazeni-campaign.webp", alt: "Monazeni campaign visual: a model holding a burgundy bag beneath a large serif headline" }] },
         {
           type: "chapter",
           title: "Designing for Fashion, Not Just Commerce",
