@@ -16,7 +16,8 @@
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
  *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
- *                                          — add `video: true` to an image to play an .mp4 silently on loop
+ *                                          — add `video: true` to an image to play an .mp4 silently on loop,
+ *                                            or `position: "50% 40%"` to choose which part of the image shows
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
  *   { type: "quote", text, by }            — client testimonial
@@ -258,7 +259,7 @@
           ],
         },
         { type: "statement", text: "You’ve probably already seen Monazeni." },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "full", image: { src: "assets/work/monazeni-beach.jpg", alt: "Two people in bold printed outfits relaxing on beach chairs by the sea", position: "50% 43%" } },
         {
           type: "chapter",
           title: "The Digital Experience Catches Up",
@@ -610,7 +611,7 @@
       '<div class="case-media">' +
       (image && image.video
         ? '<video src="' + image.src + '" aria-label="' + image.alt + '" autoplay muted loop playsinline></video>'
-        : image ? '<img src="' + image.src + '" alt="' + image.alt + '">' : "") +
+        : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + (image.position ? ' style="object-position:' + image.position + '"' : "") + ">" : "") +
       "</div>" +
       (caption ? '<figcaption class="case-caption">' + caption + "</figcaption>" : "") +
       "</figure>"
