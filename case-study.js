@@ -14,6 +14,7 @@
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
  *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
+ *                                          — add `video: true` to an image to play an .mp4 silently on loop
  *   { type: "gallery", count }
  *   { type: "statement", text }            — large standalone line
  *   { type: "quote", text, by }            — client testimonial
@@ -184,7 +185,7 @@
           ],
         },
         { type: "statement", text: "The goal wasn’t to reinvent Monazeni.<br>It was to make the website feel more like Monazeni." },
-        { type: "media", variant: "pair" },
+        { type: "media", variant: "pair", images: [{ src: "assets/video/type-cards.mp4", alt: "Typeface studies: Source Serif 4, Satoshi and 42 dot sans", video: true }] },
         {
           type: "chapter",
           title: "Designing for Fashion, Not Just Commerce",
@@ -593,7 +594,9 @@
     return (
       '<figure class="case-figure ' + (modifier || "") + '">' +
       '<div class="case-media">' +
-      (image ? '<img src="' + image.src + '" alt="' + image.alt + '">' : "") +
+      (image && image.video
+        ? '<video src="' + image.src + '" aria-label="' + image.alt + '" autoplay muted loop playsinline></video>'
+        : image ? '<img src="' + image.src + '" alt="' + image.alt + '">' : "") +
       "</div>" +
       (caption ? '<figcaption class="case-caption">' + caption + "</figcaption>" : "") +
       "</figure>"
