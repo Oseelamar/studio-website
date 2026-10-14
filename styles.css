@@ -1349,10 +1349,12 @@ img {
     font-size: 16px;
   }
 
-  /* Give the product strip enough height on phones for readable cards */
+  /* Product strip on phones: a shorter frame sized so two cards fit across
+     (two cards + gap = 686 design px against the 720 design height). Capped on
+     wider screens so the strip doesn't grow too tall. */
   .case-media.case-shop {
     aspect-ratio: auto;
-    height: 440px;
+    height: min(440px, calc((100vw - 2 * var(--gutter)) * 720 / 686));
   }
 
   .case-press {
