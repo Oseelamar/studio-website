@@ -566,13 +566,24 @@
         {
           type: "banner",
           title: "Every Child Deserves to See Themselves<br>in Learning",
-          // Positions in Figma pixels on the 1440 × 825 frame: x, y = sticker centre, w × h = unrotated size,
-          // iw/ih = how far the artwork (with its drop shadow) overhangs that box
+          // Figma frames: desktop 1440 × 825, mobile 375 × 481 (used at 480px wide and below).
+          // Sticker x, y = centre and w × h = unrotated size, in that frame's pixels;
+          // iw/ih = how far the artwork (with its drop shadow) overhangs that box.
+          // "back" stickers sit behind the heading, the rest on top of it, as in Figma.
+          mobileTitle: { top: 86, width: 321, size: 52 },
           stickers: [
-            { src: "assets/work/nookly-banner/swirl.svg", x: 1271.3, y: 216, w: 559.3, h: 323.7, r: 14 },
-            { src: "assets/work/nookly-banner/book.svg", x: 337.4, y: 290.8, w: 134.5, h: 113.2, r: -34, iw: 102.97, ih: 103.53 },
-            { src: "assets/work/nookly-banner/mug.svg", x: 365.1, y: 617.5, w: 141.3, h: 112.7, r: -21 },
-            { src: "assets/work/nookly-banner/note.svg", x: 1098.6, y: 528.6, w: 121.4, h: 135.7, r: 17, iw: 102.93, ih: 102.76 },
+            { src: "assets/work/nookly-banner/swirl.svg", msrc: "assets/work/nookly-banner/swirl-mobile.svg", back: true,
+              d: { x: 1271.3, y: 216, w: 559.3, h: 323.7, t: "rotate(14deg)" },
+              m: { x: 413.4, y: 84.9, w: 340.6, h: 123.7, t: "rotate(8.27deg) skewX(-14.88deg)" } },
+            { src: "assets/work/nookly-banner/book.svg", iw: 102.97, ih: 103.53,
+              d: { x: 337.4, y: 290.8, w: 134.5, h: 113.2, t: "rotate(-34deg)" },
+              m: { x: 71.6, y: 66.9, w: 82.5, h: 69.4, t: "rotate(-34deg)" } },
+            { src: "assets/work/nookly-banner/mug.svg",
+              d: { x: 365.1, y: 617.5, w: 141.3, h: 112.7, t: "rotate(-21deg)" },
+              m: { x: 50.1, y: 388.7, w: 93.6, h: 74.7, t: "rotate(-21deg)" } },
+            { src: "assets/work/nookly-banner/note.svg", iw: 102.93, ih: 102.76,
+              d: { x: 1098.6, y: 528.6, w: 121.4, h: 135.7, t: "rotate(17deg)" },
+              m: { x: 337.5, y: 375.5, w: 77.1, h: 86.2, t: "rotate(17deg)" } },
           ],
         },
         {
@@ -702,16 +713,26 @@
           "</section>"
         );
       case "banner": {
-        // A title card drawn on a fixed 1440-wide canvas that scales with the page
-        var st = s.stickers.map(function (k) {
+        // A title card drawn on a fixed Figma canvas that scales with the page
+        // (separate desktop and mobile layouts)
+        var sticker = function (k) {
+          var img = '<img src="' + k.src + '" alt="">';
+          if (k.msrc) img = '<picture><source media="(max-width: 480px)" srcset="' + k.msrc + '">' + img + "</picture>";
           return (
-            '<span class="case-banner__sticker" style="--x:' + k.x + ";--y:" + k.y + ";--w:" + k.w + ";--h:" + k.h + ";--r:" + k.r + "deg" +
-            ";--iw:" + (k.iw || 100) + "%;--ih:" + (k.ih || 100) + '%"><img src="' + k.src + '" alt=""></span>'
+            '<span class="case-banner__sticker' + (k.back ? " is-back" : "") + '" style="' +
+            "--x:" + k.d.x + ";--y:" + k.d.y + ";--w:" + k.d.w + ";--h:" + k.d.h + ";--t:" + k.d.t +
+            ";--mx:" + k.m.x + ";--my:" + k.m.y + ";--mw:" + k.m.w + ";--mh:" + k.m.h + ";--mt:" + k.m.t +
+            ";--iw:" + (k.iw || 100) + "%;--ih:" + (k.ih || 100) + '%">' + img + "</span>"
           );
-        }).join("");
+        };
+        var mt = s.mobileTitle;
         return (
-          '<figure class="case-figure case-figure--full case-banner"><div class="case-banner__frame">' + st +
-          '<h3 class="case-banner__title">' + s.title + "</h3></div></figure>"
+          '<figure class="case-figure case-figure--full case-banner"><div class="case-banner__frame" style="' +
+          "--m-top:" + mt.top + ";--m-width:" + mt.width + ";--m-size:" + mt.size + '">' +
+          s.stickers.filter(function (k) { return k.back; }).map(sticker).join("") +
+          '<h3 class="case-banner__title">' + s.title + "</h3>" +
+          s.stickers.filter(function (k) { return !k.back; }).map(sticker).join("") +
+          "</div></figure>"
         );
       }
       case "palette": {
