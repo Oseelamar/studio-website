@@ -783,6 +783,11 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-left: calc(var(--gutter) * -1);
 }
 
+/* Back-to-back edge-to-edge slides sit close together */
+.case-figure--bleed + .case-figure--bleed {
+  margin-top: 16px;
+}
+
 /* Open Runde (SIL Open Font License; see assets/fonts/open-runde/LICENSE.txt) */
 @font-face {
   font-family: "Open Runde";

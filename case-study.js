@@ -394,7 +394,7 @@
         },
         { type: "statement", text: "No chains. No stress. Just send." },
         { type: "media", variant: "bleed", ratio: "1440 / 1096", mobile: { height: "clamp(420px, 72svh, 640px)", position: "50% 50%", pan: true }, image: { src: "assets/work/glint-send-flow.png", alt: "The Glint send flow on three phones: Select Tokens, Enter Amount and Preview" } },
-        { type: "media", variant: "bleed", ratio: "1440 / 1047", mobile: { height: "clamp(420px, 72svh, 640px)", position: "50% 50%", pan: true }, image: { src: "assets/work/glint-swap-buy.png", alt: "Two tilted phones showing Glint’s Swap Tokens and Buy BTC screens on a peach background" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 1047", image: { src: "assets/work/glint-swap-buy.png", alt: "Two tilted phones showing Glint’s Swap Tokens and Buy BTC screens on a peach background" } },
         {
           type: "chapter",
           label: "Request Crypto",
