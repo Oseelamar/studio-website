@@ -337,11 +337,12 @@
           ],
         },
         {
-          // Figma cards 19:882 and 19:912 (692 x 704, rounded): shown whole on the sheet colour
+          // Figma cards 19:882 and 19:912 (692 x 704): shown whole. The type card's frame
+          // matches its peach so it blends; the city card sits on the sheet colour.
           type: "media",
           variant: "pair",
           images: [
-            { src: "assets/work/glint-type.png", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#130F0E" },
+            { src: "assets/work/glint-type.png", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
             { src: "assets/work/glint-city.jpg", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
           ],
         },
