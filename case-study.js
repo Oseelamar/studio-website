@@ -11,6 +11,7 @@
  * Section types:
  *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
+ *   { type: "palette", swatches: [{ name, hex, label, bottom? }, ...] }  — colour swatches
  *   { type: "cards", items: [{ src, alt }, ...] }  — 2-column grid of 652 x 400 cards
  *   { type: "shop", label, products: [[file, name, price, [h%, left%, top%, w%]], ...] }
  *                                          — scrolling product strip; images in assets/work/monazeni-shop/
@@ -354,6 +355,16 @@
           images: [
             { src: "assets/work/glint-type.png", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
             { src: "assets/work/glint-city.jpg", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
+          ],
+        },
+        {
+          // Colour palette from Figma (19:864): live swatches, 1320 x 400 at design size
+          type: "palette",
+          swatches: [
+            { name: "Pumpkin Orange", hex: "#F75814", label: "#F6F6F6" },
+            { name: "Mint Green", hex: "#00CA98", label: "#ECFFF7", bottom: true },
+            { name: "Raising Black", hex: "#171717", label: "#E7E7E7" },
+            { name: "Charcoal Grey", hex: "#6D6D6D", label: "#E7E7E7" },
           ],
         },
         { type: "gallery", count: 4 },
@@ -705,6 +716,22 @@
           '<div class="case-chapter__body">' + paras(s.body) + "</div>" +
           "</section>"
         );
+      case "palette": {
+        var sw = s.swatches.map(function (c) {
+          return (
+            '<div class="swatch' + (c.bottom ? " swatch--bottom" : "") + '" style="background:' + c.hex + '">' +
+            '<p class="swatch__name">' + c.name + "</p>" +
+            '<p class="swatch__hex" style="color:' + c.label + '">' + c.hex + "</p>" +
+            "</div>"
+          );
+        });
+        // Layout: wide swatch, tall swatch, then the last two stacked
+        return (
+          '<div class="case-palette" role="group" aria-label="Colour palette">' +
+          sw[0] + sw[1] + '<div class="case-palette__stack">' + sw.slice(2).join("") + "</div>" +
+          "</div>"
+        );
+      }
       case "cards":
         return (
           '<div class="case-cards">' +

@@ -783,6 +783,75 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-left: calc(var(--gutter) * -1);
 }
 
+/* Open Runde (SIL Open Font License; see assets/fonts/open-runde/LICENSE.txt) */
+@font-face {
+  font-family: "Open Runde";
+  src: url("assets/fonts/open-runde/OpenRunde-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Runde";
+  src: url("assets/fonts/open-runde/OpenRunde-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* Colour palette (Figma 19:864): 652 / 318 / 318 columns, 1320 x 400 at design size */
+.case-palette {
+  display: grid;
+  grid-template-columns: 652fr 318fr 318fr;
+  gap: 16px;
+  aspect-ratio: 1320 / 400;
+  margin-top: 120px;
+}
+
+.case-figure--full + .case-palette,
+.case-pair + .case-palette {
+  margin-top: 12px;
+}
+
+.case-palette__stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.swatch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 28px;
+  font-family: "Open Runde", var(--font-display);
+}
+
+.swatch--bottom {
+  justify-content: flex-end;
+}
+
+.swatch__name,
+.swatch__hex {
+  margin: 0;
+  line-height: 22.4px;
+}
+
+.swatch__name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.48px;
+}
+
+.swatch__hex {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.36px;
+}
+
 /* Grid of landscape cards (e.g. Glint's stat cards, 652 x 400 each) */
 .case-cards {
   display: grid;
@@ -1373,6 +1442,36 @@ html[data-input="keyboard"] .case-close:focus-visible {
   .case-pair,
   .case-cards {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Palette on phones: orange across the top, mint beside the stacked pair */
+  .case-palette {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px 260px;
+    gap: 12px;
+    aspect-ratio: auto;
+  }
+
+  .case-palette .swatch:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .case-palette__stack {
+    gap: 12px;
+  }
+
+  .swatch {
+    gap: 8px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .swatch__name {
+    font-size: 18px;
+  }
+
+  .swatch__hex {
+    font-size: 14px;
   }
 
   /* Edge-to-edge images can be taller on phones, cropped around a focal point */
