@@ -1572,3 +1572,52 @@ html[data-input="keyboard"] .case-close:focus-visible {
     font-size: 14px;
   }
 }
+
+/* Title card (Nookly): a 1440 × 825 Figma frame that scales with the page.
+   --u is one Figma pixel at the current width. */
+.case-banner {
+  container-type: inline-size;
+}
+
+.case-banner__frame {
+  --u: calc(100cqw / 1440);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1440 / 825;
+  background: #fefcf7;
+}
+
+.case-banner__title {
+  position: absolute;
+  top: calc(254 * var(--u));
+  left: 50%;
+  width: calc(895 * var(--u));
+  margin: 0;
+  color: #0f181c;
+  font-family: "Baloo 2", var(--font-display);
+  font-weight: 600;
+  font-size: calc(96 * var(--u));
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.case-banner__sticker {
+  position: absolute;
+  top: calc(var(--y) * var(--u));
+  left: calc(var(--x) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+  transform: translate(-50%, -50%) rotate(var(--r));
+}
+
+.case-banner__sticker > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: var(--iw);
+  height: var(--ih);
+  max-width: none;
+}

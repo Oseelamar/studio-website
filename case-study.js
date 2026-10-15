@@ -563,7 +563,18 @@
             ["7.9m", "Children in the U.S. qualify for special education services"],
           ],
         },
-        { type: "media", variant: "full" },
+        {
+          type: "banner",
+          title: "Every Child Deserves to See Themselves<br>in Learning",
+          // Positions in Figma pixels on the 1440 × 825 frame: x, y = sticker centre, w × h = unrotated size,
+          // iw/ih = how far the artwork (with its drop shadow) overhangs that box
+          stickers: [
+            { src: "assets/work/nookly-banner/swirl.svg", x: 1271.3, y: 216, w: 559.3, h: 323.7, r: 14 },
+            { src: "assets/work/nookly-banner/book.svg", x: 337.4, y: 290.8, w: 134.5, h: 113.2, r: -34, iw: 102.97, ih: 103.53 },
+            { src: "assets/work/nookly-banner/mug.svg", x: 365.1, y: 617.5, w: 141.3, h: 112.7, r: -21 },
+            { src: "assets/work/nookly-banner/note.svg", x: 1098.6, y: 528.6, w: 121.4, h: 135.7, r: 17, iw: 102.93, ih: 102.76 },
+          ],
+        },
         {
           type: "chapter",
           label: "The Characters",
@@ -690,6 +701,19 @@
           '<div class="case-chapter__body">' + paras(s.body) + "</div>" +
           "</section>"
         );
+      case "banner": {
+        // A title card drawn on a fixed 1440-wide canvas that scales with the page
+        var st = s.stickers.map(function (k) {
+          return (
+            '<span class="case-banner__sticker" style="--x:' + k.x + ";--y:" + k.y + ";--w:" + k.w + ";--h:" + k.h + ";--r:" + k.r + "deg" +
+            ";--iw:" + (k.iw || 100) + "%;--ih:" + (k.ih || 100) + '%"><img src="' + k.src + '" alt=""></span>'
+          );
+        }).join("");
+        return (
+          '<figure class="case-figure case-figure--full case-banner"><div class="case-banner__frame">' + st +
+          '<h3 class="case-banner__title">' + s.title + "</h3></div></figure>"
+        );
+      }
       case "palette": {
         var sw = s.swatches.map(function (c) {
           return (
