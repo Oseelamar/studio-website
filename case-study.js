@@ -354,7 +354,7 @@
           variant: "pair",
           images: [
             { src: "assets/work/glint-type.png", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
-            { src: "assets/work/glint-city.jpg", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
+            { src: "assets/work/glint-city.jpg?v=2", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
           ],
         },
         {
