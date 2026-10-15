@@ -290,6 +290,10 @@
 
     glint: {
       name: "Glint",
+      hero: {
+        src: "assets/work/glint-cover.png",
+        alt: "Glint title illustration: the Glint logo surrounded by crypto icons and characters",
+      },
       title: "Meet Glint — Web3, with a smile.",
       tags: ["App design", "Brand identity", "Design system"],
       intro: [
