@@ -529,6 +529,11 @@
 
     nookly: {
       name: "Nookly",
+      hero: {
+        src: "assets/work/nookly-hero.webp",
+        alt: "The Nookly website on a laptop on a wooden desk, showing “Get Personalized Learning Support 10x Faster with AI”",
+        position: "50% 30%",
+      },
       title: "Every child deserves to see themselves in learning.",
       tags: ["Web design", "UI/UX", "Illustration"],
       intro: [
