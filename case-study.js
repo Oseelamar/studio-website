@@ -576,7 +576,7 @@
               d: { x: 1271.3, y: 216, w: 559.3, h: 323.7, t: "rotate(14deg)" },
               m: { x: 413.4, y: 84.9, w: 340.6, h: 123.7, t: "rotate(8.27deg) skewX(-14.88deg)" } },
             { src: "assets/work/nookly-banner/book.svg", iw: 102.97, ih: 103.53,
-              d: { x: 337.4, y: 290.8, w: 134.5, h: 113.2, t: "rotate(-34deg)" },
+              d: { x: 285, y: 205, w: 134.5, h: 113.2, t: "rotate(-34deg)" },
               m: { x: 71.6, y: 66.9, w: 82.5, h: 69.4, t: "rotate(-34deg)" } },
             { src: "assets/work/nookly-banner/mug.svg",
               d: { x: 365.1, y: 617.5, w: 141.3, h: 112.7, t: "rotate(-21deg)" },
