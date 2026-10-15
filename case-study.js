@@ -382,7 +382,7 @@
           ],
         },
         { type: "statement", text: "No chains. No stress. Just send." },
-        { type: "media", variant: "pair" },
+        { type: "media", variant: "bleed", ratio: "1440 / 1096", mobile: { height: "clamp(420px, 72svh, 640px)", position: "50% 50%", pan: true }, image: { src: "assets/work/glint-send-flow.png", alt: "The Glint send flow on three phones: Select Tokens, Enter Amount and Preview" } },
         {
           type: "chapter",
           label: "Request Crypto",
@@ -761,11 +761,12 @@
         }
         if (s.variant === "bleed") {
           // Edge to edge across the sheet, at the design's own proportions
-          // Optional `mobile: { height, position }` makes it taller on phones, cropped around `position`
+          // Optional `mobile: { height, position, pan }` makes it taller on phones, cropped around
+          // `position`; `pan: true` slowly pans across the whole width instead
           var m = s.mobile;
           return figure("case-figure--full case-figure--bleed", s.caption, s.image)
             .replace('<div class="case-media">',
-              '<div class="case-media' + (m ? " case-media--mobile-crop" : "") + '" style="aspect-ratio:' + (s.ratio || "1440 / 900") +
+              '<div class="case-media' + (m ? " case-media--mobile-crop" : "") + (m && m.pan ? " case-media--pan" : "") + '" style="aspect-ratio:' + (s.ratio || "1440 / 900") +
               (m ? ";--m-height:" + m.height + ";--m-position:" + m.position : "") + '">');
         }
         return figure("case-figure--full", s.caption, s.image);

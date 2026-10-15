@@ -915,6 +915,10 @@ html[data-input="keyboard"] .case-close:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .case-media.case-media--pan > img {
+    animation: none;
+  }
+
   .case-media.case-shop {
     overflow-x: auto;
   }
@@ -1379,6 +1383,21 @@ html[data-input="keyboard"] .case-close:focus-visible {
 
   .case-media--mobile-crop > img {
     object-position: var(--m-position);
+  }
+
+  /* Slowly pan from the left edge to the right edge and back */
+  .case-media--pan > img {
+    animation: case-pan 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes case-pan {
+    0%, 12% {
+      object-position: 0% 50%;
+    }
+
+    88%, 100% {
+      object-position: 100% 50%;
+    }
   }
 
   .case-cards {
