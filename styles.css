@@ -875,7 +875,7 @@ html[data-input="keyboard"] .case-close:focus-visible {
 }
 
 .case-pair .case-media {
-  aspect-ratio: 674 / 720;
+  aspect-ratio: var(--pair-ratio, 674 / 720);
 }
 
 /* Product strip (Figma "Frame 296"): cards keep their Figma proportions and

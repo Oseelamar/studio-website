@@ -596,7 +596,10 @@
           ],
         },
         { type: "statement", text: "Learning feels different when you’re the hero of the story." },
-        { type: "media", variant: "pair" },
+        { type: "media", variant: "pair", ratio: "674 / 820", images: [
+            { src: "assets/work/nookly-toys.jpg", alt: "Wooden toys, coloured balls and a “leaf” flash card on a beige sofa in soft sunlight" },
+            { src: "assets/work/nookly-tablet.jpg", alt: "The Nookly website on a tablet on a playroom rug, surrounded by toys, flash cards and crayon drawings" },
+          ] },
         {
           type: "chapter",
           label: "The Visual System",
@@ -803,7 +806,7 @@
         );
       case "media":
         if (s.variant === "pair") {
-          return '<div class="case-pair">' + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>";
+          return '<div class="case-pair"' + (s.ratio ? ' style="--pair-ratio:' + s.ratio + '"' : "") + ">" + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>";
         }
         if (s.variant === "bleed") {
           // Edge to edge across the sheet, at the design's own proportions
