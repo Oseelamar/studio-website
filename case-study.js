@@ -404,8 +404,8 @@
             "Instead of making users understand chains, networks, bridges, and technical infrastructure, the experience puts the action first.",
           ],
         },
-        { type: "statement", text: "The technology stays in the background.<br>The user gets a simple, familiar experience." },
         { type: "media", variant: "full" },
+        { type: "statement", text: "The technology stays in the background.<br>The user gets a simple, familiar experience." },
       ],
     },
 
