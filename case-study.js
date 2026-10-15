@@ -367,7 +367,6 @@
             { name: "Charcoal Grey", hex: "#6D6D6D", label: "#E7E7E7" },
           ],
         },
-        { type: "gallery", count: 4 },
         {
           type: "chapter",
           label: "The Product",
