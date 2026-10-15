@@ -776,6 +776,13 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-top: 120px;
 }
 
+/* Edge-to-edge image: spans the full sheet width, ignoring the side margins
+   (at a 1440px window it shows at the Figma frame's exact 1440px width) */
+.case-figure--bleed {
+  margin-right: calc(var(--gutter) * -1);
+  margin-left: calc(var(--gutter) * -1);
+}
+
 /* Grid of landscape cards (e.g. Glint's stat cards, 652 x 400 each) */
 .case-cards {
   display: grid;

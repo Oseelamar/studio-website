@@ -16,7 +16,7 @@
  *                                          — scrolling product strip; images in assets/work/monazeni-shop/
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
  *                                          — logo rows; files in assets/press/
- *   { type: "media", variant: "full" | "pair", caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
+ *   { type: "media", variant: "full" | "pair" | "bleed" (edge to edge; set `ratio`, e.g. "1440 / 1134"), caption?, image?: { src, alt }, images?: [{ src, alt }, { src, alt }] }
  *                                          — add `video: true` to an image to play an .mp4 silently on loop,
  *                                            `position: "50% 40%"` to choose which part shows, `fit: "contain"` +
  *                                            `background` to show all of it, and `poster` for a video's first frame
@@ -366,7 +366,7 @@
             "Behind the scenes, the app handles complex logic — from chain abstraction to cross-network swaps — but what the user sees is calm, intuitive, and welcoming.",
           ],
         },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "bleed", ratio: "1440 / 1134", image: { src: "assets/work/glint-home-screen.png", alt: "“A home screen that doesn’t ask questions”: the Glint home screen on a phone over a green background" } },
         {
           type: "chapter",
           label: "Send Crypto",
@@ -756,9 +756,15 @@
           "</section>"
         );
       case "media":
-        return s.variant === "pair"
-          ? '<div class="case-pair">' + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>"
-          : figure("case-figure--full", s.caption, s.image);
+        if (s.variant === "pair") {
+          return '<div class="case-pair">' + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>";
+        }
+        if (s.variant === "bleed") {
+          // Edge to edge across the sheet, at the design's own proportions
+          return figure("case-figure--full case-figure--bleed", s.caption, s.image)
+            .replace('<div class="case-media">', '<div class="case-media" style="aspect-ratio:' + (s.ratio || "1440 / 900") + '">');
+        }
+        return figure("case-figure--full", s.caption, s.image);
       case "gallery":
         return gallery(s.count || 4);
       case "statement":
