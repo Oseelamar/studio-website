@@ -1371,6 +1371,16 @@ html[data-input="keyboard"] .case-close:focus-visible {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Edge-to-edge images can be taller on phones, cropped around a focal point */
+  .case-media.case-media--mobile-crop {
+    aspect-ratio: auto !important;
+    height: var(--m-height);
+  }
+
+  .case-media--mobile-crop > img {
+    object-position: var(--m-position);
+  }
+
   .case-cards {
     margin-top: 88px;
   }

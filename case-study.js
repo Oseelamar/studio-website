@@ -366,7 +366,7 @@
             "Behind the scenes, the app handles complex logic — from chain abstraction to cross-network swaps — but what the user sees is calm, intuitive, and welcoming.",
           ],
         },
-        { type: "media", variant: "bleed", ratio: "1440 / 1134", image: { src: "assets/work/glint-home-screen.png", alt: "“A home screen that doesn’t ask questions”: the Glint home screen on a phone over a green background" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 1134", mobile: { height: "clamp(420px, 72svh, 640px)", position: "58% 50%" }, image: { src: "assets/work/glint-home-screen.png", alt: "“A home screen that doesn’t ask questions”: the Glint home screen on a phone over a green background" } },
         {
           type: "chapter",
           label: "Send Crypto",
@@ -761,8 +761,12 @@
         }
         if (s.variant === "bleed") {
           // Edge to edge across the sheet, at the design's own proportions
+          // Optional `mobile: { height, position }` makes it taller on phones, cropped around `position`
+          var m = s.mobile;
           return figure("case-figure--full case-figure--bleed", s.caption, s.image)
-            .replace('<div class="case-media">', '<div class="case-media" style="aspect-ratio:' + (s.ratio || "1440 / 900") + '">');
+            .replace('<div class="case-media">',
+              '<div class="case-media' + (m ? " case-media--mobile-crop" : "") + '" style="aspect-ratio:' + (s.ratio || "1440 / 900") +
+              (m ? ";--m-height:" + m.height + ";--m-position:" + m.position : "") + '">');
         }
         return figure("case-figure--full", s.caption, s.image);
       case "gallery":
