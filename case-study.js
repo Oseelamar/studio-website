@@ -397,27 +397,6 @@
         { type: "media", variant: "bleed", ratio: "1440 / 1047", mobile: { height: "max(72.7vw, min(112vw, 460px))", position: "47% 50%" }, image: { src: "assets/work/glint-swap-buy.png", alt: "Two tilted phones showing Glint’s Swap Tokens and Buy BTC screens on a peach background" } },
         {
           type: "chapter",
-          label: "Request Crypto",
-          title: "Send me that bag",
-          body: [
-            "Everyone gets a default QR code and link — so anyone can pay you, anytime, from anywhere.",
-            "But when you need something specific, like 300 USDC right now, you can send a custom request.",
-            "Glint takes care of everything in the background — swapping, bridging, verifying — so you always get the exact amount, in the token you want, with zero chain drama.",
-          ],
-        },
-        { type: "media", variant: "full" },
-        {
-          type: "chapter",
-          label: "Off-Ramp",
-          title: "Cash out without the chaos",
-          body: [
-            "Withdraw your crypto in just a few taps. No technical hoops, no long wait times.",
-            "Whether it’s USD, NGN, or a domiciliary account, we make off-ramping feel effortless — built for everyday users, not blockchain experts.",
-          ],
-        },
-        { type: "media", variant: "pair" },
-        {
-          type: "chapter",
           label: "The Experience",
           title: "One tap to rule them all",
           body: [
@@ -427,18 +406,6 @@
         },
         { type: "statement", text: "The technology stays in the background.<br>The user gets a simple, familiar experience." },
         { type: "media", variant: "full" },
-        {
-          type: "chapter",
-          label: "The Result",
-          title: "Making crypto feel like magic — not math.",
-          body: [
-            "Glint turns complex blockchain infrastructure into an experience that feels simple, approachable, and human.",
-            "The product handles the complexity behind the scenes while the interface keeps users focused on what they actually came to do.",
-            "Buy. Send. Swap. Deposit. Withdraw.",
-            "No unnecessary technical decisions.",
-          ],
-        },
-        { type: "statement", text: "Just crypto that feels a little more human." },
       ],
     },
 
