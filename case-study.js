@@ -11,6 +11,7 @@
  * Section types:
  *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
+ *   { type: "cards", items: [{ src, alt }, ...] }  — 2-column grid of 652 x 400 cards
  *   { type: "shop", label, products: [[file, name, price, [h%, left%, top%, w%]], ...] }
  *                                          — scrolling product strip; images in assets/work/monazeni-shop/
  *   { type: "press", label, rows: [[[file, name, width, height], ...], ...] }
@@ -324,7 +325,16 @@
             "Glint strips away the noise. It abstracts the chain, simplifies the swap, and lets users do what they came to do — without needing to understand what’s under the hood.",
           ],
         },
-        { type: "media", variant: "full" },
+        {
+          // Stat cards from Figma (19:690, 19:698, 19:694, 19:738), 652 x 400 each, as in the Figma 2 x 2 grid
+          type: "cards",
+          items: [
+            { src: "assets/work/glint-stats/1-in-3.png", alt: "1 in 3 crypto users abandon transactions due to chain confusion." },
+            { src: "assets/work/glint-stats/60-percent.png", alt: "60% of new wallet users report fear of sending to the wrong address." },
+            { src: "assets/work/glint-stats/70-percent.png", alt: "70% of beginners say swapping tokens is the hardest part of using DeFi." },
+            { src: "assets/work/glint-stats/only-6-percent.png", alt: "Only 6% of global crypto users have access to direct fiat off-ramps." },
+          ],
+        },
         {
           type: "chapter",
           label: "The Design Direction",
@@ -694,6 +704,14 @@
           '<div class="case-chapter__head" aria-hidden="true"></div>' +
           '<div class="case-chapter__body">' + paras(s.body) + "</div>" +
           "</section>"
+        );
+      case "cards":
+        return (
+          '<div class="case-cards">' +
+          s.items.map(function (it) {
+            return '<figure class="case-figure"><div class="case-media case-media--card"><img src="' + it.src + '" alt="' + it.alt + '" loading="lazy"></div></figure>';
+          }).join("") +
+          "</div>"
         );
       case "shop": {
         // Two copies of the strip so it can scroll in a seamless loop.

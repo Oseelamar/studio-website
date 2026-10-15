@@ -776,6 +776,18 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-top: 120px;
 }
 
+/* Grid of landscape cards (e.g. Glint's stat cards, 652 x 400 each) */
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 120px;
+}
+
+.case-media.case-media--card {
+  aspect-ratio: 652 / 400;
+}
+
 /* A pair directly under a full-width image reads as one block */
 .case-figure--full + .case-pair {
   margin-top: 12px;
@@ -1347,8 +1359,13 @@ html[data-input="keyboard"] .case-close:focus-visible {
     font-size: clamp(28px, 6vw, 40px);
   }
 
-  .case-pair {
+  .case-pair,
+  .case-cards {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-cards {
+    margin-top: 88px;
   }
 
   .case-quote p,
