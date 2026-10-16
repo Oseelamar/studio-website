@@ -619,7 +619,11 @@
             "Benefits are written in plain language — “Spend less time prepping,” “Learning that feels like play.” A tabbed tour walks through the ecosystem: Design Studio, Creative Assistant, AI Imagineer, and Community Library. Pricing is simple and transparent, with a free trial to get started.",
           ],
         },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "bleed", ratio: "1440 / 860", image: { src: "assets/work/nookly-pricing-stand.jpg", alt: "The Nookly pricing page, “Learning starts with a plan”, on a phone in a marble stand on a desk" } },
+        { type: "media", variant: "pair", bleed: true, ratio: "704 / 720", images: [
+            { src: "assets/work/nookly-community-chair.jpg", alt: "The Nookly community page, “A place where every child feels seen”, on a phone leaning on a blue chair" },
+            { src: "assets/work/nookly-bike.jpg", alt: "A 3D-illustrated Nookly character: a laughing girl in a unicorn helmet riding a bike down a sunny street" },
+          ] },
         { type: "statement", text: "Make every child feel seen." },
       ],
     },
@@ -806,7 +810,7 @@
         );
       case "media":
         if (s.variant === "pair") {
-          return '<div class="case-pair"' + (s.ratio ? ' style="--pair-ratio:' + s.ratio + '"' : "") + ">" + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>";
+          return '<div class="case-pair' + (s.bleed ? " case-pair--bleed" : "") + '"' + (s.ratio ? ' style="--pair-ratio:' + s.ratio + '"' : "") + ">" + figure("", null, (s.images || [])[0]) + figure("", null, (s.images || [])[1]) + "</div>";
         }
         if (s.variant === "bleed") {
           // Edge to edge across the sheet, at the design's own proportions

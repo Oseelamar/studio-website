@@ -783,7 +783,15 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-left: calc(var(--gutter) * -1);
 }
 
+/* Edge-to-edge pair: two images spanning the full sheet width */
+.case-pair--bleed {
+  gap: 16px;
+  margin-right: calc(var(--gutter) * -1);
+  margin-left: calc(var(--gutter) * -1);
+}
+
 /* Back-to-back edge-to-edge slides sit close together */
+.case-figure--bleed + .case-pair.case-pair--bleed,
 .case-figure--bleed + .case-figure--bleed {
   margin-top: 16px;
 }
