@@ -669,7 +669,9 @@
       (image && image.video
         ? '<video src="' + image.src + '"' + (image.poster ? ' poster="' + image.poster + '"' : "") +
           ' aria-label="' + image.alt + '"' + mediaStyle(image) + " autoplay muted loop playsinline></video>"
-        : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + mediaStyle(image) + ">" : "") +
+        : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + mediaStyle(image) +
+          // Only the hero loads straight away; the rest load as they're scrolled near
+          (modifier === "case-figure--hero" ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"') + ">" : "") +
       "</div>" +
       (caption ? '<figcaption class="case-caption">' + caption + "</figcaption>" : "") +
       "</figure>"
