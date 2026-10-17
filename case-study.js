@@ -118,7 +118,7 @@
           ],
         },
         { type: "statement", text: "The visuals are there when you look for them." },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "full", image: { src: "assets/work/claremont-phone-desk.webp", alt: "The Claremont-Amani site on a phone standing on a wooden shelf in soft sunlight, showing an article and a pull quote" } },
         {
           type: "chapter",
           title: "The Experience",
