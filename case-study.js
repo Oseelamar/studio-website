@@ -79,7 +79,10 @@
           ],
         },
         { type: "statement", text: "Every element had a job.<br>Nothing needed to shout." },
-        { type: "media", variant: "pair" },
+        { type: "media", variant: "pair", images: [
+            { dna: true, alt: "A glowing DNA double helix drifting across a navy grid" },
+            { src: "assets/work/claremont-rings.jpg", alt: "Fine concentric rings of grey lines on an off-white background" },
+          ] },
         {
           type: "chapter",
           title: "Typography",
@@ -666,7 +669,13 @@
     return (
       '<figure class="case-figure ' + (modifier || "") + '">' +
       '<div class="case-media">' +
-      (image && image.video
+      (image && image.dna
+        ? // Claremont-Amani DNA frame (Figma 84:11062): navy grid with a slowly drifting helix
+          '<div class="case-dna" role="img" aria-label="' + image.alt + '">' +
+          '<img class="case-dna__helix" src="assets/work/claremont-dna/dna.jpg" alt="" loading="lazy" decoding="async">' +
+          '<img class="case-dna__grid" src="assets/work/claremont-dna/grid.svg" alt="" loading="lazy">' +
+          "</div>"
+        : image && image.video
         ? '<video src="' + image.src + '"' + (image.poster ? ' poster="' + image.poster + '"' : "") +
           ' aria-label="' + image.alt + '"' + mediaStyle(image) + " autoplay muted loop playsinline></video>"
         : image ? '<img src="' + image.src + '" alt="' + image.alt + '"' + mediaStyle(image) +
