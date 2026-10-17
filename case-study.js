@@ -240,7 +240,7 @@
             ["bag-6", "Bijou", "$239.99", [84.93, -10.79, 8.01, 121.57]],
           ],
         },
-        { type: "media", variant: "pair", images: [{ src: "assets/work/monazeni-mobile.png", alt: "The Monazeni mobile site on two phones: New Arrivals and the cart" }, { src: "assets/work/monazeni-product-page.webp", alt: "A Monazeni product page on a phone resting on a leather sofa" }] },
+        { type: "media", variant: "pair", images: [{ src: "assets/work/monazeni-mobile.webp", alt: "The Monazeni mobile site on two phones: New Arrivals and the cart" }, { src: "assets/work/monazeni-product-page.webp", alt: "A Monazeni product page on a phone resting on a leather sofa" }] },
         {
           type: "chapter",
           title: "Recognition Was Already Part of the Story",
@@ -296,7 +296,7 @@
     glint: {
       name: "Glint",
       hero: {
-        src: "assets/work/glint-cover.png",
+        src: "assets/work/glint-cover.webp",
         alt: "Glint title illustration: the Glint logo surrounded by crypto icons and characters",
       },
       title: "Meet Glint — Web3, with a smile.",
@@ -333,10 +333,10 @@
           // Stat cards from Figma (19:690, 19:698, 19:694, 19:738), 652 x 400 each, as in the Figma 2 x 2 grid
           type: "cards",
           items: [
-            { src: "assets/work/glint-stats/1-in-3.png", alt: "1 in 3 crypto users abandon transactions due to chain confusion." },
-            { src: "assets/work/glint-stats/60-percent.png", alt: "60% of new wallet users report fear of sending to the wrong address." },
-            { src: "assets/work/glint-stats/70-percent.png", alt: "70% of beginners say swapping tokens is the hardest part of using DeFi." },
-            { src: "assets/work/glint-stats/only-6-percent.png", alt: "Only 6% of global crypto users have access to direct fiat off-ramps." },
+            { src: "assets/work/glint-stats/1-in-3.webp", alt: "1 in 3 crypto users abandon transactions due to chain confusion." },
+            { src: "assets/work/glint-stats/60-percent.webp", alt: "60% of new wallet users report fear of sending to the wrong address." },
+            { src: "assets/work/glint-stats/70-percent.webp", alt: "70% of beginners say swapping tokens is the hardest part of using DeFi." },
+            { src: "assets/work/glint-stats/only-6-percent.webp", alt: "Only 6% of global crypto users have access to direct fiat off-ramps." },
           ],
         },
         {
@@ -356,7 +356,7 @@
           type: "media",
           variant: "pair",
           images: [
-            { src: "assets/work/glint-type.png", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
+            { src: "assets/work/glint-type.webp", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
             { src: "assets/work/glint-city.jpg?v=2", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
           ],
         },
@@ -379,7 +379,7 @@
             "Behind the scenes, the app handles complex logic — from chain abstraction to cross-network swaps — but what the user sees is calm, intuitive, and welcoming.",
           ],
         },
-        { type: "media", variant: "bleed", ratio: "1440 / 1134", mobile: { height: "clamp(420px, 72svh, 640px)", position: "58% 50%" }, image: { src: "assets/work/glint-home-screen.png", alt: "“A home screen that doesn’t ask questions”: the Glint home screen on a phone over a green background" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 1134", mobile: { height: "clamp(420px, 72svh, 640px)", position: "58% 50%" }, image: { src: "assets/work/glint-home-screen.webp", alt: "“A home screen that doesn’t ask questions”: the Glint home screen on a phone over a green background" } },
         {
           type: "chapter",
           label: "Send Crypto",
@@ -395,8 +395,8 @@
           ],
         },
         { type: "statement", text: "No chains. No stress. Just send." },
-        { type: "media", variant: "bleed", ratio: "1440 / 1096", mobile: { height: "clamp(380px, 60svh, 540px)", position: "50% 50%", pan: true }, image: { src: "assets/work/glint-send-flow.png", alt: "The Glint send flow on three phones: Select Tokens, Enter Amount and Preview" } },
-        { type: "media", variant: "bleed", ratio: "1440 / 1047", mobile: { height: "max(72.7vw, min(112vw, 460px))", position: "47% 50%" }, image: { src: "assets/work/glint-swap-buy.png", alt: "Two tilted phones showing Glint’s Swap Tokens and Buy BTC screens on a peach background" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 1096", mobile: { height: "clamp(380px, 60svh, 540px)", position: "50% 50%", pan: true }, image: { src: "assets/work/glint-send-flow.webp", alt: "The Glint send flow on three phones: Select Tokens, Enter Amount and Preview" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 1047", mobile: { height: "max(72.7vw, min(112vw, 460px))", position: "47% 50%" }, image: { src: "assets/work/glint-swap-buy.webp", alt: "Two tilted phones showing Glint’s Swap Tokens and Buy BTC screens on a peach background" } },
         {
           type: "chapter",
           label: "The Experience",
@@ -785,7 +785,7 @@
             '<div class="shop-card">' +
             '<div class="shop-card__media">' +
             '<div class="shop-card__frame"><div class="shop-card__box">' +
-            '<img src="assets/work/monazeni-shop/' + p[0] + '.png" alt="" loading="lazy" style="height:' + b[0] + '%;left:' + b[1] + '%;top:' + b[2] + '%;width:' + b[3] + '%">' +
+            '<img src="assets/work/monazeni-shop/' + p[0] + '.webp" alt="" loading="lazy" style="height:' + b[0] + '%;left:' + b[1] + '%;top:' + b[2] + '%;width:' + b[3] + '%">' +
             "</div></div>" +
             '<span class="shop-card__cta">Add to cart</span>' +
             "</div>" +
