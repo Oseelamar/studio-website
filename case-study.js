@@ -68,7 +68,7 @@
             "The goal was to make the website feel established, considered, and quietly confident.",
           ],
         },
-        { type: "media", variant: "full" },
+        { type: "media", variant: "full", image: { src: "assets/work/claremont-phone-hand.webp", alt: "A hand holding a phone showing the Claremont-Amani “Our three pillars” page, opening on Biobanking" } },
         {
           type: "chapter",
           title: "Designing With Restraint",
