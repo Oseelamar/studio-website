@@ -81,7 +81,7 @@
         { type: "statement", text: "Every element had a job.<br>Nothing needed to shout." },
         { type: "media", variant: "pair", images: [
             { dna: true, alt: "A glowing DNA double helix drifting across a navy grid" },
-            { src: "assets/work/claremont-rings.jpg", alt: "Fine concentric rings of grey lines on an off-white background" },
+            { video: true, src: "assets/video/claremont-rings.mp4", poster: "assets/work/claremont-rings.jpg", alt: "Four rings of fine grey lines turning slowly, each in the opposite direction to the next" },
           ] },
         {
           type: "chapter",
