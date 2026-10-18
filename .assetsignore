@@ -7,3 +7,6 @@
 wrangler.jsonc
 README.md
 assets/video/mindmates-characters.mp4
+.git/
+.claude/
+.wrangler/
