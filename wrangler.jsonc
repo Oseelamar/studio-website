@@ -1,0 +1,8 @@
+// Cloudflare Workers config: serves this folder as a static site.
+{
+  "name": "studio-website",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "."
+  }
+}

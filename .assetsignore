@@ -1,0 +1,9 @@
+# Files in this folder that are not part of the website
+.git
+.claude
+.DS_Store
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md
+assets/video/mindmates-characters.mp4
