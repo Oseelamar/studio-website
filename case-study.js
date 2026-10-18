@@ -277,7 +277,7 @@
           ],
         },
         { type: "statement", text: "You’ve probably already seen Monazeni." },
-        { type: "media", variant: "full", image: { src: "assets/work/monazeni-beach.jpg", alt: "Two people in bold printed outfits relaxing on beach chairs by the sea", position: "50% 43%" } },
+        { type: "media", variant: "full", image: { src: "assets/work/monazeni-beach.webp", alt: "Two people in bold printed outfits relaxing on beach chairs by the sea", position: "50% 43%" } },
         {
           type: "chapter",
           title: "The Digital Experience Catches Up",
@@ -360,7 +360,7 @@
           variant: "pair",
           images: [
             { src: "assets/work/glint-type.webp", alt: "Open Runde type specimen: a large orange “Aa” with Regular, Medium and Semibold tags", fit: "contain", background: "#FFE8D5" },
-            { src: "assets/work/glint-city.jpg?v=2", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
+            { src: "assets/work/glint-city.webp", alt: "Glint illustrated characters playing across a city street photo", fit: "contain", background: "#130F0E" },
           ],
         },
         {
@@ -409,9 +409,9 @@
             "Instead of making users understand chains, networks, bridges, and technical infrastructure, the experience puts the action first.",
           ],
         },
-        { type: "media", variant: "bleed", ratio: "1400 / 800", image: { src: "assets/work/glint-billboard.jpg", alt: "A Glint billboard on a city building: “Bridge? What Bridge???”" } },
+        { type: "media", variant: "bleed", ratio: "1400 / 800", image: { src: "assets/work/glint-billboard.webp", alt: "A Glint billboard on a city building: “Bridge? What Bridge???”" } },
         { type: "media", variant: "bleed", ratio: "1440 / 859", image: { src: "assets/work/glint-deposit-qr.jpg", alt: "The Glint Deposit Crypto screen with a QR code, on a phone lying flat" } },
-        { type: "media", variant: "bleed", ratio: "1440 / 900", image: { src: "assets/work/glint-poster.jpg", alt: "A Glint street poster on a wooden wall: “One tap to rule them all”" } },
+        { type: "media", variant: "bleed", ratio: "1440 / 900", image: { src: "assets/work/glint-poster.webp", alt: "A Glint street poster on a wooden wall: “One tap to rule them all”" } },
         { type: "statement", text: "The technology stays in the background.<br>The user gets a simple, familiar experience." },
       ],
     },
@@ -892,6 +892,23 @@
       "</a>";
 
     setupCarousel();
+    preloadAhead();
+  }
+
+  // Native lazy loading inside the scrolling sheet only starts an image when it is
+  // almost on screen, so each one visibly pops in. Start them about two screens early.
+  var lookahead = null;
+  function preloadAhead() {
+    if (lookahead) lookahead.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+    lookahead = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.loading = "eager";
+        lookahead.unobserve(e.target);
+      });
+    }, { root: sheet, rootMargin: "200% 0px" });
+    sheet.querySelectorAll('img[loading="lazy"]').forEach(function (img) { lookahead.observe(img); });
   }
 
   function setupCarousel() {
