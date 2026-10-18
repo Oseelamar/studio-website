@@ -138,7 +138,10 @@
             "The result is a website designed to feel confident without needing to announce its confidence.",
           ],
         },
-        { type: "media", variant: "pair" },
+        { type: "media", variant: "pair", ratio: "704 / 720", images: [
+            { src: "assets/work/claremont-studio-display.webp", alt: "The Claremont-Amani homepage, “Advancing cancer genomics and precision oncology in Africa”, on a desktop monitor beside a Mac Studio" },
+            { src: "assets/work/claremont-phone-card.webp", alt: "Hands holding a phone showing the Claremont-Amani mobile menu, next to a bank card, at a desk" },
+          ] },
         {
           type: "chapter",
           title: "The Outcome",
