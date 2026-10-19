@@ -218,7 +218,11 @@
             "The result is a balance between brand expression and usability — a shopping experience that feels considered without getting in the way of the purchase.",
           ],
         },
-        { type: "gallery", count: 4 },
+        { type: "media", variant: "bleed", ratio: "1440 / 1385", image: { src: "assets/work/monazeni-billboard.webp", alt: "A Monazeni billboard on a city rooftop: a woman holding a gold Clarita Monae bag, “For the Unforgettable.”" } },
+        { type: "media", variant: "pair", bleed: true, ratio: "711 / 648", images: [
+            { src: "assets/work/monazeni-pocket.webp", alt: "A phone showing the Monazeni FAQs page tucked into a striped shirt pocket" },
+            { src: "assets/work/monazeni-phones.webp", alt: "Four phones showing Monazeni pages: the homepage, The Society Letters, New Arrivals and a campaign story" },
+          ] },
         {
           type: "chapter",
           title: "A More Intuitive Way to Shop",
