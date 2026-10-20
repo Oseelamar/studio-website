@@ -67,7 +67,7 @@ img {
 
 .site-logo img {
   display: block;
-  width: 190px;
+  width: 145px;
   height: auto;
 }
 
@@ -1293,7 +1293,7 @@ html[data-input="keyboard"] .case-close:focus-visible {
   }
 
   .site-logo img {
-    width: 140px;
+    width: 120px;
   }
 
   .nav {
