@@ -652,18 +652,21 @@ html.menu-open {
   text-align: right;
 }
 
-/* Oversized wordmark, cropped by the footer's bottom edge as in the design */
+/* Oversized "Orange Peel" wordmark (Figma 122:18511, 1211 × 220 on a 1440 frame),
+   cropped by the footer's bottom edge as in the design. It scales with the page;
+   --w is its width and the crop and spacing keep Figma's proportions. */
 .site-footer__wordmark {
-  --wordmark-size: min(240px, 16.667vw);
-  height: calc(var(--wordmark-size) * 0.925);
-  margin-top: calc(var(--wordmark-size) * 0.2625);
-  color: var(--color-wordmark);
-  font-family: "Nanum Myeongjo", Georgia, serif;
-  font-size: var(--wordmark-size);
-  line-height: 1.25;
-  letter-spacing: -0.04em;
-  text-align: center;
-  white-space: nowrap;
+  --w: min(1211px, 84.1vw);
+  width: var(--w);
+  height: calc(var(--w) * 174 / 1211);
+  margin: calc(var(--w) * 111 / 1211) auto 0;
+  overflow: hidden;
+}
+
+.site-footer__wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ==========================================================================
