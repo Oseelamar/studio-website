@@ -1783,6 +1783,10 @@ html[data-input="keyboard"] .case-close:focus-visible {
   .cta {
     font-size: 14px;
   }
+
+  .hero__title {
+    font-size: 36px;
+  }
 }
 
 /* Title card (Nookly): a 1440 × 825 Figma frame that scales with the page.
