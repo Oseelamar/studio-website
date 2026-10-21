@@ -669,6 +669,24 @@ html.menu-open {
   height: auto;
 }
 
+/* Phones: socials and copyright stacked and centred, copyright smaller */
+@media (max-width: 600px) {
+  .site-footer__bar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .site-footer__legal {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
 /* ==========================================================================
    Case study overlay (Figma "Desktop - 250")
    ========================================================================== */
