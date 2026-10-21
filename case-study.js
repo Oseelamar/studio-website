@@ -185,7 +185,7 @@
             "A website isn’t simply where someone buys a bag. It’s part of how they perceive the brand before they decide to buy.",
           ],
         },
-        { type: "statement", maxWidth: 900, text: "The challenge wasn’t to make Monazeni look successful.<br>The challenge was to make the digital experience communicate that." },
+        { type: "statement", text: "The challenge wasn’t to make Monazeni look successful.<br>The challenge was to make the digital experience communicate that." },
         { type: "media", variant: "full", image: { src: "assets/work/monazeni-bags.webp", alt: "Monazeni bags in tan, olive, pink and black, styled on a picnic blanket" } },
         {
           type: "chapter",
