@@ -138,7 +138,7 @@ img {
   z-index: 100;
   display: none;
   flex-direction: column;
-  padding: calc(var(--menu-top, 69px) + 20px) var(--gutter) 48px;
+  padding: calc(var(--menu-top, 69px) + 48px) var(--gutter) 48px;
   overflow-y: auto;
   background: #0f0d0d;
   visibility: hidden;
