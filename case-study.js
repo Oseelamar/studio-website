@@ -195,7 +195,6 @@
             "What should the Monazeni website feel like if its digital presence actually matched its reputation?",
             "The answer wasn’t to add more. It was to make the right things matter more.",
           ],
-          bullets: true,
           list: [
             "Typography became more expressive.",
             "Imagery became more intentional.",
@@ -724,7 +723,7 @@
           "</div>" +
           '<div class="case-chapter__body">' +
           paras(s.body) +
-          (s.list ? '<ul class="case-list' + (s.bullets ? " case-list--bullets" : "") + '">' + s.list.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>" : "") +
+          (s.list ? '<ul class="case-list case-list--bullets">' + s.list.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>" : "") +
           paras(s.after) +
           "</div>" +
           "</section>"
