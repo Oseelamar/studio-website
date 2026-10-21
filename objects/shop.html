@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop — Objects</title>
+  <meta name="description" content="Objects is an independent shop for well-made, slightly unusual things for the home and every day.">
+  <meta name="theme-color" content="#FAF9F6">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/objects.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 16 16"><path d="M15 8H2M7 3 2 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 16 16"><path d="M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20"><path d="m4 4 12 12M16 4 4 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 5 5" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 20 20"><path d="M3.5 6.5h13l-1 11h-11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 8.5V5a3 3 0 0 1 6 0v3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M2 7h16M2 13h16" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 40 40"><path fill="currentColor" d="M17.6 0h4.8l-.9 15.2 11.8-9.6 3.4 3.4-9.6 11.8L40 17.6v4.8l-15.2-.9 9.6 11.8-3.4 3.4-11.8-9.6.9 15.9h-4.8l.9-15.9-11.8 9.6-3.4-3.4 9.6-11.8L0 22.4v-4.8l15.2.9L5.6 6.7 9 3.3l11.8 9.6z"/></symbol>
+</svg>
+
+<div class="announce">Free delivery on orders over $150 · <strong>30 days</strong> to change your mind</div>
+
+<header class="site-header" id="top">
+  <div class="wrap site-header__inner">
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="icon-btn menu-toggle" type="button" data-open="menu" aria-label="Open menu" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <a href="shop.html" aria-current="page">Shop</a>
+        <a href="index.html#edit">Collections</a>
+        <a href="index.html#story">About</a>
+      </nav>
+    </div>
+    <a class="wordmark" href="index.html" aria-label="Objects, home">Objects<sup aria-hidden="true">®</sup></a>
+    <div class="header-actions">
+      <button class="text-btn" type="button" data-open="search" aria-haspopup="dialog">Search</button>
+      <button class="icon-btn menu-toggle" type="button" data-open="search" aria-label="Search" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+      </button>
+      <button class="icon-btn" type="button" data-open="bag" aria-haspopup="dialog" aria-label="Shopping bag, 0 items" id="bag-button">
+        <svg aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="bag-count" data-bag-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <header class="shop-head">
+      <span class="label muted">Shop</span>
+      <h1 class="display h2" data-shop-title>Everything</h1>
+      <p>Every object we currently stock, photographed in the same light so you can compare honestly. Filter by category or sort by price.</p>
+    </header>
+    <div class="filters">
+      <div class="chips" role="group" aria-label="Filter by category" data-chips></div>
+      <label class="sort">Sort by
+        <select data-sort>
+          <option value="featured">Featured</option>
+          <option value="new">Newest</option>
+          <option value="low">Price, low to high</option>
+          <option value="high">Price, high to low</option>
+        </select>
+      </label>
+    </div>
+    <p class="result-count" data-result-count aria-live="polite"></p>
+    <ul class="grid-products" data-shop-grid></ul>
+  </div>
+  <div style="height:var(--section)"></div>
+</main>
+
+<!-- J. FOOTER ---------------------------------------------------------- -->
+<footer class="footer" id="footer-about">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+        <p>An independent shop for well-made, slightly unusual things for the home and every day. Chosen slowly, packed carefully, and built to be used.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="shop.html?c=home">Home Objects</a></li>
+          <li><a href="shop.html?c=accessories">Personal Accessories</a></li>
+          <li><a href="shop.html?c=carry">Everyday Carry</a></li>
+          <li><a href="shop.html?c=furniture">Small Furniture</a></li>
+          <li><a href="index.html#new">New in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <ul>
+          <li><a href="index.html#story">About Objects</a></li>
+          <li><a href="#" data-info>Delivery &amp; returns</a></li>
+          <li><a href="#" data-info>Care guides</a></li>
+          <li><a href="#" data-info>Gift cards</a></li>
+          <li><a href="#" data-info>FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <address>
+          <a href="mailto:hello@objects.example">hello@objects.example</a><br>
+          41 Kent Avenue<br>Brooklyn, NY 11249<br>
+          Tue–Sun, 11–7
+        </address>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-info>Instagram</a></li>
+          <li><a href="#" data-info>Pinterest</a></li>
+          <li><a href="#" data-info>TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="display footer__mark" aria-hidden="true">Objects</p>
+    <div class="footer__base">
+      <span>© 2026 Objects. A design concept. Not a real store; no orders are taken.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Dialogs ------------------------------------------------------------ -->
+<dialog class="drawer" id="bag" aria-labelledby="bag-title">
+  <div class="drawer__head">
+    <h2 class="drawer__title" id="bag-title">Your bag <span class="muted" data-bag-label></span></h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close bag"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="ship-bar" data-ship></div>
+  <div class="drawer__body" data-bag-items></div>
+  <div class="drawer__foot" data-bag-foot></div>
+</dialog>
+
+<dialog class="qv" id="qv" aria-labelledby="qv-name">
+  <div class="qv__media"><img alt="" data-qv-img></div>
+  <div class="qv__body" data-qv-body></div>
+  <button class="icon-btn qv__close" type="button" data-close aria-label="Close product details"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+</dialog>
+
+<dialog class="search" id="search" aria-label="Search">
+  <div class="wrap">
+    <div class="search__bar">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <label class="visually-hidden" for="q">Search objects</label>
+      <input id="q" type="search" placeholder="Search lamps, bags, vases…" autocomplete="off" data-search-input>
+      <button class="icon-btn" type="button" data-close aria-label="Close search"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="search__hint" data-search-hint></p>
+    <div class="search__results" data-search-results aria-live="polite"></div>
+  </div>
+</dialog>
+
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="wrap" style="display:flex;flex-direction:column;height:100%">
+    <div class="menu__head">
+      <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+      <button class="icon-btn" type="button" data-close aria-label="Close menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <nav class="menu__nav" aria-label="Mobile">
+      <a href="shop.html" data-close-nav>Shop <span>12</span></a>
+      <a href="index.html#edit" data-close-nav>Collections <span>03</span></a>
+      <a href="index.html#story" data-close-nav>About</a>
+    </nav>
+    <div class="menu__cats">
+      <a href="shop.html?c=home">Home Objects</a>
+      <a href="shop.html?c=accessories">Personal Accessories</a>
+      <a href="shop.html?c=carry">Everyday Carry</a>
+      <a href="shop.html?c=furniture">Small Furniture</a>
+    </div>
+    <p class="menu__foot">Free delivery over $150 · hello@objects.example</p>
+  </div>
+</dialog>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

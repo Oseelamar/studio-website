@@ -10,3 +10,4 @@ assets/video/mindmates-characters.mp4
 .git/
 .claude/
 .wrangler/
+objects/img/raw/

@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Objects — Ordinary things. Uncommon character.</title>
+  <meta name="description" content="Objects is an independent shop for well-made, slightly unusual things for the home and every day.">
+  <meta name="theme-color" content="#FAF9F6">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/chair-cut.webp">
+  <link rel="stylesheet" href="css/objects.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 16 16"><path d="M15 8H2M7 3 2 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 16 16"><path d="M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20"><path d="m4 4 12 12M16 4 4 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 5 5" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 20 20"><path d="M3.5 6.5h13l-1 11h-11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 8.5V5a3 3 0 0 1 6 0v3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M2 7h16M2 13h16" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 40 40"><path fill="currentColor" d="M17.6 0h4.8l-.9 15.2 11.8-9.6 3.4 3.4-9.6 11.8L40 17.6v4.8l-15.2-.9 9.6 11.8-3.4 3.4-11.8-9.6.9 15.9h-4.8l.9-15.9-11.8 9.6-3.4-3.4 9.6-11.8L0 22.4v-4.8l15.2.9L5.6 6.7 9 3.3l11.8 9.6z"/></symbol>
+</svg>
+
+<div class="announce">Free delivery on orders over $150 · <strong>30 days</strong> to change your mind</div>
+
+<header class="site-header" id="top">
+  <div class="wrap site-header__inner">
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="icon-btn menu-toggle" type="button" data-open="menu" aria-label="Open menu" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <a href="shop.html">Shop</a>
+        <a href="#edit">Collections</a>
+        <a href="#story">About</a>
+      </nav>
+    </div>
+    <a class="wordmark" href="index.html" aria-label="Objects, home">Objects<sup aria-hidden="true">®</sup></a>
+    <div class="header-actions">
+      <button class="text-btn" type="button" data-open="search" aria-haspopup="dialog">Search</button>
+      <button class="icon-btn menu-toggle" type="button" data-open="search" aria-label="Search" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+      </button>
+      <button class="icon-btn" type="button" data-open="bag" aria-haspopup="dialog" aria-label="Shopping bag, 0 items" id="bag-button">
+        <svg aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="bag-count" data-bag-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- A. HERO ------------------------------------------------------------ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero__top" style="--d:0ms">
+        <p class="label hero__label"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg>Collection Nº 07 — The Autumn Edit</p>
+        
+      </div>
+
+      <div class="hero__stage">
+        <h1 class="display hero__title" id="hero-title">
+          <span class="l1" style="--d:80ms">Ordinary things.</span>
+          <span class="l2" style="--d:180ms">Uncommon character.</span>
+        </h1>
+
+        <div class="hero__objects">
+          <a class="hero-obj hero-obj--lamp" href="#" data-qv="dome-lamp" style="--d:420ms" aria-label="Dome Table Lamp"><img src="img/lamp-solo.webp" alt="" width="651" height="700"></a>
+          <a class="hero-obj hero-obj--kettle" href="#" data-qv="songbird-kettle" style="--d:500ms" aria-label="Songbird Kettle"><img src="img/kettle-cut.webp" alt="" width="824" height="829"></a>
+          <a class="hero-obj hero-obj--chair" href="#" data-qv="pebble-chair" style="--d:300ms" aria-label="Pebble Lounge Chair"><img src="img/chair-cut.webp" alt="" width="900" height="667" fetchpriority="high"></a>
+          <a class="hero-obj hero-obj--bag" href="#" data-qv="moon-hobo" style="--d:360ms" aria-label="Moon Hobo Bag"><img src="img/bag-cut.webp" alt="" width="724" height="892"></a>
+          <a class="hero-obj hero-obj--jug" href="#" data-qv="sunday-pitcher" style="--d:440ms" aria-label="Sunday Pitcher"><img src="img/jug-cut.webp" alt="" width="900" height="773"></a>
+          <a class="hero-obj hero-obj--vase" href="#" data-qv="ripple-vase" style="--d:520ms" aria-label="Ripple Glass Vase"><img src="img/vase-cut.webp" alt="" width="627" height="872"></a>
+          <a class="hero-obj hero-obj--goblet" href="#" data-qv="stem-cup" style="--d:580ms" aria-label="Stem Cup"><img src="img/goblet-cut.webp" alt="" width="525" height="743"></a>
+          <a class="hero-obj hero-obj--strap" href="#" data-qv="confetti-strap" style="--d:640ms" aria-label="Confetti Phone Strap"><img src="img/strap-cut.webp" alt="" width="445" height="900"></a>
+          <a class="hero-obj hero-obj--ball" href="#" data-qv="wink-ball" style="--d:700ms" aria-label="Wink Desk Ball"><img src="img/ball-cut.webp" alt="" width="702" height="627"></a>
+        </div>
+
+        <div class="hero__foot" style="--d:360ms">
+          <p class="hero__statement">Well-made, slightly unexpected things for the home and the everyday, chosen to be used often and kept for a long time.</p>
+          <div class="hero__cta">
+            <a class="btn" href="shop.html">Explore the collection <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="link-arrow" href="#new">New in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B. SHOP BY CATEGORY ------------------------------------------------- -->
+  <section class="section section--tight" aria-labelledby="cat-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="label">Shop by category</span>
+          <h2 class="display h2" id="cat-title">Find your thing.</h2>
+        </div>
+        <a class="link-arrow" href="shop.html">View everything <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="categories">
+        <li class="reveal"><a class="cat" href="shop.html?c=home">
+          <div class="cat__media" style="--tint:#F4E4D8"><img src="img/kettle-sm.webp" srcset="img/kettle-sm.webp 480w, img/kettle.webp 900w" sizes="(max-width:900px) 45vw, 22vw" alt="" loading="lazy" width="480" height="480"></div>
+          <div class="cat__meta"><span class="cat__name">Home Objects <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="label cat__count" data-cat-count="home"></span></div>
+        </a></li>
+        <li class="reveal" style="--d:80ms"><a class="cat" href="shop.html?c=accessories">
+          <div class="cat__media" style="--tint:#E6E8EC"><img src="img/sunglasses-sm.webp" srcset="img/sunglasses-sm.webp 480w, img/sunglasses.webp 900w" sizes="(max-width:900px) 45vw, 22vw" alt="" loading="lazy" width="480" height="480"></div>
+          <div class="cat__meta"><span class="cat__name">Personal Accessories <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="label cat__count" data-cat-count="accessories"></span></div>
+        </a></li>
+        <li class="reveal" style="--d:160ms"><a class="cat" href="shop.html?c=carry">
+          <div class="cat__media" style="--tint:#E2EADC"><img src="img/tote-sm.webp" srcset="img/tote-sm.webp 480w, img/tote.webp 900w" sizes="(max-width:900px) 45vw, 22vw" alt="" loading="lazy" width="480" height="480"></div>
+          <div class="cat__meta"><span class="cat__name">Everyday Carry <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="label cat__count" data-cat-count="carry"></span></div>
+        </a></li>
+        <li class="reveal" style="--d:240ms"><a class="cat" href="shop.html?c=furniture">
+          <div class="cat__media" style="--tint:#F6D9DB"><img src="img/chair-sm.webp" srcset="img/chair-sm.webp 480w, img/chair.webp 900w" sizes="(max-width:900px) 45vw, 22vw" alt="" loading="lazy" width="480" height="480"></div>
+          <div class="cat__meta"><span class="cat__name">Small Furniture <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="label cat__count" data-cat-count="furniture"></span></div>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- C. BESTSELLERS ------------------------------------------------------- -->
+  <section class="section section--tight" aria-labelledby="best-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="label">Most loved this season</span>
+          <h2 class="display h2" id="best-title">Bestsellers<span class="count">(04)</span></h2>
+        </div>
+        <a class="link-arrow" href="shop.html">Shop all <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="grid-products" data-products="dome-lamp,moon-hobo,songbird-kettle,lido-sunglasses"></ul>
+    </div>
+  </section>
+
+  <!-- D. BRAND STORY ------------------------------------------------------- -->
+  <section class="section" id="story" aria-labelledby="story-title">
+    <div class="wrap story">
+      <figure class="story__media reveal">
+        <img src="img/story-sm.webp" srcset="img/story-sm.webp 512w, img/story.webp 1024w" sizes="(max-width:900px) 92vw, 46vw" alt="A still life of a vermilion dome lamp on a stack of cloth-bound books, with black sunglasses, a cream stem cup and a beaded strap." loading="lazy" width="1024" height="1536">
+        <svg class="story__sticker" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="currentColor"/><circle cx="37" cy="40" r="4.5" fill="#121110"/><path d="M58 40c2.5-3 7-3 9.5 0" stroke="#121110" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M32 58c9 12 27 12 36 0" stroke="#121110" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+      </figure>
+      <div class="story__copy reveal" style="--d:120ms">
+        <span class="label muted">Our point of view</span>
+        <h2 class="display h2" id="story-title">Life is made of little things.</h2>
+        <p><strong>The cup you reach for every morning. The lamp that changes the room. The bag that goes everywhere with you.</strong> We collect objects that make everyday life feel a little more considered.</p>
+        <dl class="story__facts">
+          <div><dt>126</dt><dd>objects in the shop</dd></div>
+          <div><dt>38</dt><dd>independent makers</dd></div>
+          <div><dt>30</dt><dd>days to change your mind</dd></div>
+        </dl>
+        <a class="link-arrow" href="#footer-about">Get to know us <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- E. THE CURATED EDIT -------------------------------------------------- -->
+  <section class="section edit" id="edit" aria-labelledby="edit-title">
+    <div class="wrap">
+      <div class="edit__head">
+        <div class="title">
+          <span class="label">The Edit — Nº 03</span>
+          <h2 class="display h2" id="edit-title">Things for Slow Mornings</h2>
+        </div>
+        <div class="intro">
+          <p>Four objects for the first, unhurried hour of the day: a kettle that sings, a cup that sits well in the hand, a pitcher for flowers and a vase that catches the light.</p>
+          <a class="link-arrow" href="shop.html?c=home">Explore the edit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="edit__body">
+        <figure class="edit__figure reveal" data-hotspots>
+          <img src="img/edit-mornings-sm.webp" srcset="img/edit-mornings-sm.webp 768w, img/edit-mornings.webp 1536w" sizes="(max-width:1024px) 92vw, 70vw" alt="Morning still life on an oak table: a chrome kettle with an orange bird whistle, a cream stem cup of coffee, a yellow pitcher, blood oranges and a cobalt glass vase holding a pink anthurium." loading="lazy" width="1536" height="1024">
+          <button class="hotspot" type="button" style="--x:18%;--y:47%" data-spot="songbird-kettle" aria-expanded="false" aria-label="1: Songbird Kettle"><span class="hotspot__dot" aria-hidden="true">1</span></button>
+          <button class="hotspot" type="button" style="--x:44.5%;--y:57%" data-spot="stem-cup" aria-expanded="false" aria-label="2: Stem Cup"><span class="hotspot__dot" aria-hidden="true">2</span></button>
+          <button class="hotspot" type="button" style="--x:63.5%;--y:46%" data-spot="sunday-pitcher" aria-expanded="false" aria-label="3: Sunday Pitcher"><span class="hotspot__dot" aria-hidden="true">3</span></button>
+          <button class="hotspot" type="button" style="--x:91.5%;--y:50%" data-spot="ripple-vase" aria-expanded="false" aria-label="4: Ripple Glass Vase"><span class="hotspot__dot" aria-hidden="true">4</span></button>
+        </figure>
+        <div class="edit__list">
+          <p class="label muted" style="margin-bottom:12px">In this edit</p>
+          <ol data-edit-list="songbird-kettle,stem-cup,sunday-pitcher,ripple-vase"></ol>
+          <p class="edit__more"><button class="btn btn--ghost btn--block" type="button" data-add-edit>Add all four to bag</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- F. NEW ARRIVALS ------------------------------------------------------ -->
+  <section class="section" id="new" aria-labelledby="new-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="label">New in</span>
+          <h2 class="display h2" id="new-title">Just found their way in.</h2>
+        </div>
+        <div class="scroller-nav" aria-label="Scroll new arrivals">
+          <button type="button" data-scroll="-1" aria-label="Previous"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+          <button type="button" data-scroll="1" aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <ul class="row-scroller" data-mini="sunday-pitcher,stem-cup,harbour-cap,confetti-strap,market-tote,wink-ball" tabindex="0" aria-label="New arrivals"></ul>
+    </div>
+  </section>
+
+  <!-- G. CAMPAIGN ---------------------------------------------------------- -->
+  <section class="campaign" aria-labelledby="campaign-title">
+    <img src="img/campaign-sm.webp" srcset="img/campaign-sm.webp 768w, img/campaign.webp 1536w" sizes="100vw" alt="Campaign still life: a glossy red lounge chair, a silver hobo bag, a yellow pitcher on a stack of books, a striped wool blanket, a green cap, an orange smiley ball and a stem cup." loading="lazy" width="1536" height="1024" data-parallax>
+    <div class="campaign__copy">
+      <span class="label">Campaign — Autumn 2026</span>
+      <h2 class="display h2" id="campaign-title">A little out of the ordinary.</h2>
+      <a class="btn" href="shop.html">Discover the edit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
+  <!-- H. EVERYDAY LIFE ----------------------------------------------------- -->
+  <section class="section" aria-labelledby="life-title">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div>
+          <span class="label">Everyday life</span>
+          <h2 class="display h2" id="life-title">Out in the world.</h2>
+        </div>
+        <p>Where our objects end up: real desks, shelves, kitchens and Saturday mornings. Sent in by the people who use them.</p>
+      </div>
+      <div class="gallery">
+        <figure class="moment moment--a reveal">
+          <div class="moment__media"><img src="img/life-desk-sm.webp" srcset="img/life-desk-sm.webp 768w, img/life-desk.webp 1536w" sizes="(max-width:900px) 92vw, 56vw" alt="A sunny oak desk with a stem cup full of pencils, a beaded phone strap and an orange desk ball." loading="lazy" width="1536" height="1024"></div>
+          <figcaption><span class="label">01 — A desk in Lisbon</span><a href="#" data-qv="stem-cup">Stem Cup</a></figcaption>
+        </figure>
+        <figure class="moment moment--b reveal" style="--d:120ms">
+          <div class="moment__media"><img src="img/life-vase-sm.webp" srcset="img/life-vase-sm.webp 512w, img/life-vase.webp 1024w" sizes="(max-width:900px) 64vw, 30vw" alt="A cobalt glass vase of white tulips on a white shelf, casting blue light on the wall." loading="lazy" width="1024" height="1536"></div>
+          <figcaption><span class="label">02 — A shelf in Copenhagen</span><a href="#" data-qv="ripple-vase">Ripple Vase</a></figcaption>
+        </figure>
+        <figure class="moment moment--c reveal">
+          <div class="moment__media"><img src="img/life-tote-sm.webp" srcset="img/life-tote-sm.webp 512w, img/life-tote.webp 1024w" sizes="(max-width:900px) 64vw, 30vw" alt="A green canvas tote full of leeks, bread and flowers, carried through a market." loading="lazy" width="1024" height="1536"></div>
+          <figcaption><span class="label">03 — Saturday market, Ghent</span><a href="#" data-qv="market-tote">Market Tote</a></figcaption>
+        </figure>
+        <figure class="moment moment--d reveal" style="--d:120ms">
+          <div class="moment__media"><img src="img/life-jug-sm.webp" srcset="img/life-jug-sm.webp 512w, img/life-jug.webp 1024w" sizes="(max-width:900px) 80vw, 30vw" alt="A yellow pitcher of wild flowers on a farmhouse table beside lemons and a green cap." loading="lazy" width="1024" height="1536"></div>
+          <figcaption><span class="label">04 — A kitchen table, Puglia</span><a href="#" data-qv="sunday-pitcher">Sunday Pitcher</a></figcaption>
+        </figure>
+        <figure class="moment moment--e reveal" style="--d:240ms">
+          <div class="moment__media"><img src="img/life-chair-sm.webp" srcset="img/life-chair-sm.webp 512w, img/life-chair.webp 1024w" sizes="(max-width:900px) 80vw, 30vw" alt="A red lounge chair with a striped blanket in a bright living room corner beside a large plant." loading="lazy" width="1024" height="1536"></div>
+          <figcaption><span class="label">05 — A reading corner, London</span><a href="#" data-qv="pebble-chair">Pebble Chair</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- I. NEWSLETTER -------------------------------------------------------- -->
+  <section class="section newsletter" aria-labelledby="news-title">
+    <svg class="deco deco--flower" viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><ellipse cx="50" cy="22" rx="12" ry="22"/><ellipse cx="50" cy="78" rx="12" ry="22"/><ellipse cx="22" cy="50" rx="22" ry="12"/><ellipse cx="78" cy="50" rx="22" ry="12"/><ellipse cx="30" cy="30" rx="12" ry="20" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="70" rx="12" ry="20" transform="rotate(-45 70 70)"/><ellipse cx="70" cy="30" rx="12" ry="20" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="20" transform="rotate(45 30 70)"/></g></svg>
+    <svg class="deco deco--smile" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#FF8A1F"/><circle cx="37" cy="40" r="4.5" fill="#121110"/><path d="M58 40c2.5-3 7-3 9.5 0" stroke="#121110" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M32 58c9 12 27 12 36 0" stroke="#121110" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+    <svg class="deco deco--scallop" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 4c8 0 12 8 19 9s15-3 19 4-1 13 1 20 9 11 7 18-10 7-14 13-2 15-9 18-13-4-23-4-16 8-23 4-4-12-9-18-13-6-14-13 5-12 7-18-3-14 1-20 12-3 19-4 11-9 19-9z"/></svg>
+    <svg class="deco deco--asterisk" viewBox="0 0 40 40" aria-hidden="true"><use href="#i-spark"/></svg>
+    <div class="wrap">
+      <span class="label muted">The Objects letter</span>
+      <h2 class="display h2" id="news-title" style="margin-top:18px">Good things, occasionally.</h2>
+      <p>New finds, thoughtful design, and little things worth knowing about. No unnecessary noise.</p>
+      <form class="signup" novalidate data-signup>
+        <label class="visually-hidden" for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="Your email address" required aria-describedby="signup-msg">
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+      <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- J. FOOTER ---------------------------------------------------------- -->
+<footer class="footer" id="footer-about">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+        <p>An independent shop for well-made, slightly unusual things for the home and every day. Chosen slowly, packed carefully, and built to be used.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="shop.html?c=home">Home Objects</a></li>
+          <li><a href="shop.html?c=accessories">Personal Accessories</a></li>
+          <li><a href="shop.html?c=carry">Everyday Carry</a></li>
+          <li><a href="shop.html?c=furniture">Small Furniture</a></li>
+          <li><a href="#new">New in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <ul>
+          <li><a href="#story">About Objects</a></li>
+          <li><a href="#" data-info>Delivery &amp; returns</a></li>
+          <li><a href="#" data-info>Care guides</a></li>
+          <li><a href="#" data-info>Gift cards</a></li>
+          <li><a href="#" data-info>FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <address>
+          <a href="mailto:hello@objects.example">hello@objects.example</a><br>
+          41 Kent Avenue<br>Brooklyn, NY 11249<br>
+          Tue–Sun, 11–7
+        </address>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-info>Instagram</a></li>
+          <li><a href="#" data-info>Pinterest</a></li>
+          <li><a href="#" data-info>TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="display footer__mark" aria-hidden="true">Objects</p>
+    <div class="footer__base">
+      <span>© 2026 Objects. A design concept. Not a real store; no orders are taken.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Dialogs ------------------------------------------------------------ -->
+<dialog class="drawer" id="bag" aria-labelledby="bag-title">
+  <div class="drawer__head">
+    <h2 class="drawer__title" id="bag-title">Your bag <span class="muted" data-bag-label></span></h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close bag"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="ship-bar" data-ship></div>
+  <div class="drawer__body" data-bag-items></div>
+  <div class="drawer__foot" data-bag-foot></div>
+</dialog>
+
+<dialog class="qv" id="qv" aria-labelledby="qv-name">
+  <div class="qv__media"><img alt="" data-qv-img></div>
+  <div class="qv__body" data-qv-body></div>
+  <button class="icon-btn qv__close" type="button" data-close aria-label="Close product details"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+</dialog>
+
+<dialog class="search" id="search" aria-label="Search">
+  <div class="wrap">
+    <div class="search__bar">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <label class="visually-hidden" for="q">Search objects</label>
+      <input id="q" type="search" placeholder="Search lamps, bags, vases…" autocomplete="off" data-search-input>
+      <button class="icon-btn" type="button" data-close aria-label="Close search"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="search__hint" data-search-hint></p>
+    <div class="search__results" data-search-results aria-live="polite"></div>
+  </div>
+</dialog>
+
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="wrap" style="display:flex;flex-direction:column;height:100%">
+    <div class="menu__head">
+      <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+      <button class="icon-btn" type="button" data-close aria-label="Close menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <nav class="menu__nav" aria-label="Mobile">
+      <a href="shop.html" data-close-nav>Shop <span>12</span></a>
+      <a href="#edit" data-close-nav>Collections <span>03</span></a>
+      <a href="#story" data-close-nav>About</a>
+    </nav>
+    <div class="menu__cats">
+      <a href="shop.html?c=home">Home Objects</a>
+      <a href="shop.html?c=accessories">Personal Accessories</a>
+      <a href="shop.html?c=carry">Everyday Carry</a>
+      <a href="shop.html?c=furniture">Small Furniture</a>
+    </div>
+    <p class="menu__foot">Free delivery over $150 · hello@objects.example</p>
+  </div>
+</dialog>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
