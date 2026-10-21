@@ -927,6 +927,27 @@ html[data-input="keyboard"] .case-close:focus-visible {
   letter-spacing: -0.18px;
 }
 
+/* Bullet-point version of the list: same text as the body, no dividing lines */
+.case-list.case-list--bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 1.25em;
+  border-bottom: 0;
+  list-style: disc;
+  color: #e6e5e5;
+}
+
+.case-list.case-list--bullets li {
+  padding: 0 0 0 4px;
+  border-top: 0;
+  line-height: 1.58;
+}
+
+.case-list.case-list--bullets li::marker {
+  color: var(--color-accent);
+}
+
 /* Media placeholders: put an <img>/<video> inside .case-media */
 .case-figure {
   margin: 0;
