@@ -166,8 +166,7 @@
         "Monazeni didn’t need an introduction.",
         "Its bags had already found their way into the places fashion brands want to be seen — featured in Vogue, Elle, BET, and Cosmopolitan, and spotted on Access Hollywood and Love Island.",
         "The brand had the recognition, the customers, and the product. What it didn’t have was a digital experience that felt like it belonged to that world.",
-        "The existing website felt dated and unintuitive, creating a disconnect between the confidence of the brand and the experience customers were having online.",
-        "We were brought in to close that gap — rethinking the site’s visual language, typography, tone, and shopping experience to create a digital presence that felt as contemporary and culturally relevant as Monazeni itself.",
+        "We were brought in to close that gap.",
       ],
       meta: {
         Client: "Monazeni",
@@ -186,7 +185,7 @@
             "A website isn’t simply where someone buys a bag. It’s part of how they perceive the brand before they decide to buy.",
           ],
         },
-        { type: "statement", text: "The challenge wasn’t to make Monazeni look successful. The brand was already successful.<br>The challenge was to make the digital experience communicate that." },
+        { type: "statement", maxWidth: 900, text: "The challenge wasn’t to make Monazeni look successful.<br>The challenge was to make the digital experience communicate that." },
         { type: "media", variant: "full", image: { src: "assets/work/monazeni-bags.webp", alt: "Monazeni bags in tan, olive, pink and black, styled on a picnic blanket" } },
         {
           type: "chapter",
@@ -844,7 +843,7 @@
       case "gallery":
         return gallery(s.count || 4);
       case "statement":
-        return '<p class="case-statement">' + s.text + "</p>";
+        return '<p class="case-statement"' + (s.maxWidth ? ' style="max-width:' + s.maxWidth + 'px"' : "") + ">" + s.text + "</p>";
       case "quote":
         return '<blockquote class="case-quote"><p>' + s.text + "</p><footer>" + s.by + "</footer></blockquote>";
       case "stats":
