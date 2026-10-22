@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Objects</title>
+  <meta name="description" content="Objects is an independent shop for well-made, slightly unusual things for the home and every day.">
+  <meta name="theme-color" content="#FAF9F6">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/objects.css">
+  <link rel="stylesheet" href="css/about.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 16 16"><path d="M15 8H2M7 3 2 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 16 16"><path d="M2 8h12" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20"><path d="m4 4 12 12M16 4 4 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 5 5" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 20 20"><path d="M3.5 6.5h13l-1 11h-11z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 8.5V5a3 3 0 0 1 6 0v3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M2 7h16M2 13h16" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 40 40"><path fill="currentColor" d="M17.6 0h4.8l-.9 15.2 11.8-9.6 3.4 3.4-9.6 11.8L40 17.6v4.8l-15.2-.9 9.6 11.8-3.4 3.4-11.8-9.6.9 15.9h-4.8l.9-15.9-11.8 9.6-3.4-3.4 9.6-11.8L0 22.4v-4.8l15.2.9L5.6 6.7 9 3.3l11.8 9.6z"/></symbol>
+</svg>
+
+<div class="announce">Free delivery on orders over $150 · <strong>30 days</strong> to change your mind</div>
+
+<header class="site-header" id="top">
+  <div class="wrap site-header__inner">
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="icon-btn menu-toggle" type="button" data-open="menu" aria-label="Open menu" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <nav class="nav" aria-label="Primary">
+        <a href="shop.html">Shop</a>
+        <a href="shop.html">Collections</a>
+        <a href="about.html" aria-current="page">About</a>
+      </nav>
+    </div>
+    <a class="wordmark" href="index.html" aria-label="Objects, home">Objects<sup aria-hidden="true">®</sup></a>
+    <div class="header-actions">
+      <button class="text-btn" type="button" data-open="search" aria-haspopup="dialog">Search</button>
+      <button class="icon-btn menu-toggle" type="button" data-open="search" aria-label="Search" aria-haspopup="dialog">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+      </button>
+      <button class="icon-btn" type="button" data-open="bag" aria-haspopup="dialog" aria-label="Shopping bag, 0 items" id="bag-button">
+        <svg aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="bag-count" data-bag-count aria-hidden="true">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="ab-hero" aria-labelledby="ab-title">
+    <div class="wrap">
+      <div class="ab-hero__top">
+        <p class="label"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg>About Objects</p>
+        <p class="label muted">Brooklyn · since 2019</p>
+      </div>
+      <h1 class="display" id="ab-title">A small shop with <em>strong opinions</em> about small things.</h1>
+      <figure class="ab-hero__photo">
+        <img src="img/about-team-sm.webp" srcset="img/about-team-sm.webp 768w, img/about-team.webp 1536w" sizes="92vw" alt="The Objects team in the shop: one leaning on the counter with a mug, one crouching beside the shop dog, one sitting on a stool, with shelves of ceramics on a mint-green wall behind them." width="1536" height="1024" fetchpriority="high">
+        <div class="ab-hero__sticker"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="currentColor"/><circle cx="37" cy="40" r="4.5" fill="#121110"/><path d="M58 40c2.5-3 7-3 9.5 0" stroke="#121110" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M32 58c9 12 27 12 36 0" stroke="#121110" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
+        <figcaption><span class="label">Ama, Theo, Ruth and Biscuit at 41 Kent Avenue</span><span class="label">Photo: a customer who offered</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Our story">
+    <div class="wrap ab-story">
+      <p class="label">How it started</p>
+      <div class="ab-story__copy reveal">
+        <p class="ab-story__lead">Objects began as a folding table at a Sunday flea market in 2019: twelve ceramics, a borrowed lamp and a hand-painted sign. We sold four things that day and talked to about two hundred people. That turned out to be the point.</p>
+        <p>Today we’re a shop on Kent Avenue and a website, but the job hasn’t changed. Find well-made things with a bit of character, meet the people who make them, and tell you honestly what they’re like to live with.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ab-principles" aria-labelledby="ab-look">
+    <div class="wrap">
+      <div class="ab-principles__head">
+        <p class="label">What we look for</p>
+        <h2 class="display h2" id="ab-look">Four rules we mostly follow.</h2>
+      </div>
+      <ol class="ab-list">
+        <li class="ab-item reveal"><span class="ab-item__no">01</span><span class="ab-item__shape"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#FF5A1F"/></svg></span><h3>Used, not displayed.</h3><p>If it only looks good on a shelf, it isn’t for us. Everything we stock lives in one of our homes for a month first.</p></li>
+        <li class="ab-item reveal"><span class="ab-item__no">02</span><span class="ab-item__shape"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#F5C518"><ellipse cx="50" cy="22" rx="12" ry="22"/><ellipse cx="50" cy="78" rx="12" ry="22"/><ellipse cx="22" cy="50" rx="22" ry="12"/><ellipse cx="78" cy="50" rx="22" ry="12"/><ellipse cx="30" cy="30" rx="12" ry="20" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="70" rx="12" ry="20" transform="rotate(-45 70 70)"/><ellipse cx="70" cy="30" rx="12" ry="20" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="20" transform="rotate(45 30 70)"/></g></svg></span><h3>A little odd.</h3><p>We like things that make you smile the second time you notice them, not just the first.</p></li>
+        <li class="ab-item reveal"><span class="ab-item__no">03</span><span class="ab-item__shape"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#1F47D6" d="M50 4c8 0 12 8 19 9s15-3 19 4-1 13 1 20 9 11 7 18-10 7-14 13-2 15-9 18-13-4-23-4-16 8-23 4-4-12-9-18-13-6-14-13 5-12 7-18-3-14 1-20 12-3 19-4 11-9 19-9z"/></svg></span><h3>Made by people we’ve met.</h3><p>Thirty-eight makers, most of whom we’ve visited. We know exactly who to call when something chips.</p></li>
+        <li class="ab-item reveal"><span class="ab-item__no">04</span><span class="ab-item__shape"><svg viewBox="0 0 40 40" aria-hidden="true" style="color:#17663D"><use href="#i-spark"/></svg></span><h3>Built to last.</h3><p>Repairable, refillable or simply sturdy. If it breaks, we’ll fix it or tell you who can.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-label="How we work">
+    <div class="wrap ab-work">
+      <figure class="ab-work__a reveal">
+        <img src="img/about-packing-sm.webp" srcset="img/about-packing-sm.webp 512w, img/about-packing.webp 1024w" sizes="(max-width:900px) 80vw, 40vw" alt="Hands wrapping a cobalt glass vase in brown tissue paper on a wooden packing table." loading="lazy" width="1024" height="1536">
+        <figcaption>Every order is wrapped by hand, in paper, by one of us. Nothing has arrived broken since March 2022. We’re not saying that out loud too often.</figcaption>
+      </figure>
+      <figure class="ab-work__b reveal">
+        <img src="img/about-sourcing-sm.webp" srcset="img/about-sourcing-sm.webp 768w, img/about-sourcing.webp 1536w" sizes="(max-width:900px) 80vw, 48vw" alt="Two of the team at an outdoor ceramics market, one holding a green cup up to the light, the other taking notes." loading="lazy" width="1536" height="1024">
+        <figcaption>Sourcing trip, Caltagirone, Sicily. Theo bought eleven cups. We needed three.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section ab-maker" aria-labelledby="ab-maker-q">
+    <div class="wrap ab-maker__grid">
+      <figure class="ab-maker__photo reveal">
+        <img src="img/about-maker-sm.webp" srcset="img/about-maker-sm.webp 512w, img/about-maker.webp 1024w" sizes="(max-width:900px) 92vw, 40vw" alt="Ceramicist Marguerite Bell in her bright pottery studio, holding a yellow glazed pitcher." loading="lazy" width="1024" height="1536">
+      </figure>
+      <div class="ab-maker__copy reveal">
+        <p class="label muted">Meet a maker</p>
+        <blockquote id="ab-maker-q">“I don’t make things for shelves. I make them for <span>Tuesday mornings.</span>”</blockquote>
+        <div class="ab-maker__who"><strong>Marguerite Bell</strong><span>Ceramicist, Hudson NY. Makes our Sunday Pitcher, about forty at a time, in a kiln older than all of us.</span></div>
+        <a class="link-arrow" href="#" data-qv="sunday-pitcher">See the pitcher <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ab-years-title">
+    <div class="wrap">
+      <div class="ab-timeline__head">
+        <span class="label">So far</span>
+        <h2 class="display h2" id="ab-years-title">Seven years, roughly.</h2>
+      </div>
+      <ol class="ab-years">
+        <li class="ab-year reveal" style="--c:#FF5A1F"><b>2019</b><h3>A table at the flea market</h3><p>Twelve ceramics, one borrowed lamp, four sales.</p></li>
+        <li class="ab-year reveal" style="--c:#F5C518"><b>2021</b><h3>The shop on Kent Avenue</h3><p>A former bike repair shop. It still smells faintly of oil when it rains.</p></li>
+        <li class="ab-year reveal" style="--c:#1F47D6"><b>2023</b><h3>Online, carefully</h3><p>The website, and a packing table we’re unreasonably proud of.</p></li>
+        <li class="ab-year reveal" style="--c:#17663D"><b>2026</b><h3>38 makers, 126 objects</h3><p>Still small. Still choosy. Biscuit now has a bed under the counter.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ab-team-title" style="padding-top:0">
+    <div class="wrap ab-team">
+      <div class="ab-team__intro">
+        <span class="label">The people</span>
+        <h2 class="display h2" id="ab-team-title">Three humans, one dog.</h2>
+        <p>We pick everything, pack everything and answer every email ourselves. If you write to us, one of these people will write back.</p>
+        <a class="link-arrow" href="mailto:hello@objects.example">Say hello <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="ab-people">
+        <li class="ab-person reveal"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#FF5A1F"><ellipse cx="50" cy="22" rx="12" ry="22"/><ellipse cx="50" cy="78" rx="12" ry="22"/><ellipse cx="22" cy="50" rx="22" ry="12"/><ellipse cx="78" cy="50" rx="22" ry="12"/><ellipse cx="30" cy="30" rx="12" ry="20" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="70" rx="12" ry="20" transform="rotate(-45 70 70)"/><ellipse cx="70" cy="30" rx="12" ry="20" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="20" transform="rotate(45 30 70)"/></g></svg><div><h3>Ama Mensah</h3><p>Founder and chief buyer. Will talk about glaze for forty minutes if you let her.</p><span class="label">Favourite object: Stem Cup</span></div></li>
+        <li class="ab-person reveal"><svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#1F47D6" d="M50 4c8 0 12 8 19 9s15-3 19 4-1 13 1 20 9 11 7 18-10 7-14 13-2 15-9 18-13-4-23-4-16 8-23 4-4-12-9-18-13-6-14-13 5-12 7-18-3-14 1-20 12-3 19-4 11-9 19-9z"/></svg><div><h3>Theo Laurent</h3><p>Shop floor and sourcing trips. Owns more cups than anyone should.</p><span class="label">Favourite object: Songbird Kettle</span></div></li>
+        <li class="ab-person reveal"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#F5C518"/></svg><div><h3>Ruth Kim</h3><p>Packing, emails and everything in between. Has never broken a parcel. Allegedly.</p><span class="label">Favourite object: Market Tote</span></div></li>
+        <li class="ab-person reveal"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#FF8A1F"/><circle cx="37" cy="40" r="4.5" fill="#121110"/><path d="M58 40c2.5-3 7-3 9.5 0" stroke="#121110" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M32 58c9 12 27 12 36 0" stroke="#121110" stroke-width="5" fill="none" stroke-linecap="round"/></svg><div><h3>Biscuit</h3><p>Head of Morale. See below.</p><span class="label">Favourite object: Pebble Chair</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ab-dog-title" style="padding-top:0">
+    <div class="wrap ab-dog">
+      <div class="ab-dog__copy reveal">
+        <span class="label">Head of Morale</span>
+        <h2 class="display h2" id="ab-dog-title">Biscuit.</h2>
+        <p>Sleeps on the stock, greets every customer, and has strong opinions about the Pebble Chair, mainly that it belongs to her.</p>
+        <dl class="ab-dog__card">
+          <dt>Joined</dt><dd>2021, from a rescue in Queens</dd>
+          <dt>Breed</dt><dd>Unclear. Mostly eyebrows.</dd>
+          <dt>Duties</dt><dd>Quality control (naps)</dd>
+        </dl>
+        <a class="link-arrow" href="#" data-qv="pebble-chair">Shop her chair, if she allows it <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <figure class="ab-dog__photo reveal">
+        <img src="img/about-dog-sm.webp" srcset="img/about-dog-sm.webp 512w, img/about-dog.webp 1024w" sizes="(max-width:900px) 92vw, 46vw" alt="Biscuit, a scruffy mixed-breed dog, asleep on the red Pebble Lounge Chair under a striped blanket, one eye half open." loading="lazy" width="1024" height="1536">
+        <div class="ab-dog__badge"><span class="label">Do not<br>disturb<br>(she will<br>anyway)</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section ab-visit" aria-labelledby="ab-visit-title">
+    <div class="wrap ab-visit__grid">
+      <figure class="ab-visit__photo reveal">
+        <img src="img/about-shopfront-sm.webp" srcset="img/about-shopfront-sm.webp 512w, img/about-shopfront.webp 1024w" sizes="(max-width:900px) 92vw, 40vw" alt="The green Objects shopfront on a sunny Brooklyn morning, its window showing a vermilion dome lamp, a red chair and colourful ceramics." loading="lazy" width="1024" height="1536">
+      </figure>
+      <div class="ab-visit__copy reveal">
+        <span class="label">Come and see us</span>
+        <h2 class="display h2" id="ab-visit-title">Things look better in person.</h2>
+        <div class="ab-visit__info">
+          <div><h3>Address</h3><address>41 Kent Avenue<br>Brooklyn, NY 11249</address></div>
+          <div><h3>Hours</h3><p>Tue–Sun, 11–7<br>Closed Mondays (Biscuit’s day off)</p></div>
+        </div>
+        <div class="ab-visit__cta">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=41+Kent+Avenue+Brooklyn+NY" target="_blank" rel="noopener">Get directions <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link-arrow" href="shop.html">Or shop online <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- J. FOOTER ---------------------------------------------------------- -->
+<footer class="footer" id="footer-about">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+        <p>An independent shop for well-made, slightly unusual things for the home and every day. Chosen slowly, packed carefully, and built to be used.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="shop.html?c=home">Home Objects</a></li>
+          <li><a href="shop.html?c=accessories">Personal Accessories</a></li>
+          <li><a href="shop.html?c=carry">Everyday Carry</a></li>
+          <li><a href="shop.html?c=furniture">Small Furniture</a></li>
+          <li><a href="index.html#new">New in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <ul>
+          <li><a href="about.html">About Objects</a></li>
+          <li><a href="#" data-info>Delivery &amp; returns</a></li>
+          <li><a href="#" data-info>Care guides</a></li>
+          <li><a href="#" data-info>Gift cards</a></li>
+          <li><a href="#" data-info>FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <address>
+          <a href="mailto:hello@objects.example">hello@objects.example</a><br>
+          41 Kent Avenue<br>Brooklyn, NY 11249<br>
+          Tue–Sun, 11–7
+        </address>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-info>Instagram</a></li>
+          <li><a href="#" data-info>Pinterest</a></li>
+          <li><a href="#" data-info>TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="display footer__mark" aria-hidden="true">Objects</p>
+    <div class="footer__base">
+      <span>© 2026 Objects. A design concept. Not a real store; no orders are taken.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Dialogs ------------------------------------------------------------ -->
+<dialog class="drawer" id="bag" aria-labelledby="bag-title">
+  <div class="drawer__head">
+    <h2 class="drawer__title" id="bag-title">Your bag <span class="muted" data-bag-label></span></h2>
+    <button class="icon-btn" type="button" data-close aria-label="Close bag"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="ship-bar" data-ship></div>
+  <div class="drawer__body" data-bag-items></div>
+  <div class="drawer__foot" data-bag-foot></div>
+</dialog>
+
+<dialog class="qv" id="qv" aria-labelledby="qv-name">
+  <div class="qv__media"><img alt="" data-qv-img></div>
+  <div class="qv__body" data-qv-body></div>
+  <button class="icon-btn qv__close" type="button" data-close aria-label="Close product details"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+</dialog>
+
+<dialog class="search" id="search" aria-label="Search">
+  <div class="wrap">
+    <div class="search__bar">
+      <svg aria-hidden="true"><use href="#i-search"/></svg>
+      <label class="visually-hidden" for="q">Search objects</label>
+      <input id="q" type="search" placeholder="Search lamps, bags, vases…" autocomplete="off" data-search-input>
+      <button class="icon-btn" type="button" data-close aria-label="Close search"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="search__hint" data-search-hint></p>
+    <div class="search__results" data-search-results aria-live="polite"></div>
+  </div>
+</dialog>
+
+<dialog class="menu" id="menu" aria-label="Menu">
+  <div class="wrap" style="display:flex;flex-direction:column;height:100%">
+    <div class="menu__head">
+      <a class="wordmark" href="index.html">Objects<sup aria-hidden="true">®</sup></a>
+      <button class="icon-btn" type="button" data-close aria-label="Close menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <nav class="menu__nav" aria-label="Mobile">
+      <a href="shop.html" data-close-nav>Shop <span>24</span></a>
+      <a href="shop.html" data-close-nav>Collections <span>24</span></a>
+      <a href="about.html" data-close-nav>About</a>
+    </nav>
+    <div class="menu__cats">
+      <a href="shop.html?c=home">Home Objects</a>
+      <a href="shop.html?c=accessories">Personal Accessories</a>
+      <a href="shop.html?c=carry">Everyday Carry</a>
+      <a href="shop.html?c=furniture">Small Furniture</a>
+    </div>
+    <p class="menu__foot">Free delivery over $150 · hello@objects.example</p>
+  </div>
+</dialog>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
