@@ -222,10 +222,10 @@
 
   function mini(p) {
     const li = document.createElement('li');
-    li.className = 'mini reveal';
+    li.className = 'mini'; // no scroll-reveal: items sit off to the side of a horizontal row
     li.innerHTML = `
       <div class="mini__media">
-        <a href="#" data-qv="${p.id}" tabindex="-1" aria-hidden="true"><img src="${img(p.img)}" srcset="${srcset(p.img)}" sizes="(max-width:640px) 60vw, 16vw" alt="" loading="lazy" width="480" height="480"></a>
+        <a href="#" data-qv="${p.id}" tabindex="-1" aria-hidden="true"><img src="${img(p.img)}" srcset="${srcset(p.img)}" sizes="(max-width:640px) 60vw, 16vw" alt="" width="480" height="480"></a>
         <button class="mini__add" type="button" data-quick="${p.id}" aria-label="Add ${p.name} to bag">${icon('plus')}</button>
       </div>
       <div><h3 class="mini__name"><a href="#" data-qv="${p.id}">${p.name}</a></h3><p class="mini__price">${money(p.price)}</p></div>`;
