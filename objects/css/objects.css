@@ -371,24 +371,33 @@ ul, ol { list-style: none; padding: 0; }
 .card__name a:hover { background-size: 100% 1px; }
 .card__price { font-variant-numeric: tabular-nums; font-weight: 500; }
 .card__sub { color: var(--ink-3); font-size: var(--t-small); }
-.swatches { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+.swatches { display: flex; align-items: center; gap: 4px; margin-top: 4px; min-width: 0; }
+/* ring hugs the dot: 14px colour inside an 18px ring */
 .swatch {
-  width: 22px; height: 22px; border-radius: 999px; position: relative;
+  --dot: 14px;
+  flex: none; width: calc(var(--dot) + 4px); height: calc(var(--dot) + 4px);
+  border-radius: 999px; position: relative;
   display: grid; place-items: center;
 }
 .swatch::before {
-  content: ''; width: 14px; height: 14px; border-radius: 999px; background: var(--c);
+  content: ''; width: var(--dot); height: var(--dot); border-radius: 999px; background: var(--c);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
 }
+/* bigger invisible tap area, no extra visual space */
+.swatch::after { content: ''; position: absolute; inset: -5px; border-radius: 999px; }
 .swatch[aria-pressed='true'] { box-shadow: inset 0 0 0 1px var(--ink); }
-.swatch-name { font-size: .75rem; color: var(--ink-2); margin-left: 4px; }
+.swatch--lg { --dot: 22px; }
+.swatch-name {
+  flex: 1; min-width: 0; margin-left: 6px;
+  font-size: .75rem; color: var(--ink-2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 @media (hover: none) {
   .card__quick { opacity: 1; transform: none; left: auto; width: 46px; min-height: 46px; padding: 0; }
   .card__quick span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .card.has-alt:hover .card__img { opacity: 1; }
   .card.has-alt:hover .card__alt { opacity: 0; }
-  .swatch { width: 32px; height: 32px; }
 }
 
 /* --- brand story -------------------------------------------------------- */

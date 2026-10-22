@@ -172,7 +172,7 @@
         ${p.colors.length > 1 ? `<div>
           <p style="font-size:.875rem;margin-bottom:8px">Colour: <strong>${p.colors[c].name}</strong></p>
           <div class="swatches" role="group" aria-label="Colour">${p.colors.map((col, i) => `
-            <button class="swatch" type="button" style="--c:${col.hex};width:36px;height:36px" aria-pressed="${i === c}" aria-label="${col.name}" data-qv-c="${i}"></button>`).join('')}
+            <button class="swatch swatch--lg" type="button" style="--c:${col.hex}" aria-pressed="${i === c}" aria-label="${col.name}" data-qv-c="${i}"></button>`).join('')}
           </div></div>` : `<p style="font-size:.875rem">Colour: <strong>${p.colors[0].name}</strong></p>`}
         <dl class="qv__specs"><dt>Material</dt><dd>${p.material}</dd><dt>Size</dt><dd>${p.size}</dd><dt>Delivery</dt><dd>2–4 working days · free over ${money(FREE_SHIP)}</dd></dl>
         <div class="qv__buy">
@@ -215,7 +215,7 @@
         <p class="card__sub">${p.material.split(',')[0]}</p>
         ${p.colors.length > 1 ? `<div class="swatches" role="group" aria-label="Colour for ${p.name}">
           ${p.colors.map((c, i) => `<button class="swatch" type="button" style="--c:${c.hex}" aria-pressed="${i === 0}" aria-label="${c.name}" data-swatch="${i}"></button>`).join('')}
-          <span class="swatch-name" aria-hidden="true">${p.colors[0].name}</span></div>` : `<div class="swatches"><span class="swatch-name" style="margin:0">${p.colors[0].name}</span></div>`}
+          <span class="swatch-name" aria-hidden="true">${p.colors[0].name}</span></div>` : `<div class="swatches"><span class="swatch-name" style="margin-left:0">${p.colors[0].name}</span></div>`}
       </div>`;
     return li;
   }
