@@ -67,7 +67,7 @@
         <div class="empty__picks">${picks.map(p => `
           <button type="button" data-qv="${p.id}"><img src="${img(p.img)}" alt="" width="480" height="480"><span>${p.name}<br><span class="muted">${money(p.price)}</span></span></button>`).join('')}
         </div></div>`;
-      foot.innerHTML = `<a class="btn btn--ghost btn--block" href="shop.html">Browse the shop</a>`;
+      foot.innerHTML = `<a class="btn btn--sm btn--ghost btn--block" href="shop.html">Browse the shop</a>`;
       return;
     }
     items.innerHTML = `<ul>${bag.map((l, i) => {
@@ -92,7 +92,7 @@
     foot.innerHTML = `
       <div class="subtotal"><span>Subtotal</span><span>${money(total)}</span></div>
       <p class="drawer__note">Taxes and delivery are calculated at checkout.</p>
-      <button class="btn btn--block" type="button" data-checkout>Checkout ${icon('arrow')}</button>
+      <button class="btn btn--md btn--block" type="button" data-checkout>Checkout ${icon('arrow')}</button>
       <p class="proto-note" data-checkout-note hidden>This is a design prototype. Checkout and payments aren’t connected, so no order has been placed.</p>`;
   }
 
@@ -181,7 +181,7 @@
             <output aria-live="polite">${qty}</output>
             <button type="button" data-qv-q="1" aria-label="Increase quantity">${icon('plus')}</button>
           </div>
-          <button class="btn" type="button" data-qv-add>Add to bag · ${money(p.price * qty)}</button>
+          <button class="btn btn--md" type="button" data-qv-add>Add to bag · ${money(p.price * qty)}</button>
         </div>`;
     };
     body.onclick = e => {
@@ -326,6 +326,41 @@
       item.addEventListener('mouseleave', () => h && (h.style.cssText = ''));
     });
   }
+
+  /* ---------- day / night still life (touch slider) ------------------ */
+  $$('[data-daynight]').forEach(box => {
+    const handle = $('.daynight__handle', box);
+    // pos = where night starts, as % from the left (100 = all day, 0 = all night)
+    const set = pos => {
+      pos = Math.max(0, Math.min(100, pos));
+      box.style.setProperty('--pos', pos + '%');
+      const night = Math.round(100 - pos);
+      handle.setAttribute('aria-valuenow', Math.round(pos));
+      handle.setAttribute('aria-valuetext', night === 0 ? 'Day' : night === 100 ? 'Night' : `${night}% night`);
+    };
+    const fromEvent = e => {
+      const r = box.getBoundingClientRect();
+      return (e.clientX - r.left) / r.width * 100;
+    };
+    handle.addEventListener('pointerdown', e => {
+      box.classList.add('is-dragged');
+      handle.setPointerCapture(e.pointerId);
+      set(fromEvent(e));
+      const move = ev => set(fromEvent(ev));
+      const up = () => { handle.removeEventListener('pointermove', move); handle.removeEventListener('pointerup', up); handle.removeEventListener('pointercancel', up); };
+      handle.addEventListener('pointermove', move);
+      handle.addEventListener('pointerup', up);
+      handle.addEventListener('pointercancel', up);
+    });
+    handle.addEventListener('keydown', e => {
+      const cur = parseFloat(box.style.getPropertyValue('--pos')) || 100;
+      const step = { ArrowLeft: -10, ArrowDown: -10, ArrowRight: 10, ArrowUp: 10, Home: -100, End: 100 }[e.key];
+      if (step === undefined) return;
+      e.preventDefault();
+      box.classList.add('is-dragged');
+      set(cur + step);
+    });
+  });
 
   /* ---------- new arrivals scroller ----------------------------------- */
   const scroller = $('.row-scroller');
