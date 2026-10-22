@@ -115,5 +115,102 @@ window.OBJECTS_PRODUCTS = [
     material: 'Soft-touch natural rubber', size: 'Ø 7 cm',
     description: 'A small, squeezable, slightly smug ball for long calls and longer afternoons.',
     colors: [{ name: 'Orange', hex: '#F07A1E', filter: 'none' }]
+  },
+  /* ---- added: autumn restock ---- */
+  {
+    id: 'bobbin-table', name: 'Bobbin Side Table', category: 'furniture', price: 280,
+    img: 'sidetable', alt: 'life-sidetable', badge: 'Bestseller',
+    material: 'Lacquered turned beech', size: 'Ø 40 × H 52 cm',
+    description: 'A stack of turned beads holding up a small round top. Just big enough for a cup, a book and a lamp.',
+    colors: [
+      { name: 'Cobalt', hex: '#2448C9', filter: 'none' },
+      { name: 'Signal Red', hex: '#D9262B', filter: 'hue-rotate(138deg) saturate(1.25)' }
+    ]
+  },
+  {
+    id: 'loop-stool', name: 'Loop Stool', category: 'furniture', price: 210,
+    img: 'stool', badge: 'New',
+    material: 'Chrome-plated steel tube, wool bouclé', size: 'Ø 42 × H 45 cm',
+    description: 'One continuous loop of polished tube under a soft bouclé cushion. A stool, a side table, a spare seat.',
+    colors: [{ name: 'Chrome / Cream', hex: '#E9E3D8', filter: 'none' }]
+  },
+  {
+    id: 'mushroom-pouf', name: 'Mushroom Pouf', category: 'furniture', price: 190,
+    img: 'pouf', badge: 'New',
+    material: 'Wool-blend upholstery, foam core', size: 'Ø 55 × H 38 cm',
+    description: 'A low, button-tufted pouf with a fat cap and a short stem. Feet up, or an extra seat when friends come over.',
+    colors: [
+      { name: 'Mustard', hex: '#C9A227', filter: 'none' },
+      { name: 'Moss', hex: '#6F7F3A', filter: 'hue-rotate(26deg) saturate(.55) brightness(.8)' }
+    ]
+  },
+  {
+    id: 'ladder-shelf', name: 'Ladder Shelf', category: 'furniture', price: 340,
+    img: 'ladder',
+    material: 'Solid ash, green stain', size: 'W 45 × H 160 cm',
+    description: 'A narrow leaning shelf with three short rungs. For towels, plants, or the books you are definitely going to read.',
+    colors: [{ name: 'Forest', hex: '#1E3D2C', filter: 'none' }]
+  },
+  {
+    id: 'wobble-candles', name: 'Wobble Candle Holders', category: 'home', price: 58,
+    img: 'candles', alt: 'life-candles', badge: 'Bestseller',
+    material: 'Glazed stoneware, set of three', size: 'H 14, 20 & 11 cm',
+    description: 'Three wavy candlesticks in red, yellow and cream. Taper candles not included, wobbles very much included.',
+    colors: [{ name: 'Red / Yellow / Cream', hex: 'linear-gradient(90deg, #D9262B 0 33%, #F2C43A 0 66%, #EFE8D8 0)', filter: 'none' }]
+  },
+  {
+    id: 'bubble-mirror', name: 'Chrome Bubble Mirror', category: 'home', price: 135,
+    img: 'mirror',
+    material: 'Polished chrome-plated zinc, glass', size: 'W 22 × H 30 cm',
+    description: 'A small table mirror in a soft, melted chrome frame. Practical in the morning, sculptural the rest of the day.',
+    colors: [{ name: 'Chrome', hex: '#C9CCD1', filter: 'none' }]
+  },
+  {
+    id: 'arc-watch', name: 'Arc Watch', category: 'accessories', price: 220,
+    img: 'watch', alt: 'life-watch', badge: 'Bestseller',
+    material: 'Brushed steel, vegetable-tanned leather', size: 'Case 38 mm · 5 ATM',
+    description: 'A plain, well-made watch with a vermilion dial and nothing else to read. Tells the time, quietly.',
+    colors: [
+      { name: 'Vermilion', hex: '#E2452A', filter: 'none' },
+      { name: 'Cobalt', hex: '#2448C9', filter: 'hue-rotate(212deg) saturate(1.1)' }
+    ]
+  },
+  {
+    id: 'hoop-earrings', name: 'Melt Hoop Earrings', category: 'accessories', price: 85,
+    img: 'earrings', badge: 'New',
+    material: '18k gold vermeil on sterling silver', size: 'Ø 26 mm',
+    description: 'Chunky hoops that look like they started to melt and thought better of it. Light enough for every day.',
+    colors: [{ name: 'Gold', hex: '#D4A73C', filter: 'none' }]
+  },
+  {
+    id: 'stripe-scarf', name: 'Deckchair Scarf', category: 'accessories', price: 95,
+    img: 'scarf',
+    material: 'Brushed lambswool', size: '180 × 30 cm',
+    description: 'Wide red and cream stripes, long fringe, very soft. The one from the campaign photograph.',
+    colors: [{ name: 'Red / Cream', hex: 'linear-gradient(90deg, #C8322B 0 50%, #EFE6D6 0)', filter: 'none' }]
+  },
+  {
+    id: 'pebble-card', name: 'Pebble Card Holder', category: 'carry', price: 48,
+    img: 'cardholder', alt: 'life-cardholder', badge: 'Bestseller',
+    material: 'Full-grain leather', size: '10 × 7 cm · holds 6 cards',
+    description: 'A slim card case with two pockets and nothing extra. Lives happily in a front pocket.',
+    colors: [
+      { name: 'Cobalt', hex: '#2448C9', filter: 'none' },
+      { name: 'Signal Red', hex: '#D9262B', filter: 'hue-rotate(138deg) saturate(1.25)' }
+    ]
+  },
+  {
+    id: 'canteen-bottle', name: 'Canteen Bottle', category: 'carry', price: 42,
+    img: 'bottle', badge: 'New',
+    material: 'Double-wall stainless steel', size: '600 ml · 24 h cold, 12 h hot',
+    description: 'A brushed steel bottle with a red loop cap you can hook on a finger or a bag.',
+    colors: [{ name: 'Steel / Red', hex: '#C4C7CC', filter: 'none' }]
+  },
+  {
+    id: 'gingham-tin', name: 'Gingham Lunch Tin', category: 'carry', price: 38,
+    img: 'lunchbox',
+    material: 'Enamelled steel, two tiers', size: '18 × 12 × 10 cm',
+    description: 'Two stacking enamel tins in green gingham, held together with a red clip. Packed lunches deserve better.',
+    colors: [{ name: 'Green Gingham', hex: 'repeating-conic-gradient(#2E6B45 0 25%, #F1EADB 0 50%) 0 0 / 6px 6px', filter: 'none' }]
   }
 ];
