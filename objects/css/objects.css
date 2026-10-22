@@ -107,6 +107,8 @@ ul, ol { list-style: none; padding: 0; }
 /* --- links & buttons ---------------------------------------------------- */
 .link-arrow {
   display: inline-flex; align-items: center; gap: 10px;
+  /* size to text + arrow, never stretch to the column */
+  width: fit-content; justify-self: start; align-self: start;
   /* secondary CTA: same type as the primary button */
   font-weight: var(--btn-weight); font-size: .8125rem; line-height: var(--btn-lh);
   letter-spacing: .06em; text-transform: uppercase;
