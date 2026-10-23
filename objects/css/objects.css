@@ -585,9 +585,9 @@ ul, ol { list-style: none; padding: 0; }
 @media (max-width: 760px) {
   /* copy sits above the photo here, so its background is sampled from the
      photo's top edge (left→right falloff) and the photo fades into it */
-  .campaign { height: auto; display: flex; flex-direction: column; background: linear-gradient(90deg, #DBCDBE, #C9BEB0); }
+  .campaign { height: auto; display: flex; flex-direction: column; background: linear-gradient(90deg, #B3AAA1, #BEB6AD); }
   .campaign img {
-    position: relative; height: auto; aspect-ratio: 4 / 5; object-position: 62% center; order: 2;
+    position: relative; height: auto; aspect-ratio: 4 / 5; object-position: 50% center; order: 2;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
             mask-image: linear-gradient(to bottom, transparent 0, #000 22%);
     margin-top: -12%;

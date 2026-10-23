@@ -11,7 +11,9 @@
  * Section types:
  *   { type: "chapter", label?, title, body: [paragraphs], list?: [items], after?: [paragraphs] }
  *   { type: "text", body: [paragraphs] }     — continues a chapter's right column
- *   { type: "palette", swatches: [{ name, hex, label, bottom? }, ...] }  — colour swatches
+ *   { type: "palette", swatches: [{ name, hex, label, bottom?, text?, outline? }, ...] }  — colour swatches
+ *                                          (`text` colours the name on light swatches, `outline` adds a
+ *                                            hairline edge to a swatch close to the sheet colour)
  *   { type: "cards", items: [{ src, alt }, ...] }  — 2-column grid of 652 x 400 cards
  *   { type: "shop", label, products: [[file, name, price, [h%, left%, top%, w%]], ...] }
  *                                          — scrolling product strip; images in assets/work/monazeni-shop/
@@ -635,6 +637,151 @@
         { type: "statement", text: "Make every child feel seen." },
       ],
     },
+
+    objects: {
+      name: "Objects",
+      hero: {
+        src: "assets/work/objects-campaign.webp",
+        alt: "Objects campaign still life: a glossy red lounge chair, a silver hobo bag, a yellow pitcher on a stack of books, a striped blanket, a green cap and an orange smiley ball",
+        position: "50% 70%",
+      },
+      title: "Ordinary things deserve an uncommon home.",
+      tags: ["E-commerce", "Art direction", "Web"],
+      intro: [
+        "Objects is a concept for an independent lifestyle shop: sculptural lamps, glossy ceramics, glass, bags and small furniture, each chosen for a bit of character.",
+        "Shops like this are built on taste. Online, most of them end up on the same template as everyone else. We wanted to design a store that feels as considered as the things it sells, without losing the basics of shopping.",
+      ],
+      meta: {
+        Client: "Objects (concept)",
+        Year: "2026",
+        Sector: "Lifestyle e-commerce",
+        Scope: "Brand direction, Art direction, Website design, Development",
+      },
+      sections: [
+        {
+          type: "chapter",
+          label: "The Problem",
+          title: "Great objects, generic shops",
+          body: [
+            "Independent shops sell things with real personality: a lamp shaped like a mushroom, a kettle with a bird on the spout. On most templates, every one of them becomes a grey thumbnail in an identical grid.",
+            "The shop’s point of view, the reason to buy from them instead of a marketplace, gets lost. And shoppers get no sense of what an object is like to live with, which makes a premium price hard to justify.",
+          ],
+        },
+        { type: "statement", text: "A $185 lamp shouldn’t look like a $15 phone case." },
+        // Placeholder: homepage on a desktop mockup
+        { type: "media", variant: "full" },
+        {
+          type: "chapter",
+          label: "The Idea",
+          title: "Playful objects, disciplined layouts",
+          body: [
+            "The line became the brief: “Ordinary things. Uncommon character.” The products are everyday — cups, bags, lamps — but each one has a quirk.",
+            "So the site does two jobs at once. It lets the objects be loud, and keeps everything around them calm: a strict grid, quiet type for shopping, and generous space.",
+          ],
+        },
+        { type: "statement", text: "The objects get to be loud because everything around them stays calm." },
+        {
+          type: "chapter",
+          label: "The Visual System",
+          title: "The colour comes from the stock",
+          body: [
+            "A warm off-white base instead of clinical white, so the objects glow against it like they would on a gallery wall. The interface itself is black, off-white and one vermilion accent. The vermilion lamp, the cobalt vase and the yellow pitcher bring the rest.",
+            "Archivo, set condensed and heavy, gives the headlines a magazine-cover voice and lets products sit on the type. Instrument Sans keeps names, prices and details easy to scan, and IBM Plex Mono labels add a catalogue feel. A few small shapes — a flower, a smiley, an asterisk — add a wink without tipping into childish.",
+          ],
+        },
+        {
+          type: "palette",
+          swatches: [
+            { name: "Warm White", hex: "#FAF9F6", label: "#8C877F", text: "#121110" },
+            { name: "Ink", hex: "#121110", label: "#8C877F", outline: true },
+            { name: "Vermilion", hex: "#FF5A1F", label: "#121110" },
+            { name: "Cobalt", hex: "#1F47D6", label: "#FAF9F6", bottom: true },
+          ],
+        },
+        {
+          type: "chapter",
+          label: "Photography",
+          title: "The photography is the product",
+          body: [
+            "Anything you shop from is a studio cutout: the same light, angle and contact shadow on every object, so a lamp and a vase can be compared honestly and placed freely in layouts — like the lamp resting on the “t” of the hero headline.",
+            "Storytelling sections use real-life scenes instead, answering the question every shopper actually has: what will this look like at my place?",
+          ],
+        },
+        { type: "media", variant: "bleed", ratio: "1536 / 1024", image: { src: "assets/work/objects-edit-mornings.webp", alt: "The “Things for Slow Mornings” still life: a chrome kettle, a stem cup, a yellow pitcher, blood oranges and a cobalt glass vase on an oak table" } },
+        {
+          type: "text",
+          body: [
+            "The first round of lifestyle photography looked too polished — soft golden light, blurry backgrounds, the same warm grade on everything. It read as staged. We reshot the direction in hard daylight, with everything in focus and honest colour, closer to real interiors photography. On a page about real people, trust matters more than prettiness.",
+          ],
+        },
+        { type: "media", variant: "pair", ratio: "704 / 880", images: [
+            { src: "assets/work/objects-about-dog.webp", alt: "Biscuit the shop dog asleep on the red Pebble Chair in hard morning sunlight", position: "50% 55%" },
+            { src: "assets/work/objects-about-team.webp", alt: "The Objects team in their shop with the shop dog, in front of shelves of ceramics on a mint-green wall", position: "45% 50%" },
+          ] },
+        {
+          type: "chapter",
+          label: "The Shopping Experience",
+          title: "A store that tells stories, and still sells",
+          body: [
+            "Every editorial moment is also a way to shop, so the story and the store are never separate places.",
+          ],
+          list: [
+            "Hover a product to see it in a real room — two jobs from one card.",
+            "Colour swatches change the actual product image.",
+            "Quick add, and a bag that slides in without leaving the page.",
+            "A shoppable “Slow Mornings” edit with numbered hotspots.",
+            "Search, category tiles and a full shop page with filters for people who already know what they want.",
+          ],
+        },
+        // Day / night: hover on desktop, drag on mobile
+        { type: "media", variant: "pair", ratio: "704 / 880", images: [
+            { src: "assets/work/objects-story.webp", alt: "The brand-story still life by day: a vermilion dome lamp on a stack of books in soft daylight", position: "50% 70%" },
+            { src: "assets/work/objects-story-night.webp", alt: "The same still life at night, lit only by the dome lamp", position: "50% 70%" },
+          ] },
+        {
+          type: "text",
+          body: [
+            "One small moment shows a product’s real purpose. Hover the brand-story photo on desktop and the room falls into night with the lamp switched on; on a phone, a handle at the edge of the frame drags the night in.",
+          ],
+        },
+        // Placeholder: mobile screens
+        { type: "media", variant: "pair" },
+        { type: "gallery", count: 4 },
+        {
+          type: "chapter",
+          label: "Trade-offs",
+          title: "What we chose, and what it cost",
+          body: [
+            "Every decision that made the shop memorable had a price.",
+          ],
+          list: [
+            "Personality over weight: big type and large photography make it heavier than a template, so motion stays subtle and switches off for people who prefer less.",
+            "An art-directed hero over a swappable banner: the lamp on the headline only works for that line, so each new campaign needs recomposing.",
+            "Simulated colourways: one photo is recoloured for each option. Fast and consistent, but a real shop would eventually reshoot every colour.",
+            "Stories over density: the homepage pushes some products further down, balanced by the shop page, categories and search.",
+            "Mobile layouts designed separately, not shrunk: a stacked still life in the hero, a seamless campaign image, a drag slider instead of hover.",
+          ],
+        },
+        {
+          type: "chapter",
+          label: "The Outcome",
+          title: "A shop with a point of view",
+          body: [
+            "A complete, responsive store concept with a homepage, a shop of 24 products, an About page, search, product details, quick add and a working bag.",
+            "The system scales without redesign: when we added twelve new products, they dropped into the existing sections and nothing needed rethinking.",
+          ],
+        },
+        {
+          type: "stats",
+          items: [
+            ["24", "Products across four categories"],
+            ["3", "Pages: home, shop and about"],
+            ["0", "Layouts changed to add twelve new products"],
+          ],
+        },
+        { type: "statement", text: "Ordinary things.<br>Uncommon character." },
+      ],
+    },
   };
 
   // "Next project" follows the order of the cards on the homepage.
@@ -761,8 +908,9 @@
       case "palette": {
         var sw = s.swatches.map(function (c) {
           return (
-            '<div class="swatch' + (c.bottom ? " swatch--bottom" : "") + '" style="background:' + c.hex + '">' +
-            '<p class="swatch__name">' + c.name + "</p>" +
+            '<div class="swatch' + (c.bottom ? " swatch--bottom" : "") + '" style="background:' + c.hex +
+            (c.outline ? ";box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)" : "") + '">' +
+            '<p class="swatch__name"' + (c.text ? ' style="color:' + c.text + '"' : "") + ">" + c.name + "</p>" +
             '<p class="swatch__hex" style="color:' + c.label + '">' + c.hex + "</p>" +
             "</div>"
           );
