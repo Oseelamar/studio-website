@@ -32,7 +32,7 @@
     renderBag();
     const count = $('[data-bag-count]');
     if (count) { count.classList.remove('bump'); void count.offsetWidth; count.classList.add('bump'); }
-    if (!silent) toast(`${byId[id].name} added to your bag`, true);
+    if (!silent) toast(`${byId[id].name} added to your&nbsp;bag`, true);
   }
 
   function setQty(i, qty) {
@@ -109,7 +109,7 @@
   function toast(msg, withBag = false) {
     const t = $('[data-toast]');
     if (!t) return;
-    t.innerHTML = msg + (withBag ? ` · <button type="button" data-open="bag" style="text-decoration:underline;text-underline-offset:3px">View bag</button>` : '');
+    t.innerHTML = `<span class="toast__msg">${msg}</span>` + (withBag ? `<button class="toast__action" type="button" data-open="bag">View bag</button>` : '');
     t.classList.add('is-on');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => t.classList.remove('is-on'), 3200);
