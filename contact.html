@@ -20,7 +20,7 @@
       setTimeout(function () { if (!window.siteMotion) document.documentElement.classList.remove("motion"); }, 3000);
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=46">
+  <link rel="stylesheet" href="styles.css?v=51">
 </head>
 <body>
   <div class="page-top">
@@ -61,12 +61,14 @@
       <h1 class="enquiry__title">Tell us what you’re working towards.</h1>
       <p class="enquiry__lede">Share a few details about your business and what you have in mind. We read every message ourselves and reply within two working days.</p>
 
-      <dl class="enquiry__facts">
-        <div class="enquiry__fact">
-          <dt>Prefer email?</dt>
-          <dd><button class="enquiry__copy" type="button" data-copy="orangepeelstudio1@gmail.com"><span data-copy-label>orangepeelstudio1@gmail.com</span><span class="enquiry__copy-hint" aria-hidden="true">Copy</span></button></dd>
+      <aside class="email-card" aria-label="Email us instead">
+        <span class="email-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></span>
+        <div class="email-card__body">
+          <p class="email-card__label">Prefer email?</p>
+          <a class="email-card__address" href="mailto:orangepeelstudio1@gmail.com">orangepeelstudio1@gmail.com</a>
         </div>
-      </dl>
+        <button class="email-card__copy" type="button" data-copy="orangepeelstudio1@gmail.com"><span class="enquiry__copy-hint">Copy</span></button>
+      </aside>
     </div>
 
     <div class="enquiry__panel">
@@ -152,7 +154,7 @@
     <div class="site-footer__wordmark" aria-hidden="true"><img src="assets/footer-wordmark.svg" width="1211" height="220" alt="" loading="lazy"></div>
   </footer>
 
-  <script src="motion.js?v=2" defer></script>
+  <script src="motion.js?v=3" defer></script>
   <script src="menu.js?v=4" defer></script>
   <script src="contact.js?v=1" defer></script>
 </body>
