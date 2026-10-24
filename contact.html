@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Orange Peel</title>
+  <meta name="description" content="Tell us about your business and what you have in mind. We reply within two working days.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:opsz,wght@14..32,400;14..32,500&family=Nanum+Myeongjo&family=Barlow:wght@500&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+  <script>
+    // Turn on scroll-in motion (motion.js) unless the visitor prefers reduced motion;
+    // if motion.js never loads, show everything anyway after a moment
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () { if (!window.siteMotion) document.documentElement.classList.remove("motion"); }, 3000);
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=46">
+</head>
+<body>
+  <div class="page-top">
+    <header class="site-header">
+      <a class="site-logo" href="index.html" aria-label="Orange Peel home"><img src="assets/logo-orange-peel.svg?v=2" width="145" height="27" alt="Orange Peel"></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="works.html">Works</a>
+        <a class="nav__link" href="index.html#pricing">Pricing</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+      </nav>
+      <a class="cta" href="#enquiry">
+        <span>Get in touch</span>
+        <img src="assets/arrow-top-right-dark.svg" width="20" height="20" alt="">
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="menu-icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><g class="menu-icon__turn menu-icon__turn--top"><path class="menu-icon__bar menu-icon__bar--top" d="M7.18 9.6H24.82"/></g><path class="menu-icon__bar menu-icon__bar--mid" d="M7.18 16H24.82"/><g class="menu-icon__turn menu-icon__turn--bottom"><path class="menu-icon__bar menu-icon__bar--bottom" d="M7.18 22.4H24.82"/></g></svg>
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-menu__links" aria-label="Menu">
+        <a class="mobile-menu__link" href="index.html">Home</a>
+        <a class="mobile-menu__link" href="works.html">Works</a>
+        <a class="mobile-menu__link" href="index.html#pricing">Pricing</a>
+        <a class="mobile-menu__link" href="index.html#services">Services</a>
+      </nav>
+      <a class="cta mobile-menu__cta" href="#enquiry">
+        <span>Get in touch</span>
+        <img src="assets/arrow-top-right-dark.svg" width="20" height="20" alt="">
+      </a>
+    </div>
+  </div>
+
+  <main class="enquiry" id="enquiry">
+    <div class="enquiry__intro">
+      <p class="enquiry__kicker">Get in touch</p>
+      <h1 class="enquiry__title">Tell us what you’re working towards.</h1>
+      <p class="enquiry__lede">Share a few details about your business and what you have in mind. We read every message ourselves and reply within two working days.</p>
+
+      <dl class="enquiry__facts">
+        <div class="enquiry__fact">
+          <dt>What happens next</dt>
+          <dd>
+            <ol class="enquiry__steps">
+              <li><span>01</span>We read your message and get back to you.</li>
+              <li><span>02</span>A short call to understand the project.</li>
+              <li><span>03</span>A clear proposal: scope, timeline and cost.</li>
+            </ol>
+          </dd>
+        </div>
+        <div class="enquiry__fact">
+          <dt>Reply time</dt>
+          <dd>Within two working days</dd>
+        </div>
+        <div class="enquiry__fact">
+          <dt>Prefer email?</dt>
+          <dd><button class="enquiry__copy" type="button" data-copy="orangepeelstudio1@gmail.com"><span data-copy-label>orangepeelstudio1@gmail.com</span><span class="enquiry__copy-hint" aria-hidden="true">Copy</span></button></dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="enquiry__panel">
+      <form class="enquiry-form" data-endpoint="/api/contact" novalidate>
+        <div class="field">
+          <label class="field__label" for="f-name">What’s your name?</label>
+          <input class="field__input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <p class="field__error" data-error-for="name">Please tell us your name.</p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="f-email">And your email address?</label>
+          <input class="field__input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required>
+          <p class="field__error" data-error-for="email">Please enter an email address we can reply to.</p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="f-company">Company or brand <span class="field__optional">Optional</span></label>
+          <input class="field__input" id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company name">
+        </div>
+
+        <fieldset class="field">
+          <legend class="field__label">What can we help with? <span class="field__optional">Choose any</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="services" value="Brand &amp; Communication"><span>Brand &amp; Communication</span></label>
+            <label class="chip"><input type="checkbox" name="services" value="Website &amp; Digital"><span>Website &amp; Digital</span></label>
+            <label class="chip"><input type="checkbox" name="services" value="Motion &amp; 3D"><span>Motion &amp; 3D</span></label>
+            <label class="chip"><input type="checkbox" name="services" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="field__label">Rough budget <span class="field__optional">Optional</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="budget" value="Under $5k"><span>Under $5k</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$5k – $15k"><span>$5k – $15k</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$15k – $30k"><span>$15k – $30k</span></label>
+            <label class="chip"><input type="radio" name="budget" value="$30k+"><span>$30k+</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="field__label" for="f-message">Tell us about the project</label>
+          <textarea class="field__input field__input--area" id="f-message" name="message" rows="4" placeholder="What are you building, and what’s changing?" required></textarea>
+          <p class="field__error" data-error-for="message">A sentence or two is plenty.</p>
+        </div>
+
+        <!-- Spam trap: hidden from people, filled in by bots -->
+        <div class="enquiry-form__trap" aria-hidden="true">
+          <label for="f-website">Leave this empty</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="enquiry-form__send">
+          <button class="cta enquiry-form__submit" type="submit">
+            <span data-submit-label>Send message</span>
+            <img src="assets/arrow-top-right-dark.svg" width="20" height="20" alt="">
+          </button>
+          <p class="enquiry-form__note">We’ll only use your details to reply to you.</p>
+        </div>
+        <p class="enquiry-form__failed" role="alert" hidden>Your message didn’t send. Please try again, or email us at <a href="mailto:orangepeelstudio1@gmail.com">orangepeelstudio1@gmail.com</a>.</p>
+      </form>
+
+      <div class="enquiry-done" tabindex="-1" hidden>
+        <svg class="enquiry-done__tick" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23"/><path d="M14 24.5l7 7 13-14"/></svg>
+        <h2 class="enquiry-done__title">Thanks<span data-done-name></span>. Your message is with us.</h2>
+        <p class="enquiry-done__text">We’ll reply to <strong data-done-email></strong> within two working days. In the meantime, have a look through our work.</p>
+        <a class="enquiry-done__link" href="works.html">See our work <img src="assets/arrow-top-right-orange.svg" width="20" height="20" alt=""></a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <img class="site-footer__rule" src="assets/footer-rule.svg" width="1360" height="7.5" alt="">
+    <div class="site-footer__bar">
+      <ul class="social-links">
+        <li><a href="#" aria-label="X (Twitter)">X</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#" aria-label="Instagram">IG</a></li>
+      </ul>
+      <p class="site-footer__legal">© OrangePeel Studios 2026 | All Rights Reserved</p>
+    </div>
+    <div class="site-footer__wordmark" aria-hidden="true"><img src="assets/footer-wordmark.svg" width="1211" height="220" alt="" loading="lazy"></div>
+  </footer>
+
+  <script src="motion.js?v=2" defer></script>
+  <script src="menu.js?v=4" defer></script>
+  <script src="contact.js?v=1" defer></script>
+</body>
+</html>

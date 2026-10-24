@@ -11,3 +11,9 @@ assets/video/mindmates-characters.mp4
 .claude/
 .wrangler/
 objects/img/raw/
+worker.js
+# Screen recordings made for mockups, not part of the site
+/objects-mobile-iphone16pro.mp4
+/orangepeel-mobile-demo.mp4
+/motion-preview.mp4
+/*.mp4.*

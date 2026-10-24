@@ -1,8 +1,23 @@
-// Cloudflare Workers config: serves this folder as a static site.
+// Cloudflare Workers config for orangepeel.design.
+// The site itself is static files ("assets"), served free and unlimited. Only requests to
+// /api/* run worker.js, which handles the contact form and emails it via Email Routing.
 {
   "name": "studio-website",
+  "main": "worker.js",
   "compatibility_date": "2026-01-01",
   "assets": {
-    "directory": "."
-  }
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    // Where enquiries are sent. Must be a verified destination in Cloudflare Email Routing.
+    "CONTACT_TO": "orangepeelstudio1@gmail.com"
+  },
+  "send_email": [
+    {
+      "name": "CONTACT_EMAIL",
+      "destination_address": "orangepeelstudio1@gmail.com"
+    }
+  ]
 }

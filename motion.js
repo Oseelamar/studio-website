@@ -8,9 +8,9 @@
   var root = document.documentElement;
   if (!root.classList.contains("motion")) return; // reduced motion, or the head script didn't run
 
-  var HEADINGS = ".hero__title, .page-title, .statement__text > p, .contact__text, .case-title, .case-statement, .case-quote > p, .case-next__title";
+  var HEADINGS = ".hero__title, .page-title, .enquiry__title, .statement__text > p, .contact__text, .case-title, .case-statement, .case-quote > p, .case-next__title";
   var MEDIA = ".work-card__media, .video-section__placeholder, .service__media, .case-media, .case-banner__frame";
-  var FADES = ".hero__link, .section-label, .works__intro, .work-card__meta, .service, .case-header .tags, .case-intro, .case-meta, .case-chapter, .case-stats, .case-palette, .cta--wide";
+  var FADES = ".enquiry__lede, .enquiry__facts, .enquiry-form > *, .hero__link, .section-label, .works__intro, .work-card__meta, .service, .case-header .tags, .case-intro, .case-meta, .case-chapter, .case-stats, .case-palette, .cta--wide";
 
   var seen = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {

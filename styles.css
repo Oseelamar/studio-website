@@ -1945,7 +1945,7 @@ html[data-input="keyboard"] .case-close:focus-visible {
    ========================================================================== */
 
 /* Big headings: each word rises from behind its own mask, line by line */
-html.motion :is(.hero__title, .page-title, .statement__text > p, .contact__text):not([data-rv]) {
+html.motion :is(.hero__title, .page-title, .enquiry__title, .statement__text > p, .contact__text):not([data-rv]) {
   visibility: hidden; /* until motion.js has wrapped the words, so nothing flashes */
 }
 
@@ -2004,4 +2004,424 @@ html.motion .rv-fade {
 html.motion .rv-fade.is-in {
   opacity: 1;
   translate: none;
+}
+
+/* ==========================================================================
+   Contact page (contact.html): a calm two-column enquiry page. Details and
+   what-happens-next on the left, a short conversational form on the right.
+   ========================================================================== */
+.enquiry {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 96px;
+  align-items: start;
+  padding: 120px var(--gutter) 160px;
+}
+
+.enquiry__intro {
+  position: sticky;
+  top: 48px;
+}
+
+.enquiry__kicker {
+  margin: 0 0 24px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.enquiry__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -1.68px;
+}
+
+.enquiry__lede {
+  max-width: 460px;
+  margin: 28px 0 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: -0.18px;
+}
+
+.enquiry__facts {
+  display: grid;
+  gap: 32px;
+  margin: 64px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.enquiry__fact dt {
+  margin-bottom: 10px;
+  color: #8a8483;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+}
+
+.enquiry__fact dd {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.enquiry__steps {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enquiry__steps li {
+  display: flex;
+  gap: 14px;
+}
+
+.enquiry__steps span {
+  flex-shrink: 0;
+  padding-top: 3px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.enquiry__copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.enquiry__copy [data-copy-label] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.enquiry__copy-hint {
+  color: #8a8483;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.enquiry__copy:hover .enquiry__copy-hint,
+.enquiry__copy.is-copied .enquiry__copy-hint {
+  color: var(--color-accent);
+}
+
+/* The form */
+.enquiry__panel {
+  max-width: 720px;
+}
+
+.enquiry-form {
+  display: grid;
+  gap: 48px;
+  transition: opacity 0.35s ease, translate 0.35s ease;
+}
+
+.enquiry-form.is-leaving {
+  opacity: 0;
+  translate: 0 -12px;
+}
+
+.field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: 14px;
+  padding: 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  letter-spacing: -0.18px;
+}
+
+.field__optional {
+  margin-left: 8px;
+  color: #6f6968;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  padding: 6px 0 14px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -0.56px;
+  transition: border-color 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field__input::placeholder {
+  color: #4d4746;
+}
+
+.field__input:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.field__input--area {
+  min-height: 96px;
+  resize: none;
+  overflow: hidden;
+}
+
+.field__error {
+  display: none;
+  margin: 10px 0 0;
+  color: #ff8a65;
+  font-size: 14px;
+}
+
+.field.is-invalid .field__input {
+  border-bottom-color: #ff8a65;
+}
+
+.field.is-invalid .field__error {
+  display: block;
+}
+
+/* Tap-to-select options */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip span {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 72px;
+  font-size: 16px;
+  letter-spacing: -0.16px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover span {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.chip input:checked + span {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-ink);
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.enquiry-form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.enquiry-form__send {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.cta.enquiry-form__submit {
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.enquiry-form.is-sending .enquiry-form__submit {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.enquiry-form__note {
+  margin: 0;
+  color: #8a8483;
+  font-size: 14px;
+}
+
+.enquiry-form__failed {
+  margin: -24px 0 0;
+  color: #ff8a65;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.enquiry-form__failed a {
+  color: inherit;
+}
+
+/* Sent */
+.enquiry-done {
+  padding: 24px 0;
+  outline: none;
+  opacity: 0;
+  translate: 0 16px;
+  transition: opacity 0.6s ease, translate 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enquiry-done.is-shown {
+  opacity: 1;
+  translate: none;
+}
+
+.enquiry-done__tick {
+  width: 56px;
+  height: 56px;
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+}
+
+.enquiry-done__tick path {
+  stroke-width: 2.5;
+  stroke-dasharray: 32;
+  stroke-dashoffset: 32;
+  transition: stroke-dashoffset 0.6s ease 0.35s;
+}
+
+.enquiry-done.is-shown .enquiry-done__tick path {
+  stroke-dashoffset: 0;
+}
+
+.enquiry-done__title {
+  max-width: 560px;
+  margin: 32px 0 0;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+}
+
+.enquiry-done__text {
+  max-width: 480px;
+  margin: 20px 0 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.enquiry-done__text strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.enquiry-done__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .enquiry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 64px;
+    padding-top: 64px;
+    padding-bottom: 96px;
+  }
+
+  .enquiry__intro {
+    position: static;
+  }
+
+  .enquiry__title {
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -0.03em;
+  }
+
+  .enquiry__lede {
+    font-size: 17px;
+  }
+
+  .enquiry__facts {
+    margin-top: 40px;
+  }
+
+  .enquiry-form {
+    gap: 40px;
+  }
+
+  .field__label {
+    font-size: 17px;
+  }
+
+  .field__input {
+    font-size: 22px;
+  }
+
+  .enquiry-done__title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chip span {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+
+  .enquiry-form__submit {
+    width: 100%;
+    justify-content: center;
+  }
 }
