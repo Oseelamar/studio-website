@@ -765,16 +765,18 @@ dialog[open] { animation: fade .3s var(--ease); }
 .toast {
   position: fixed; left: 50%; bottom: 24px; z-index: 120;
   transform: translate(-50%, 120%); opacity: 0;
-  /* hug the text on one line; only wrap once it reaches 80% of the screen */
-  width: max-content; max-width: min(80vw, 560px);
+  /* one line that hugs the text; it can grow out to the page margins.
+     If it still doesn't fit, only "View bag" drops below, as a whole */
+  width: max-content; max-width: calc(100vw - 32px);
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; column-gap: 10px; row-gap: 2px;
   background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 26px;
   font-size: var(--t-small); font-weight: 500; line-height: 1.4; text-align: center;
   transition: transform .45s var(--ease-out), opacity .3s;
 }
-.toast__msg { min-width: 0; text-wrap: balance; }
+.toast__msg { white-space: nowrap; }
 .toast__action { white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
 .toast.is-on { transform: translate(-50%, 0); opacity: 1; }
+@media (max-width: 359px) { .toast { padding: 12px 16px; font-size: 12px; } }
 
 /* reveal on scroll */
 .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease-out), transform 1.1s var(--ease-out); transition-delay: var(--d, 0ms); }
