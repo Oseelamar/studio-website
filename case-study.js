@@ -667,7 +667,7 @@
             "The shop’s point of view, the reason to buy from them instead of a marketplace, gets lost. And shoppers get no sense of what an object is like to live with, which makes a premium price hard to justify.",
           ],
         },
-        { type: "statement", text: "A $185 lamp shouldn’t look like a $15 phone case." },
+        { type: "statement", text: "A $185 lamp shouldn’t<br>look like a $15 phone case." },
         { type: "media", variant: "full", ratio: "16 / 10", image: { video: true, src: "assets/video/objects-categories.mp4", poster: "assets/video/objects-categories-poster.webp", alt: "The Objects category menu: hovering Lamps, Ceramics, Glass, Bags and Furniture brings up a product for each, like a blue glass vase over Glass" } },
         {
           type: "chapter",
