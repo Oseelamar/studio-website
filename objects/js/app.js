@@ -474,6 +474,31 @@
   }
 
   renderBag();
+  /* ---------- scroll position on load ------------------------------- */
+  // A refresh always starts at the top. A #section link followed from another
+  // page still lands on that section, but the #hash is then dropped from the
+  // address so the next refresh doesn't jump back down to it.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const navType = performance.getEntriesByType?.('navigation')[0]?.type;
+  if (location.hash) {
+    const target = navType !== 'reload' && document.getElementById(location.hash.slice(1));
+    history.replaceState(null, '', location.pathname + location.search);
+    if (target) requestAnimationFrame(() => target.scrollIntoView());
+    else scrollTo(0, 0);
+  } else scrollTo(0, 0);
+
+  // Same-page #links scroll smoothly without writing the #hash into the address
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute('href') === '#' || e.defaultPrevented) return;
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (!target) return;
+    e.preventDefault();
+    if (a.closest('dialog')?.open) a.closest('dialog').close();
+    target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    if (target.matches('#main')) target.focus?.({ preventScroll: true });
+  });
+
   /* ---------- headline reveal --------------------------------------- */
   // Each word (or letter, for the footer wordmark) sits in its own clipping
   // box and rises into view; words on the same line share a delay, so the
