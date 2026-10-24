@@ -1046,6 +1046,7 @@
 
     setupCarousel();
     preloadAhead();
+    if (window.siteMotion) window.siteMotion.scan(sheet);
   }
 
   // Native lazy loading inside the scrolling sheet only starts an image when it is

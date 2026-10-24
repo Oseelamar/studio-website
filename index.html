@@ -11,7 +11,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Inter:opsz,wght@14..32,400;14..32,500&family=Nanum+Myeongjo&family=Barlow:wght@500&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=44">
+  <script>
+    // Turn on scroll-in motion (motion.js) unless the visitor prefers reduced motion;
+    // if motion.js never loads, show everything anyway after a moment
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () { if (!window.siteMotion) document.documentElement.classList.remove("motion"); }, 3000);
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=45">
 </head>
 <body>
   <main class="hero">
@@ -220,7 +228,8 @@
     <article class="case-sheet"></article>
   </div>
 
+  <script src="motion.js?v=1" defer></script>
   <script src="menu.js?v=4" defer></script>
-  <script src="case-study.js?v=64" defer></script>
+  <script src="case-study.js?v=65" defer></script>
 </body>
 </html>
