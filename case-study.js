@@ -668,8 +668,7 @@
           ],
         },
         { type: "statement", text: "A $185 lamp shouldn’t look like a $15 phone case." },
-        // Placeholder: homepage on a desktop mockup
-        { type: "media", variant: "full" },
+        { type: "media", variant: "full", ratio: "16 / 10", image: { video: true, src: "assets/video/objects-categories.mp4", poster: "assets/video/objects-categories-poster.webp", alt: "The Objects category menu: hovering Lamps, Ceramics, Glass, Bags and Furniture brings up a product for each, like a blue glass vase over Glass" } },
         {
           type: "chapter",
           label: "The Idea",
