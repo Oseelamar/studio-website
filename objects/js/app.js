@@ -146,7 +146,6 @@
     if (o) { e.preventDefault(); openDialog(o.dataset.open); return; }
     const c = e.target.closest('[data-close]');
     if (c) { c.closest('dialog')?.close(); return; }
-    if (e.target.closest('[data-close-nav]')) dialogs.menu?.close();
     const qv = e.target.closest('[data-qv]');
     if (qv) { e.preventDefault(); openQuickView(qv.dataset.qv); return; }
     const info = e.target.closest('[data-info]');
@@ -424,7 +423,8 @@
       if (s === 'new') list = [...list].sort((a, b) => (b.badge === 'New') - (a.badge === 'New'));
       shopGrid.replaceChildren(...list.map(card));
       count.textContent = `${list.length} object${list.length === 1 ? '' : 's'}`;
-      title.textContent = cat === 'all' ? 'Everything' : CATS[cat].name;
+      const nextTitle = cat === 'all' ? 'Everything' : CATS[cat].name;
+      if (title.textContent !== nextTitle || !title.classList.contains('is-split')) { title.textContent = nextTitle; window.revealHeading?.(title, true); }
       $$('.chip', chips).forEach(b => b.setAttribute('aria-pressed', b.dataset.cat === cat));
       observeReveals();
     };
@@ -474,6 +474,137 @@
   }
 
   renderBag();
+  /* ---------- headline reveal --------------------------------------- */
+  // Each word (or letter, for the footer wordmark) sits in its own clipping
+  // box and rises into view; words on the same line share a delay, so the
+  // heading reads as lines sliding up from behind an invisible frame.
+  function splitHeading(h) {
+    const chars = h.classList.contains('footer__mark');
+    const mask = node => {
+      const m = document.createElement('span'); m.className = 'rw';
+      const i = document.createElement('span'); i.className = 'rw__i';
+      i.append(node); m.append(i); return m;
+    };
+    const wrapText = text => {
+      const f = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { f.append(' '); return; }
+        if (chars) [...part].forEach(c => f.append(mask(document.createTextNode(c))));
+        else f.append(mask(document.createTextNode(part)));
+      });
+      return f;
+    };
+    const walk = el => [...el.childNodes].forEach(n => {
+      if (n.nodeType === 3) n.replaceWith(wrapText(n.textContent));
+      else if (n.nodeType === 1 && n.tagName !== 'BR' && !n.classList.contains('rw')) {
+        if (/\s/.test(n.textContent.trim())) walk(n);          // e.g. <em>strong opinions</em>, hero lines
+        else { const m = mask(document.createTextNode('')); n.replaceWith(m); m.firstChild.append(n); }  // e.g. (08)
+      }
+    });
+    if (!h.querySelector('.rw')) walk(h);
+    // group words into visual lines
+    let line = -1, top = null, ci = 0;
+    h.querySelectorAll('.rw').forEach(r => {
+      const t = r.getBoundingClientRect().top;
+      if (top === null || Math.abs(t - top) > 8) { line++; top = t; ci = 0; }
+      r.style.setProperty('--li', line);
+      if (chars) r.style.setProperty('--ci', ci++);
+    });
+    h.classList.add('is-split');
+  }
+  let hio = null;
+  function revealHeading(h, replay) {
+    if (reduced) { h.classList.add('is-split', 'is-revealed'); return; }
+    if (replay) h.classList.remove('is-revealed');
+    splitHeading(h);
+    if (replay) { void h.offsetWidth; requestAnimationFrame(() => h.classList.add('is-revealed')); return; }
+    hio ||= new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-revealed'); hio.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: .15 });
+    hio.observe(h);
+  }
+  window.revealHeading = revealHeading;
+  let headingsDone = false;
+  const initHeadings = () => {
+    if (headingsDone) return; headingsDone = true;
+    $$('h1.display, h2.display, .footer__mark').forEach(h => {
+      if (h.classList.contains('hero__title')) h.style.setProperty('--hd', '150ms');
+      revealHeading(h);
+    });
+  };
+  (document.fonts?.ready || Promise.resolve()).then(initHeadings);
+  setTimeout(initHeadings, 1500);   // never leave headings hidden if fonts stall
+
+  /* ---------- large photos wipe up into view --------------------------- */
+  if (!reduced && 'IntersectionObserver' in window) {
+    // watch each photo's container: a fully clipped element never counts as "visible"
+    const mio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target._mreveal.classList.add('is-in'); mio.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -6% 0px', threshold: .12 });
+    $$('.edit__figure > img, .moment__media img, .story__media .daynight, .ab-hero__photo img, .ab-work img, .ab-maker__photo img, .ab-dog__photo img, .ab-visit__photo img')
+      .forEach(el => { el.classList.add('mreveal'); el.parentElement._mreveal = el; mio.observe(el.parentElement); });
+  }
+
+  /* ---------- page transitions ---------------------------------------- */
+  const veil = document.createElement('div'); veil.className = 'page-veil'; document.body.append(veil);
+  const isPageLink = a => {
+    if (!a || a.target || a.hasAttribute('download') || a.hasAttribute('data-qv') || a.hasAttribute('data-open')) return false;
+    const href = a.getAttribute('href') || '';
+    if (!href || href.startsWith('#') || /^(mailto|tel):/.test(href)) return false;
+    const u = new URL(a.href, location.href);
+    if (u.origin !== location.origin) return false;
+    return !(u.pathname === location.pathname && u.search === location.search);   // same page + #hash: normal scroll
+  };
+  function leaveTo(url, wait = 0) {
+    if (reduced) { location.href = url; return; }
+    setTimeout(() => {
+      document.documentElement.classList.add('is-leaving');
+      setTimeout(() => { location.href = url; }, 520);
+    }, wait);
+  }
+  addEventListener('pageshow', e => { if (e.persisted) document.documentElement.classList.remove('is-leaving'); });
+
+  /* ---------- mobile menu: rise in, sink out --------------------------- */
+  const menu = dialogs.menu;
+  if (menu) {
+    menu.querySelectorAll('.menu__nav a, .menu__cats a, .menu__foot').forEach((el, i) => {
+      const mm = document.createElement('span'); mm.className = 'mm';
+      const mi = document.createElement('span'); mi.className = 'mi';
+      mi.append(...el.childNodes); mm.append(mi); el.append(mm);
+      mi.style.setProperty('--i', i);
+    });
+    new MutationObserver(() => {
+      if (menu.open) {
+        menu.classList.remove('is-leaving', 'is-closing');
+        requestAnimationFrame(() => requestAnimationFrame(() => menu.classList.add('is-shown')));
+      } else menu.classList.remove('is-shown', 'is-leaving', 'is-closing');
+    }).observe(menu, { attributes: true, attributeFilter: ['open'] });
+    const closeMenu = () => {
+      if (reduced) { menu.close(); return; }
+      menu.classList.add('is-leaving');
+      setTimeout(() => { menu.classList.add('is-closing'); setTimeout(() => menu.close(), 430); }, 260);
+    };
+    menu.querySelector('[data-close]')?.addEventListener('click', e => { e.stopPropagation(); closeMenu(); }, true);
+    menu.addEventListener('cancel', e => { e.preventDefault(); closeMenu(); });
+    menu.addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      e.preventDefault(); e.stopPropagation();
+      if (!isPageLink(a)) { closeMenu(); return; }
+      menu.classList.add('is-leaving');                       // links sink back down…
+      setTimeout(() => { location.href = a.href; }, reduced ? 0 : 640);   // …then the next page loads
+    });
+  }
+  // every other internal page link: content sinks and fades, then navigate
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest('a[href]');
+    if (!a || a.closest('dialog') || !isPageLink(a)) return;
+    e.preventDefault();
+    leaveTo(a.href);
+  });
+
   const ready = () => document.documentElement.classList.add('is-ready');
   requestAnimationFrame(() => requestAnimationFrame(ready));
   setTimeout(ready, 400); // background tabs may never paint a frame
