@@ -975,6 +975,11 @@ html[data-input="keyboard"] .case-close:focus-visible {
   margin-top: 120px;
 }
 
+/* A full-width image straight after the colour palette sits close to it, as one block */
+.case-palette + .case-figure--full {
+  margin-top: 12px;
+}
+
 .case-caption {
   margin-top: 16px;
   color: rgba(255, 255, 255, 0.5);

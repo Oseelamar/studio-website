@@ -698,6 +698,7 @@
             { name: "Cobalt", hex: "#1F47D6", label: "#FAF9F6", bottom: true },
           ],
         },
+        { type: "media", variant: "full", ratio: "16 / 9", image: { video: true, src: "assets/video/objects-display-type.mp4", poster: "assets/video/objects-display-type-poster.webp", alt: "Archivo Condensed Extrabold specimen: “ABC 1234” with a different Objects product between the letters and numbers in each frame" } },
         {
           type: "chapter",
           label: "Photography",
@@ -986,7 +987,10 @@
               '<div class="case-media' + (m ? " case-media--mobile-crop" : "") + (m && m.pan ? " case-media--pan" : "") + '" style="aspect-ratio:' + (s.ratio || "1440 / 900") +
               (m ? ";--m-height:" + m.height + ";--m-position:" + m.position : "") + '">');
         }
-        return figure("case-figure--full", s.caption, s.image);
+        // Optional `ratio` keeps a full-width image or video at its own shape on every screen
+        return s.ratio
+          ? figure("case-figure--full", s.caption, s.image).replace('<div class="case-media">', '<div class="case-media" style="aspect-ratio:' + s.ratio + '">')
+          : figure("case-figure--full", s.caption, s.image);
       case "gallery":
         return gallery(s.count || 4);
       case "statement":
