@@ -1,0 +1,153 @@
+/* still, sunday. — hero.
+   Desktop follows the Figma frame (1440×900) proportionally; every position is a share of that frame.
+   Below 1024px the art moves under the copy. */
+
+/* Graphik is a licensed face: this uses the copy installed on the viewing machine.
+   Self-host the woff2 files here once a web licence is in place. */
+@font-face {
+  font-family: "Graphik";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("Graphik Regular"), local("Graphik-Regular"), local("Graphik");
+}
+
+:root {
+  --bg: #9BD0F5;
+  --heading: #2D180E;
+  --body: #3C2E21;
+  --button: #43180D;
+  --button-hover: #5A2214;
+  --white: #FFFFFF;
+  --focus: #1467E8;
+
+  --f-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-sans: "Graphik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link {
+  position: absolute; left: var(--gutter); top: -60px; z-index: 10;
+  background: var(--button); color: var(--white); padding: 10px 16px; border-radius: 62px;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Phone and tablet: stacked ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+}
+
+.brand { padding: 28px var(--gutter-r) 0 var(--gutter); position: relative; z-index: 2; }
+.logo { display: inline-block; }
+.logo img { width: clamp(160px, 16.4vw, 236px); height: auto; }
+
+.hero-copy {
+  position: relative; z-index: 2;
+  padding: 56px var(--gutter-r) 0 var(--gutter);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 40px;
+}
+.hero-text { display: flex; flex-direction: column; gap: 12px; max-width: 470px; }
+
+h1 {
+  margin: 0;
+  font-family: var(--f-serif); font-weight: 400;
+  font-size: clamp(44px, 5vw, 72px); line-height: 1.08; letter-spacing: -0.05em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+.lede {
+  margin: 0;
+  font-size: clamp(16px, 1.25vw, 18px); line-height: 1.48; letter-spacing: -0.03em;
+  color: var(--body);
+}
+
+.cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 24px 16px 32px; border-radius: 62px;
+  background: var(--button); color: var(--white);
+  font-size: 18px; line-height: 1.32; letter-spacing: -0.02em; text-decoration: none;
+  transition: background-color .15s ease;
+}
+.cta:hover { background: var(--button-hover); }
+.cta img { width: 20px; height: 20px; transition: transform .2s ease; }
+.cta:hover img { transform: translateX(3px); }
+
+.hero-art {
+  position: relative;
+  margin-top: 24px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  /* soften the plate's edges into the page background */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%);
+  mask-image: linear-gradient(to bottom, transparent, #000 10%);
+}
+.hero-art img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 78% 50%;
+}
+
+@media (max-width: 699px) {
+  .cta { font-size: 17px; }
+}
+
+@media (min-width: 700px) {
+  .brand { padding-top: 40px; }
+  .hero-copy { padding-top: 72px; }
+  .hero-art { aspect-ratio: 4 / 3; margin-top: 0; }
+  .hero-art img { object-position: center; }
+}
+
+/* ---------- Desktop: the Figma frame, scaled ---------- */
+
+@media (min-width: 1024px) {
+  .hero {
+    display: block;
+    aspect-ratio: 1440 / 900;
+    min-height: 600px;
+  }
+  .brand {
+    position: absolute; left: calc(120 / 1440 * 100%); top: calc(51 / 900 * 100%);
+    padding: 0;
+  }
+  .hero-copy {
+    position: absolute; left: calc(120 / 1440 * 100%); top: calc(250 / 900 * 100%);
+    padding: 0;
+  }
+  .hero-art {
+    position: absolute; margin: 0;
+    left: calc(353 / 1440 * 100%); top: calc(99 / 900 * 100%);
+    width: calc(1184 / 1440 * 100%); height: calc(858 / 900 * 100%);
+    aspect-ratio: auto;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 8%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 8%);
+    mask-composite: intersect;
+  }
+  /* the slot bleeds past the frame's right edge; fit the plate to the visible part (1087 of 1184px)
+     so the blue arch stays in view, as in the design */
+  .hero-art img { width: calc(1087 / 1184 * 100%); height: auto; object-fit: initial; }
+}
