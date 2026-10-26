@@ -11,6 +11,7 @@ A record of every step behind the `still, sunday.` hero in this folder, from the
 | `img/hero-rest.jpg` | The hero art (1280×960) |
 | `img/logo-still-sunday.svg` | Wordmark, exported from Figma |
 | `img/arrow-right.svg` | Button arrow, exported from Figma |
+| `js/nav.js` | The mobile menu (open/close, Escape, focus) |
 
 **Figma file:** [Hallway — Hero art](https://www.figma.com/design/9lXugh3UNsGS7hJQWPAUMJ)
 
@@ -125,10 +126,44 @@ Both models stop at about 1.2 megapixels, so 1280×960 is the sharpest this tool
 
 **16. Final check.** At 375px the copy, the 17px button and the white-skinned character all render correctly, with no sideways scroll and no console errors.
 
+## Phase 6: Every bit of skin to pure white, and a navbar
+
+**17. Ankles missed.** Feedback: the skin just above her shoes was still brown.
+- **Why it was missed:** step 15 covered the face, neck and hands but had no box for the ankles. The ankles are also in the trouser hems' shadow, so they read darker.
+- **The brief, clarified:** all skin should be exactly `#FFFFFF`, so the character doesn't belong to any one race.
+
+**18. Recolour rerun on the original generation (node `5:2`) with three changes:**
+- **A third box** around the ankles (x 796–888, y 434–490). Samples confirmed the ankle skin sits in the same 18–21° hue band, and the trouser lining next to it is about 34–36°, so it stays untouched.
+- **Pure white:** the target changed from warm white to `#FFFFFF`. Brightness is now measured against 78% of the typical skin tone, so shadowed skin reaches full white too. Only the anti-aliased ink edges stay darker, which keeps the outlines crisp.
+- **Skin highlights:** the hue band was widened slightly (26–31° falloff) to catch them.
+
+**Checking:**
+- 9,623 pixels changed.
+- A scan of all three boxes found **0** skin-coloured pixels left.
+- Spot checks on the forehead, cheek, neck, both hands and the lit and shadowed ankles all read exactly `#FFFFFF`.
+- Shoes, trousers, jumper and paper are unchanged.
+
+**Where it lives:** the site's `img/hero-rest.jpg` was re-exported, and Figma node `8:2` was updated in place.
+
+**19. Navbar content and build.** The links come from the brand's own promise ("thoughtful tools, honest conversations and gentle guidance").
+- **Desktop (1024px and up):** logo, then How it works, Tools, Conversations and Journal, then Log in and a "Get started" pill in the hero button's colour.
+  - Everything shares the logo's centre line and ends at the frame's 120px right margin.
+  - The pill is 39px tall to match the 38px logo, so the logo stays exactly at its Figma position (120, 51).
+  - The nav was checked at 1440px and at the tightest width, 1024px.
+- **Mobile (below 1024px):** logo and a Menu button. The button opens a full-screen panel in the hero blue with:
+  - the same four links in Source Serif 4 at 36px;
+  - "Get started" (the hero button style), "Log in", and a quiet "Need urgent support? Find help now" link, a responsible inclusion for a wellbeing brand.
+- **Menu behaviour:**
+  - Opening changes the button to "Close" with a cross and moves focus to the first link.
+  - While it's open, the page behind can't scroll or be reached with the keyboard.
+  - Escape closes it and returns focus to the button; following a link or widening the window also closes it.
+
+**20. Final check.** At 1440px, 1024px and 375px: no sideways scroll, no console errors, and the menu opens, traps focus and closes correctly.
+
 ---
 
 ## Open items
 
 - **Sharpness:** for retina-sharp art, run Figma's Upscale image on node `8:2` in the Figma app, then replace `img/hero-rest.jpg`.
 - **Graphik:** buy a web licence and self-host it, or other viewers will see Helvetica or Arial.
-- **Links:** the button points to `#start`, which doesn't exist yet.
+- **Links:** the button and all nav links (including the support link) point to placeholder anchors such as `#start` and `#support`. The support link should go to a real crisis-help page before launch.

@@ -60,9 +60,69 @@ a { color: inherit; }
   display: grid;
 }
 
-.brand { padding: 28px var(--gutter-r) 0 var(--gutter); position: relative; z-index: 2; }
-.logo { display: inline-block; }
+/* ---------- Navbar ---------- */
+
+.site-nav {
+  position: relative; z-index: 60;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 28px var(--gutter-r) 0 var(--gutter);
+}
+.logo { display: inline-block; flex-shrink: 0; }
 .logo img { width: clamp(160px, 16.4vw, 236px); height: auto; }
+
+.nav-links, .nav-actions { display: none; }
+.nav-links ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(20px, 2.5vw, 36px); }
+.nav-links a, .nav-login {
+  font-size: 16px; line-height: 1.32; letter-spacing: -0.02em;
+  color: var(--heading); text-decoration: none; white-space: nowrap;
+}
+.nav-links a:hover, .nav-login:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nav-actions { align-items: center; gap: 24px; }
+.nav-cta {
+  display: inline-flex; align-items: center;
+  padding: 9px 20px; border-radius: 62px; /* 39px tall: matches the 38px logo so it keeps its Figma position */
+  background: var(--button); color: var(--white);
+  font-size: 16px; line-height: 1.32; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap;
+  transition: background-color .15s ease;
+}
+.nav-cta:hover { background: var(--button-hover); }
+
+/* mobile menu button: two lines that turn into a cross */
+.menu-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 0 16px 0 14px; border-radius: 62px;
+  border: 1.5px solid var(--heading); background: transparent; color: var(--heading);
+  font: inherit; font-size: 15px; letter-spacing: -0.02em; cursor: pointer;
+}
+.menu-icon { position: relative; width: 16px; height: 10px; }
+.menu-icon::before, .menu-icon::after {
+  content: ""; position: absolute; left: 0; width: 100%; height: 1.5px; border-radius: 2px;
+  background: currentColor; transition: transform .2s ease, top .2s ease;
+}
+.menu-icon::before { top: 0; }
+.menu-icon::after { top: calc(100% - 1.5px); }
+.menu-btn[aria-expanded="true"] .menu-icon::before { top: calc(50% - .75px); transform: rotate(45deg); }
+.menu-btn[aria-expanded="true"] .menu-icon::after { top: calc(50% - .75px); transform: rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
+  padding: 120px var(--gutter-r) max(32px, env(safe-area-inset-bottom, 0px)) var(--gutter);
+  background: var(--bg); overflow-y: auto;
+}
+.mobile-menu[hidden] { display: none; }
+.mobile-menu ul { list-style: none; margin: 0; padding: 0; }
+.mobile-menu li { border-top: 1px solid rgba(45, 24, 14, .16); }
+.mobile-menu li:last-child { border-bottom: 1px solid rgba(45, 24, 14, .16); }
+.mobile-menu nav a {
+  display: block; padding: 14px 0;
+  font-family: var(--f-serif); font-size: 36px; line-height: 1.1; letter-spacing: -0.04em;
+  color: var(--heading); text-decoration: none;
+}
+.mobile-menu-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.mobile-login { font-size: 17px; color: var(--heading); }
+.mobile-support { font-size: 14px; color: var(--body); }
+body.menu-open { overflow: hidden; }
 
 .hero-copy {
   position: relative; z-index: 2;
@@ -114,7 +174,7 @@ h1 {
 }
 
 @media (min-width: 700px) {
-  .brand { padding-top: 40px; }
+  .site-nav { padding-top: 40px; }
   .hero-copy { padding-top: 72px; }
   .hero-art { aspect-ratio: 4 / 3; margin-top: 0; }
   .hero-art img { object-position: center; }
@@ -128,10 +188,16 @@ h1 {
     aspect-ratio: 1440 / 900;
     min-height: 600px;
   }
-  .brand {
-    position: absolute; left: calc(120 / 1440 * 100%); top: calc(51 / 900 * 100%);
-    padding: 0;
+  /* logo keeps its Figma position (120, 51); links and actions share its centre line,
+     right-aligned to the same 120px margin */
+  .site-nav {
+    position: absolute; z-index: 3;
+    left: calc(120 / 1440 * 100%); right: calc(120 / 1440 * 100%); top: calc(51 / 900 * 100%);
+    padding: 0; gap: clamp(20px, 3vw, 48px);
   }
+  .nav-links { display: block; margin-left: auto; }
+  .nav-actions { display: flex; }
+  .menu-btn, .mobile-menu { display: none !important; }
   .hero-copy {
     position: absolute; left: calc(120 / 1440 * 100%); top: calc(250 / 900 * 100%);
     padding: 0;
