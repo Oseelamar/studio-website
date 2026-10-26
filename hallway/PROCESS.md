@@ -160,6 +160,16 @@ Both models stop at about 1.2 megapixels, so 1280×960 is the sharpest this tool
 
 **20. Final check.** At 1440px, 1024px and 375px: no sideways scroll, no console errors, and the menu opens, traps focus and closes correctly.
 
+**21. Navbar redesigned from Figma (node `15:33`).**
+- **The design:** a translucent pill (60% white, 50px radius), 1240×80 at (100, 36) in the frame. It holds:
+  - the logo at 185×30;
+  - the four links in Graphik 18px, centred between logo and buttons;
+  - a white "Log in" pill and a dark "Get Started" pill, each 48px tall.
+- **Hero copy:** it moved from x 120 to x 100 to match the updated frame.
+- **Match:** measured at 1440px against Figma, the pill, logo, links and buttons match within 1–3px. The only differences come from text widths.
+- **Responsive:** the full nav needs about 1,000px, so it shows from 1280px up, where it still fits with 113px gaps. Below that, the same pill holds the logo and a white "Menu" pill that opens the existing full-screen menu. Its button text was updated to "Get Started" to match.
+- **Checked:** at 1440px, 1280px, 1100px and 375px, with the menu opening and closing and no console errors.
+
 ---
 
 ## Open items

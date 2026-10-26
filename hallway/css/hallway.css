@@ -18,6 +18,7 @@
   --body: #3C2E21;
   --button: #43180D;
   --button-hover: #5A2214;
+  --nav-bg: rgba(255, 255, 255, 0.6);
   --white: #FFFFFF;
   --focus: #1467E8;
 
@@ -62,37 +63,44 @@ a { color: inherit; }
 
 /* ---------- Navbar ---------- */
 
+/* Figma node 15:33: a translucent white pill. Full links from 1280px up;
+   below that the same pill holds the logo and a Menu button. */
 .site-nav {
   position: relative; z-index: 60;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 28px var(--gutter-r) 0 var(--gutter);
+  display: flex; align-items: center; gap: 24px;
+  margin: 16px var(--gutter-r) 0 var(--gutter);
+  padding: 10px 10px 10px 20px;
+  background: var(--nav-bg); border-radius: 50px;
 }
 .logo { display: inline-block; flex-shrink: 0; }
-.logo img { width: clamp(160px, 16.4vw, 236px); height: auto; }
+.logo img { width: clamp(140px, 12.85vw, 185px); height: auto; }
 
 .nav-links, .nav-actions { display: none; }
-.nav-links ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(20px, 2.5vw, 36px); }
-.nav-links a, .nav-login {
-  font-size: 16px; line-height: 1.32; letter-spacing: -0.02em;
-  color: var(--heading); text-decoration: none; white-space: nowrap;
+.nav-links { flex: 1 0 0; justify-content: center; min-width: 0; }
+.nav-links ul { list-style: none; margin: 0; padding: 8px; display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 18px; line-height: 1.32; letter-spacing: -0.03em;
+  color: var(--body); text-decoration: none; white-space: nowrap;
 }
-.nav-links a:hover, .nav-login:hover { text-decoration: underline; text-underline-offset: 4px; }
-.nav-actions { align-items: center; gap: 24px; }
-.nav-cta {
-  display: inline-flex; align-items: center;
-  padding: 9px 20px; border-radius: 62px; /* 39px tall: matches the 38px logo so it keeps its Figma position */
-  background: var(--button); color: var(--white);
-  font-size: 16px; line-height: 1.32; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap;
+.nav-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nav-actions { align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-login, .nav-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 28px;
+  font-size: 18px; line-height: 1.32; text-decoration: none; white-space: nowrap;
   transition: background-color .15s ease;
 }
+.nav-login { background: var(--white); color: var(--body); border-radius: 44px; letter-spacing: -0.03em; }
+.nav-login:hover { background: #F3F7FA; }
+.nav-cta { background: var(--button); color: var(--white); border-radius: 62px; letter-spacing: -0.02em; }
 .nav-cta:hover { background: var(--button-hover); }
 
-/* mobile menu button: two lines that turn into a cross */
+/* menu button: a white pill like Log in; two lines that turn into a cross */
 .menu-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  min-height: 44px; padding: 0 16px 0 14px; border-radius: 62px;
-  border: 1.5px solid var(--heading); background: transparent; color: var(--heading);
-  font: inherit; font-size: 15px; letter-spacing: -0.02em; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 10px; margin-left: auto;
+  min-height: 44px; padding: 0 18px 0 16px; border-radius: 44px;
+  border: 0; background: var(--white); color: var(--body);
+  font: inherit; font-size: 16px; letter-spacing: -0.03em; cursor: pointer;
 }
 .menu-icon { position: relative; width: 16px; height: 10px; }
 .menu-icon::before, .menu-icon::after {
@@ -174,7 +182,7 @@ h1 {
 }
 
 @media (min-width: 700px) {
-  .site-nav { padding-top: 40px; }
+  .site-nav { margin-top: 24px; padding: 12px 12px 12px 28px; }
   .hero-copy { padding-top: 72px; }
   .hero-art { aspect-ratio: 4 / 3; margin-top: 0; }
   .hero-art img { object-position: center; }
@@ -188,18 +196,15 @@ h1 {
     aspect-ratio: 1440 / 900;
     min-height: 600px;
   }
-  /* logo keeps its Figma position (120, 51); links and actions share its centre line,
-     right-aligned to the same 120px margin */
+  /* nav pill: 1240×80 at (100, 36) in the frame */
   .site-nav {
-    position: absolute; z-index: 3;
-    left: calc(120 / 1440 * 100%); right: calc(120 / 1440 * 100%); top: calc(51 / 900 * 100%);
-    padding: 0; gap: clamp(20px, 3vw, 48px);
+    position: absolute; margin: 0;
+    left: calc(100 / 1440 * 100%); right: calc(100 / 1440 * 100%); top: calc(36 / 900 * 100%);
+    padding: 16px 16px 16px 32px;
   }
-  .nav-links { display: block; margin-left: auto; }
-  .nav-actions { display: flex; }
-  .menu-btn, .mobile-menu { display: none !important; }
+  .mobile-menu { padding-top: 150px; }
   .hero-copy {
-    position: absolute; left: calc(120 / 1440 * 100%); top: calc(250 / 900 * 100%);
+    position: absolute; left: calc(100 / 1440 * 100%); top: calc(250 / 900 * 100%);
     padding: 0;
   }
   .hero-art {
@@ -216,4 +221,14 @@ h1 {
   /* the slot bleeds past the frame's right edge; fit the plate to the visible part (1087 of 1184px)
      so the blue arch stays in view, as in the design */
   .hero-art img { width: calc(1087 / 1184 * 100%); height: auto; object-fit: initial; }
+}
+
+/* ---------- Wide desktop: the full nav fits ---------- */
+
+@media (min-width: 1280px) {
+  /* links take the space between logo and actions and centre in it, so the gaps
+     either side come out at 120px at 1440, as in the design */
+  .nav-links { display: flex; }
+  .nav-actions { display: flex; }
+  .menu-btn, .mobile-menu { display: none !important; }
 }

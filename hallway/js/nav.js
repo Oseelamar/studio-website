@@ -8,7 +8,7 @@
 
   var label = button.querySelector('.menu-label');
   var behind = document.querySelectorAll('.hero-copy, .hero-art');
-  var desktop = window.matchMedia('(min-width: 1024px)');
+  var desktop = window.matchMedia('(min-width: 1280px)');
 
   function setOpen(open) {
     button.setAttribute('aria-expanded', String(open));
